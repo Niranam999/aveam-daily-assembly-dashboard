@@ -122,7 +122,7 @@ async function init() {
     
     // Try to load Supabase configuration for Cloud Mode
     try {
-        const response = await fetch('/supabase_config.json');
+        const response = await fetch('supabase_config.json');
         if (response.ok) {
             const config = await response.json();
             const url = config.supabase_url;

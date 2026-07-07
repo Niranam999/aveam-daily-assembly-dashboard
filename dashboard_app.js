@@ -54,7 +54,7 @@ async function init() {
     
     // 2. Fetch Supabase configuration keys from server
     try {
-        const response = await fetch('/supabase_config.json');
+        const response = await fetch('supabase_config.json');
         if (!response.ok) throw new Error('Cannot load supabase_config.json');
         const config = await response.json();
         
