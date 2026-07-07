@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVEAM - Shop Floor Assembly Real-Time Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* TV Dashboard Specific Tweaks */
+        body {
+            background-color: var(--bg-primary);
+        }
+        .app-container {
+            width: 100%;
+            height: 100vh;
+            display: block; /* Overwrite flex display to allow full screen block */
+        }
+        .dashboard-side {
+            width: 100%;
+            height: 100vh;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        /* Make filters and header stand out for TV view */
+        .filter-btn {
+            font-size: 0.8rem;
+            padding: 0.4rem 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- MAIN SHOP FLOOR DASHBOARD -->
+        <main class="dashboard-side">
+            
+            <!-- Dashboard Header -->
+            <header class="dashboard-header">
+                <div class="header-title-area">
+                    <h1>AVEAM Assembly Dashboard <span class="company-badge" style="font-size: 0.75rem; padding: 0.15rem 0.5rem; vertical-align: middle;">Live Monitor</span></h1>
+                </div>
+                <div class="header-meta">
+                    <div class="theme-selector-group">
+                        <button class="theme-select-btn dark" onclick="setTheme('dark')" title="โหมดมืด (Dark Mode)">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                        </button>
+                        <button class="theme-select-btn light" onclick="setTheme('light')" title="โหมดสว่าง (Light Mode)">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+                        </button>
+                        <button class="theme-select-btn green" onclick="setTheme('green')" title="ธีมสีเขียวธรรมชาติ (Forest Green Theme)">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2v20"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="time-badge">
+                        <span class="live-dot"></span>
+                        <span>เวลาปัจจุบัน: <strong id="live-time">00:00:00</strong></span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Stats Bar (Based on WIP Assembly Jobs) -->
+            <section class="stats-row">
+                <div class="stat-card total">
+                    <span class="stat-label">จ๊อบที่กำลังประกอบใน Assembly</span>
+                    <span class="stat-value" id="stat-total">0</span>
+                    <span class="stat-sub">จ๊อบในกระบวนการประกอบ (WIP)</span>
+                </div>
+                <div class="stat-card ontime">
+                    <span class="stat-label">ประกอบปกติ (On-Time)</span>
+                    <span class="stat-value" id="stat-ontime">0</span>
+                    <span class="stat-sub">🟢 ดำเนินการตามแผน</span>
+                </div>
+                <div class="stat-card atrisk">
+                    <span class="stat-label">เฝ้าระวัง (At Risk)</span>
+                    <span class="stat-value" id="stat-atrisk">0</span>
+                    <span class="stat-sub">🟡 ประสบปัญหาเล็กน้อย</span>
+                </div>
+                <div class="stat-card delayed">
+                    <span class="stat-label">ติดล่าช้า (Delayed)</span>
+                    <span class="stat-value" id="stat-delayed">0</span>
+                    <span class="stat-sub">🔴 ประสบปัญหาหน้างาน</span>
+                </div>
+                <div class="stat-card completed">
+                    <span class="stat-label">ประกอบเสร็จ (Completed)</span>
+                    <span class="stat-value" id="stat-completed">0</span>
+                    <span class="stat-sub">🔵 ยืนยัน QA / รอส่งสโตร์</span>
+                </div>
+            </section>
+
+            <!-- Main Dashboard Panel Split -->
+            <section class="dashboard-content">
+                
+                <!-- Main Header for focus area -->
+                <div class="projects-section-header">
+                    <div class="carousel-info">
+                        <span class="section-title">ข้อมูลจ๊อบประกอบหลัก</span>
+                        <div class="carousel-progress-container" title="กำลังหมุนวนแสดงจ๊อบถัดไปใน 15 วินาที">
+                            <div class="carousel-progress-bar" id="carousel-bar"></div>
+                        </div>
+                    </div>
+                    <div class="customer-filters" id="customer-filters">
+                        <!-- Filled by JS -->
+                    </div>
+                </div>
+
+                <!-- 1. SELECTED JOB DETAIL PANEL (TOP / CENTER) -->
+                <div class="selected-job-panel" id="selected-job-panel">
+                    <!-- Filled by JS dynamically -->
+                </div>
+                
+                <!-- 2. BOTTOM SPLIT ROW: Thumbnails, Recent Logs, & Master QR -->
+                <div class="bottom-split-row" style="display: grid; grid-template-columns: 3fr 1.2fr 0.9fr; gap: 0.75rem; flex: 1; overflow: hidden;">
+                    
+                    <!-- Left: Thumbnails list -->
+                    <div class="thumbnails-section">
+                        <h2 class="section-title">จ๊อบทั้งหมดที่กำลังประกอบในแอสเซมบลี</h2>
+                        <div class="thumbnails-list" id="thumbnails-list" style="margin-top: 0.4rem;">
+                            <!-- Filled by JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- Middle: Compact Recent Updates Log -->
+                    <div style="display: flex; flex-direction: column; overflow: hidden; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 0.6rem 0.75rem;">
+                        <h2 class="section-title" style="font-size: 0.8rem; flex-shrink: 0;">บันทึกรายงานล่าสุด</h2>
+                        <div class="recent-list" id="recent-list" style="flex: 1; overflow-y: auto; font-size: 0.7rem; margin-top: 0.4rem; display: flex; flex-direction: column; gap: 0.4rem; padding-right: 0.2rem;">
+                            <!-- Filled by JS -->
+                        </div>
+                    </div>
+                    
+                    <!-- Right: Master QR Code for update portal -->
+                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 0.6rem 0.75rem; text-align: center;">
+                        <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-primary); line-height: 1.45; margin-bottom: 0.6rem;">
+                            สแกนด้านล่าง เพื่อเลือกจ๊อบที่จะอัพเดทจากหน้ารวม
+                        </div>
+                        <div style="background: white; padding: 0.5rem; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
+                            <img id="master-qr-img" src="" alt="Master QR" style="width: 105px; height: 105px;">
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </section>
+        </main>
+
+    </div>
+
+    <!-- Load Supabase JS Client SDK via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Load custom real-time dashboard JS -->
+    <script src="dashboard_app.js"></script>
+</body>
+</html>

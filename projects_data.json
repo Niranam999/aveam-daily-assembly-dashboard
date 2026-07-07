@@ -1,0 +1,1374 @@
+[
+  {
+    "customer": "Veeco",
+    "project_code": "WF",
+    "project_pn": "01-25-07546",
+    "description": "WF",
+    "est_hours": 166.5,
+    "sub_assemblies": [
+      {
+        "process": "R-1",
+        "pn": "Receiving material",
+        "name": "Receiving material"
+      },
+      {
+        "process": "1",
+        "pn": "01-25-00431",
+        "name": "ASSY,FRAME,DUAL LAMP ILLUMINAT"
+      },
+      {
+        "process": "2",
+        "pn": "01-25-04710",
+        "name": "ASSY,AIR GAUGE AMPLIFIER"
+      },
+      {
+        "process": "3",
+        "pn": "11-08-09367",
+        "name": "VALVE,SOLENOID, 2 WAY, 24VDC,M"
+      },
+      {
+        "process": "4",
+        "pn": "01-06-00506",
+        "name": "ASSY,TRANSDUCER, 1500 AIR GAUG"
+      },
+      {
+        "process": "5",
+        "pn": "01-25-00563",
+        "name": "ASSY,AIR RESERVOIR,AIR GAUGE"
+      },
+      {
+        "process": "6",
+        "pn": "01-18-03446",
+        "name": "ASSY,PRESSURE DISTRIBUTION MAN"
+      },
+      {
+        "process": "7",
+        "pn": "01-25-04513-02",
+        "name": "01-08-04106-30,AIR GAP, ASSY,A"
+      },
+      {
+        "process": "8",
+        "pn": "01-08-04106-30",
+        "name": "ASSY,REFERENCE AIR GAP,STANDAR"
+      },
+      {
+        "process": "9",
+        "pn": "01-25-01399",
+        "name": "ASSY,RETICLE REMOTE SWITCH"
+      },
+      {
+        "process": "10",
+        "pn": "04-25-06773",
+        "name": "ASSY,ILLU,DUAL LAMP, 68 x 26,G"
+      },
+      {
+        "process": "11",
+        "pn": "04-25-06718",
+        "name": "ASSY,ILLUM BASE,OPT CLPR WFLD"
+      },
+      {
+        "process": "12",
+        "pn": "04-25-06684",
+        "name": "ASSY,LOWER BARREL,WFLD ILLUM"
+      },
+      {
+        "process": "13",
+        "pn": "04-25-06748",
+        "name": "ASSY,ALIGN CELL ILLUM,WFLD"
+      },
+      {
+        "process": "14",
+        "pn": "04-25-04016",
+        "name": "ASSY,LAMPCHAMBER, 1.2 KW,LT,QU"
+      },
+      {
+        "process": "15",
+        "pn": "01-15-10174",
+        "name": "ASSY,COVER,EXPOS SHTR,W/IR SM"
+      },
+      {
+        "process": "16",
+        "pn": "01-25-04019",
+        "name": "ASSY,HEAT SINK WITH DUCT,ILLUM"
+      },
+      {
+        "process": "17",
+        "pn": "04-25-04155-02",
+        "name": "ASSY,LAMPCHAMBER, 1.2 KW 3 WIR"
+      },
+      {
+        "process": "18",
+        "pn": "04-15-02807",
+        "name": "ASSY,LAMP BASE"
+      },
+      {
+        "process": "19",
+        "pn": "04-15-09553",
+        "name": "ASSY,LAMPCHAMBER BOTTOM PLATE,"
+      },
+      {
+        "process": "20",
+        "pn": "05-15-04799",
+        "name": "ASSY,CONNECTOR"
+      },
+      {
+        "process": "21",
+        "pn": "01-15-09406",
+        "name": "ASSY,LAMP,COOLING,SW/THERM, 1."
+      },
+      {
+        "process": "22",
+        "pn": "04-25-04018",
+        "name": "ASSY,SWING,PNEUMATIC,LEFT"
+      },
+      {
+        "process": "23",
+        "pn": "01-15-09549",
+        "name": "ASSY,BASE,LAMP CHAMBER,DUAL,LE"
+      },
+      {
+        "process": "24",
+        "pn": "04-15-09575",
+        "name": "ASSY,LAMPHOUSE,BOTTOM, BLANK"
+      },
+      {
+        "process": "25",
+        "pn": "05-15-04799",
+        "name": "ASSY,CONNECTOR"
+      },
+      {
+        "process": "26",
+        "pn": "01-25-08069",
+        "name": "ASSY,HINGE PLATE,DAMPED,LEFT"
+      },
+      {
+        "process": "27",
+        "pn": "04-25-04015",
+        "name": "ASSY,LAMPCHAMBER, 1.2 KW,RT,QU"
+      },
+      {
+        "process": "28",
+        "pn": "01-15-10174",
+        "name": "ASSY,COVER,EXPOS SHTR,W/IR SM"
+      },
+      {
+        "process": "29",
+        "pn": "01-25-04019",
+        "name": "ASSY,HEAT SINK WITH DUCT,ILLUM"
+      },
+      {
+        "process": "30",
+        "pn": "04-25-04155-01",
+        "name": "ASSY,LAMPCHAMBER, 1.2 KW 3 WIR"
+      },
+      {
+        "process": "31",
+        "pn": "04-15-02807",
+        "name": "ASSY,LAMP BASE"
+      },
+      {
+        "process": "32",
+        "pn": "04-15-09553",
+        "name": "ASSY,LAMPCHAMBER BOTTOM PLATE,"
+      },
+      {
+        "process": "33",
+        "pn": "05-15-04799",
+        "name": "ASSY,CONNECTOR"
+      },
+      {
+        "process": "34",
+        "pn": "01-15-09406",
+        "name": "ASSY,LAMP,COOLING,SW/THERM, 1."
+      },
+      {
+        "process": "35",
+        "pn": "04-25-04017",
+        "name": "ASSY,SWING,PNEUMATIC,RIGHT"
+      },
+      {
+        "process": "36",
+        "pn": "01-15-08951",
+        "name": "ASSY,BASE,LAMP,CHAMBER,DUAL,RT"
+      },
+      {
+        "process": "37",
+        "pn": "04-20-05177",
+        "name": "ASSY,LAMPHOUSE,BOTTOM,GHI"
+      },
+      {
+        "process": "38",
+        "pn": "05-15-04799",
+        "name": "ASSY,CONNECTOR"
+      },
+      {
+        "process": "39",
+        "pn": "01-25-08068",
+        "name": "ASSY,HINGE PLATE,DAMPED,RIGHT"
+      },
+      {
+        "process": "40",
+        "pn": "04-25-06569",
+        "name": "ASSY,MIRROR CELL TOP WFLD"
+      },
+      {
+        "process": "41",
+        "pn": "04-25-06639",
+        "name": "ASSY,EXPOSURE DETECTOR,WFLD"
+      },
+      {
+        "process": "TESTING",
+        "pn": "FUNCTION CHECK/TEST",
+        "name": "FUNCTION CHECK/TEST"
+      },
+      {
+        "process": "INS",
+        "pn": "FINAL INSPECTION",
+        "name": "FINAL INSPECTION"
+      },
+      {
+        "process": "PACK",
+        "pn": "PACKING",
+        "name": "PACKING"
+      },
+      {
+        "process": "WH",
+        "pn": "STORING",
+        "name": "STORING"
+      }
+    ]
+  },
+  {
+    "customer": "Veeco",
+    "project_code": "ACBOX",
+    "project_pn": "01-21-24466",
+    "description": "AC Power Box",
+    "est_hours": 40,
+    "sub_assemblies": [
+      {
+        "process": "R-1",
+        "pn": "Receiving material",
+        "name": "Receiving material"
+      },
+      {
+        "process": "CABLE-1",
+        "pn": "Cable PN 05-21-24313-01",
+        "name": "Cable PN 05-21-24313-01"
+      },
+      {
+        "process": "CABLE-2",
+        "pn": "Cable PN 05-21-24313-02",
+        "name": "Cable PN 05-21-24313-02"
+      },
+      {
+        "process": "CABLE-3",
+        "pn": "Cable PN 05-21-24313-03",
+        "name": "Cable PN 05-21-24313-03"
+      },
+      {
+        "process": "CABLE-4",
+        "pn": "Cable PN 05-21-24314-01",
+        "name": "Cable PN 05-21-24314-01"
+      },
+      {
+        "process": "CABLE-5",
+        "pn": "Cable PN 05-21-24314-02",
+        "name": "Cable PN 05-21-24314-02"
+      },
+      {
+        "process": "CABLE-6",
+        "pn": "Cable PN 05-21-24314-03",
+        "name": "Cable PN 05-21-24314-03"
+      },
+      {
+        "process": "CABLE-7",
+        "pn": "Cable PN 05-21-20235-01",
+        "name": "Cable PN 05-21-20235-01"
+      },
+      {
+        "process": "CABLE-8",
+        "pn": "Cable PN 05-21-20235-02",
+        "name": "Cable PN 05-21-20235-02"
+      },
+      {
+        "process": "CABLE-9",
+        "pn": "Cable PN 05-21-20235-03",
+        "name": "Cable PN 05-21-20235-03"
+      },
+      {
+        "process": "CABLE-10",
+        "pn": "Cable PN 05-21-20235-04",
+        "name": "Cable PN 05-21-20235-04"
+      },
+      {
+        "process": "CABLE-11",
+        "pn": "Cable PN 05-21-20235-05",
+        "name": "Cable PN 05-21-20235-05"
+      },
+      {
+        "process": "CABLE-12",
+        "pn": "Cable PN 05-21-20235-06",
+        "name": "Cable PN 05-21-20235-06"
+      },
+      {
+        "process": "CABLE-13",
+        "pn": "Cable PN 05-21-20465",
+        "name": "Cable PN 05-21-20465"
+      },
+      {
+        "process": "CABLE-14",
+        "pn": "Cable PN 1313018",
+        "name": "Cable PN 1313018"
+      },
+      {
+        "process": "CABLE-15",
+        "pn": "Cable PN 05-21-24316",
+        "name": "Cable PN 05-21-24316"
+      },
+      {
+        "process": "CABLE-16",
+        "pn": "Cable PN 1313019",
+        "name": "Cable PN 1313019"
+      },
+      {
+        "process": "SUB-PANEL 01-24-24455",
+        "pn": "SUB ASSY PN 01-21-24455",
+        "name": "SUB ASSY PN 01-21-24455"
+      },
+      {
+        "process": "MAIN-ASSY",
+        "pn": "MAIN PN 01-21-24466",
+        "name": "MAIN PN 01-21-24466"
+      },
+      {
+        "process": "WIRING",
+        "pn": "SCHEMATIC 19-21-24510",
+        "name": "SCHEMATIC 19-21-24510"
+      },
+      {
+        "process": "TESTING",
+        "pn": "FUNCTION CHECK/TEST",
+        "name": "FUNCTION CHECK/TEST"
+      },
+      {
+        "process": "INS",
+        "pn": "FINAL INSPECTION",
+        "name": "FINAL INSPECTION"
+      },
+      {
+        "process": "PACK",
+        "pn": "PACKING",
+        "name": "PACKING"
+      },
+      {
+        "process": "WH",
+        "pn": "STORING",
+        "name": "STORING"
+      }
+    ]
+  },
+  {
+    "customer": "Veeco",
+    "project_code": "SP-AG AMP",
+    "project_pn": "01-25-04710",
+    "description": "Air Gauge Amplifier",
+    "est_hours": 12,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "Veeco",
+    "project_code": "SP-AG Sensor",
+    "project_pn": "01-25-04513-02",
+    "description": "Air Gauge Sensor",
+    "est_hours": 8,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "Veeco",
+    "project_code": "SP-Lamp Cooling",
+    "project_pn": "01-15-09406",
+    "description": "Lamp Cooling SW",
+    "est_hours": 1,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "COHU",
+    "project_code": "JLP CART",
+    "project_pn": "8337427001",
+    "description": "JLP CART",
+    "est_hours": 2,
+    "sub_assemblies": [
+      {
+        "process": "0",
+        "pn": "Parts Receiving",
+        "name": "Parts Receiving"
+      },
+      {
+        "process": "1",
+        "pn": "Stamping PN (แสตมป์พาร์ทนัมเบอร์)",
+        "name": "Stamping PN (แสตมป์พาร์ทนัมเบอร์)"
+      },
+      {
+        "process": "2",
+        "pn": "Etching PN (เอจชิ่งพาร์ทนัมเบอร์)",
+        "name": "Etching PN (เอจชิ่งพาร์ทนัมเบอร์)"
+      },
+      {
+        "process": "3",
+        "pn": "Pin installation-Base Plate (ติดตั้งพินที่แผ่น Base Plate)",
+        "name": "Pin installation-Base Plate (ติดตั้งพินที่แผ่น Base Plate)"
+      },
+      {
+        "process": "4",
+        "pn": "Pin installation-Top Plate (ติดตั้งพินที่แผ่น Top Plate)",
+        "name": "Pin installation-Top Plate (ติดตั้งพินที่แผ่น Top Plate)"
+      },
+      {
+        "process": "5",
+        "pn": "Pin installation-Side Plate (ติดตั้งพินที่แผ่น Top Plate)",
+        "name": "Pin installation-Side Plate (ติดตั้งพินที่แผ่น Top Plate)"
+      },
+      {
+        "process": "6",
+        "pn": "Top Plate Assy (ประกอบชุดท็อปเพลท)",
+        "name": "Top Plate Assy (ประกอบชุดท็อปเพลท)"
+      },
+      {
+        "process": "7",
+        "pn": "Handle Assy (ประกอบชุดมือจับ)",
+        "name": "Handle Assy (ประกอบชุดมือจับ)"
+      },
+      {
+        "process": "8",
+        "pn": "Ground Cable Assy (ประกอบสายกราวน์)",
+        "name": "Ground Cable Assy (ประกอบสายกราวน์)"
+      },
+      {
+        "process": "9",
+        "pn": "Land yard cable Assy (ประกอบสายแลนยาร์ด)",
+        "name": "Land yard cable Assy (ประกอบสายแลนยาร์ด)"
+      },
+      {
+        "process": "10",
+        "pn": "Main Assy (ประกอบชุดเมนแอสเซมบลี้)",
+        "name": "Main Assy (ประกอบชุดเมนแอสเซมบลี้)"
+      },
+      {
+        "process": "11",
+        "pn": "Final Inspection (การตรวจสอบขั้นสุดท้าย)",
+        "name": "Final Inspection (การตรวจสอบขั้นสุดท้าย)"
+      },
+      {
+        "process": "12",
+        "pn": "Packing (การแพ็คงาน)",
+        "name": "Packing (การแพ็คงาน)"
+      }
+    ]
+  },
+  {
+    "customer": "COHU",
+    "project_code": "JTP CART",
+    "project_pn": "8337428001",
+    "description": "JTP CART",
+    "est_hours": 2,
+    "sub_assemblies": [
+      {
+        "process": "0",
+        "pn": "Parts Receiving",
+        "name": "Parts Receiving"
+      },
+      {
+        "process": "1",
+        "pn": "Stamping PN (แสตมป์พาร์ทนัมเบอร์)",
+        "name": "Stamping PN (แสตมป์พาร์ทนัมเบอร์)"
+      },
+      {
+        "process": "2",
+        "pn": "Etching PN (เอจชิ่งพาร์ทนัมเบอร์)",
+        "name": "Etching PN (เอจชิ่งพาร์ทนัมเบอร์)"
+      },
+      {
+        "process": "3",
+        "pn": "Pin installation-Base Plate (ติดตั้งพินที่แผ่น Base Plate)",
+        "name": "Pin installation-Base Plate (ติดตั้งพินที่แผ่น Base Plate)"
+      },
+      {
+        "process": "4",
+        "pn": "Pin installation-Top Plate (ติดตั้งพินที่แผ่น Top Plate)",
+        "name": "Pin installation-Top Plate (ติดตั้งพินที่แผ่น Top Plate)"
+      },
+      {
+        "process": "5",
+        "pn": "Pin installation-Side Plate (ติดตั้งพินที่แผ่น Top Plate)",
+        "name": "Pin installation-Side Plate (ติดตั้งพินที่แผ่น Top Plate)"
+      },
+      {
+        "process": "6",
+        "pn": "Top Plate Assy (ประกอบชุดท็อปเพลท)",
+        "name": "Top Plate Assy (ประกอบชุดท็อปเพลท)"
+      },
+      {
+        "process": "7",
+        "pn": "Handle Assy (ประกอบชุดมือจับ)",
+        "name": "Handle Assy (ประกอบชุดมือจับ)"
+      },
+      {
+        "process": "8",
+        "pn": "Ground Cable Assy (ประกอบสายกราวน์)",
+        "name": "Ground Cable Assy (ประกอบสายกราวน์)"
+      },
+      {
+        "process": "9",
+        "pn": "Land yard cable Assy (ประกอบสายแลนยาร์ด)",
+        "name": "Land yard cable Assy (ประกอบสายแลนยาร์ด)"
+      },
+      {
+        "process": "10",
+        "pn": "Main Assy (ประกอบชุดเมนแอสเซมบลี้)",
+        "name": "Main Assy (ประกอบชุดเมนแอสเซมบลี้)"
+      },
+      {
+        "process": "11",
+        "pn": "Final Inspection (การตรวจสอบขั้นสุดท้าย)",
+        "name": "Final Inspection (การตรวจสอบขั้นสุดท้าย)"
+      },
+      {
+        "process": "12",
+        "pn": "Packing (การแพ็คงาน)",
+        "name": "Packing (การแพ็คงาน)"
+      }
+    ]
+  },
+  {
+    "customer": "COHU",
+    "project_code": "CURE CART 9001",
+    "project_pn": "8337429001",
+    "description": "CURE CART, HIS",
+    "est_hours": 4,
+    "sub_assemblies": [
+      {
+        "process": "0",
+        "pn": "Parts Receiving",
+        "name": "Parts Receiving"
+      },
+      {
+        "process": "1",
+        "pn": "Stamping PN (แสตมป์พาร์ทนัมเบอร์)",
+        "name": "Stamping PN (แสตมป์พาร์ทนัมเบอร์)"
+      },
+      {
+        "process": "2",
+        "pn": "Etching PN (เอจชิ่งพาร์ทนัมเบอร์)",
+        "name": "Etching PN (เอจชิ่งพาร์ทนัมเบอร์)"
+      },
+      {
+        "process": "3",
+        "pn": "Pin installation-Base Plate (ติดตั้งพินที่แผ่น Base Plate)",
+        "name": "Pin installation-Base Plate (ติดตั้งพินที่แผ่น Base Plate)"
+      },
+      {
+        "process": "4",
+        "pn": "Pin installation-Top Plate (ติดตั้งพินที่แผ่น Top Plate)",
+        "name": "Pin installation-Top Plate (ติดตั้งพินที่แผ่น Top Plate)"
+      },
+      {
+        "process": "5",
+        "pn": "Pin installation-Side Plate (ติดตั้งพินที่แผ่น Top Plate)",
+        "name": "Pin installation-Side Plate (ติดตั้งพินที่แผ่น Top Plate)"
+      },
+      {
+        "process": "6",
+        "pn": "Top Plate Assy (ประกอบชุดท็อปเพลท)",
+        "name": "Top Plate Assy (ประกอบชุดท็อปเพลท)"
+      },
+      {
+        "process": "7",
+        "pn": "Handle Assy (ประกอบชุดมือจับ)",
+        "name": "Handle Assy (ประกอบชุดมือจับ)"
+      },
+      {
+        "process": "8",
+        "pn": "Ground Cable Assy (ประกอบสายกราวน์)",
+        "name": "Ground Cable Assy (ประกอบสายกราวน์)"
+      },
+      {
+        "process": "9",
+        "pn": "Land yard cable Assy (ประกอบสายแลนยาร์ด)",
+        "name": "Land yard cable Assy (ประกอบสายแลนยาร์ด)"
+      },
+      {
+        "process": "10",
+        "pn": "Main Assy (ประกอบชุดเมนแอสเซมบลี้)",
+        "name": "Main Assy (ประกอบชุดเมนแอสเซมบลี้)"
+      },
+      {
+        "process": "11",
+        "pn": "Final Inspection (การตรวจสอบขั้นสุดท้าย)",
+        "name": "Final Inspection (การตรวจสอบขั้นสุดท้าย)"
+      },
+      {
+        "process": "12",
+        "pn": "Packing (การแพ็คงาน)",
+        "name": "Packing (การแพ็คงาน)"
+      }
+    ]
+  },
+  {
+    "customer": "COHU",
+    "project_code": "CURE CART 9002",
+    "project_pn": "8337429002",
+    "description": "CURE CART, EPX",
+    "est_hours": 4,
+    "sub_assemblies": [
+      {
+        "process": "0",
+        "pn": "Parts Receiving",
+        "name": "Parts Receiving"
+      },
+      {
+        "process": "1",
+        "pn": "Stamping PN (แสตมป์พาร์ทนัมเบอร์)",
+        "name": "Stamping PN (แสตมป์พาร์ทนัมเบอร์)"
+      },
+      {
+        "process": "2",
+        "pn": "Etching PN (เอจชิ่งพาร์ทนัมเบอร์)",
+        "name": "Etching PN (เอจชิ่งพาร์ทนัมเบอร์)"
+      },
+      {
+        "process": "3",
+        "pn": "Pin installation-Base Plate (ติดตั้งพินที่แผ่น Base Plate)",
+        "name": "Pin installation-Base Plate (ติดตั้งพินที่แผ่น Base Plate)"
+      },
+      {
+        "process": "4",
+        "pn": "Pin installation-Top Plate (ติดตั้งพินที่แผ่น Top Plate)",
+        "name": "Pin installation-Top Plate (ติดตั้งพินที่แผ่น Top Plate)"
+      },
+      {
+        "process": "5",
+        "pn": "Pin installation-Side Plate (ติดตั้งพินที่แผ่น Top Plate)",
+        "name": "Pin installation-Side Plate (ติดตั้งพินที่แผ่น Top Plate)"
+      },
+      {
+        "process": "6",
+        "pn": "Top Plate Assy (ประกอบชุดท็อปเพลท)",
+        "name": "Top Plate Assy (ประกอบชุดท็อปเพลท)"
+      },
+      {
+        "process": "7",
+        "pn": "Handle Assy (ประกอบชุดมือจับ)",
+        "name": "Handle Assy (ประกอบชุดมือจับ)"
+      },
+      {
+        "process": "8",
+        "pn": "Ground Cable Assy (ประกอบสายกราวน์)",
+        "name": "Ground Cable Assy (ประกอบสายกราวน์)"
+      },
+      {
+        "process": "9",
+        "pn": "Land yard cable Assy (ประกอบสายแลนยาร์ด)",
+        "name": "Land yard cable Assy (ประกอบสายแลนยาร์ด)"
+      },
+      {
+        "process": "10",
+        "pn": "Main Assy (ประกอบชุดเมนแอสเซมบลี้)",
+        "name": "Main Assy (ประกอบชุดเมนแอสเซมบลี้)"
+      },
+      {
+        "process": "11",
+        "pn": "Final Inspection (การตรวจสอบขั้นสุดท้าย)",
+        "name": "Final Inspection (การตรวจสอบขั้นสุดท้าย)"
+      },
+      {
+        "process": "12",
+        "pn": "Packing (การแพ็คงาน)",
+        "name": "Packing (การแพ็คงาน)"
+      }
+    ]
+  },
+  {
+    "customer": "COHU",
+    "project_code": "Z-LINK REV.C",
+    "project_pn": "8308859901",
+    "description": "Z-LINK REV.C",
+    "est_hours": 8,
+    "sub_assemblies": [
+      {
+        "process": "R-1",
+        "pn": "Receiving material",
+        "name": "Receiving material"
+      },
+      {
+        "process": "A-1",
+        "pn": "Cuting and forming tubing",
+        "name": "Cuting and forming tubing"
+      },
+      {
+        "process": "SUB-1",
+        "pn": "Pins installation",
+        "name": "Pins installation"
+      },
+      {
+        "process": "SUB-2",
+        "pn": "Pivot parts installation",
+        "name": "Pivot parts installation"
+      },
+      {
+        "process": "SUB-3",
+        "pn": "Big ball installation",
+        "name": "Big ball installation"
+      },
+      {
+        "process": "SUB-4",
+        "pn": "Small ball installation",
+        "name": "Small ball installation"
+      },
+      {
+        "process": "SUB-5",
+        "pn": "Pre-assemblytubing",
+        "name": "Pre-assemblytubing"
+      },
+      {
+        "process": "A-2",
+        "pn": "Install 2x fittings on COLD GAS CHECK MANIFOLD",
+        "name": "Install 2x fittings on COLD GAS CHECK MANIFOLD"
+      },
+      {
+        "process": "A-3",
+        "pn": "Install 2x fittings on COLD ZLINK EXIT BLOCK",
+        "name": "Install 2x fittings on COLD ZLINK EXIT BLOCK"
+      },
+      {
+        "process": "A-4",
+        "pn": "Assemble tubing",
+        "name": "Assemble tubing"
+      },
+      {
+        "process": "A-5",
+        "pn": "Final Assembly",
+        "name": "Final Assembly"
+      },
+      {
+        "process": "A-6",
+        "pn": "Cleaning and marking",
+        "name": "Cleaning and marking"
+      },
+      {
+        "process": "A-7",
+        "pn": "Prepare kit hardware",
+        "name": "Prepare kit hardware"
+      },
+      {
+        "process": "A-8",
+        "pn": "Final Inspection",
+        "name": "Final Inspection"
+      },
+      {
+        "process": "A-9",
+        "pn": "Packing",
+        "name": "Packing"
+      },
+      {
+        "process": "S-1",
+        "pn": "Store",
+        "name": "Store"
+      }
+    ]
+  },
+  {
+    "customer": "COHU",
+    "project_code": "Z-LINK REV.D",
+    "project_pn": "8308859901",
+    "description": "Z-LINK REV.D (AVM)",
+    "est_hours": 8,
+    "sub_assemblies": [
+      {
+        "process": "R-1",
+        "pn": "Receiving material",
+        "name": "Receiving material"
+      },
+      {
+        "process": "A-1",
+        "pn": "Cuting and forming tubing",
+        "name": "Cuting and forming tubing"
+      },
+      {
+        "process": "SUB-1",
+        "pn": "Pins installation",
+        "name": "Pins installation"
+      },
+      {
+        "process": "SUB-2",
+        "pn": "Pivot parts installation",
+        "name": "Pivot parts installation"
+      },
+      {
+        "process": "SUB-3",
+        "pn": "Big ball installation",
+        "name": "Big ball installation"
+      },
+      {
+        "process": "SUB-4",
+        "pn": "Small ball installation",
+        "name": "Small ball installation"
+      },
+      {
+        "process": "SUB-5",
+        "pn": "Pre-assemblytubing",
+        "name": "Pre-assemblytubing"
+      },
+      {
+        "process": "A-2",
+        "pn": "Install 2x fittings on COLD GAS CHECK MANIFOLD",
+        "name": "Install 2x fittings on COLD GAS CHECK MANIFOLD"
+      },
+      {
+        "process": "A-3",
+        "pn": "Install 2x fittings on COLD ZLINK EXIT BLOCK",
+        "name": "Install 2x fittings on COLD ZLINK EXIT BLOCK"
+      },
+      {
+        "process": "A-4",
+        "pn": "Assemble tubing",
+        "name": "Assemble tubing"
+      },
+      {
+        "process": "A-5",
+        "pn": "Final Assembly",
+        "name": "Final Assembly"
+      },
+      {
+        "process": "A-6",
+        "pn": "Cleaning and marking",
+        "name": "Cleaning and marking"
+      },
+      {
+        "process": "A-7",
+        "pn": "Prepare kit hardware",
+        "name": "Prepare kit hardware"
+      },
+      {
+        "process": "A-8",
+        "pn": "Final Inspection",
+        "name": "Final Inspection"
+      },
+      {
+        "process": "A-9",
+        "pn": "Packing",
+        "name": "Packing"
+      },
+      {
+        "process": "S-1",
+        "pn": "Store",
+        "name": "Store"
+      }
+    ]
+  },
+  {
+    "customer": "COHU",
+    "project_code": "Z-LINK ATC",
+    "project_pn": "8336498901",
+    "description": "Z-LINK ATC",
+    "est_hours": 8,
+    "sub_assemblies": [
+      {
+        "process": "R-1",
+        "pn": "Receiving material",
+        "name": "Receiving material"
+      },
+      {
+        "process": "A-1",
+        "pn": "Cuting and forming tubing",
+        "name": "Cuting and forming tubing"
+      },
+      {
+        "process": "SUB-1",
+        "pn": "Pins installation",
+        "name": "Pins installation"
+      },
+      {
+        "process": "SUB-2",
+        "pn": "Pivot parts installation",
+        "name": "Pivot parts installation"
+      },
+      {
+        "process": "SUB-3",
+        "pn": "Big ball installation",
+        "name": "Big ball installation"
+      },
+      {
+        "process": "SUB-4",
+        "pn": "Small ball installation",
+        "name": "Small ball installation"
+      },
+      {
+        "process": "SUB-5",
+        "pn": "Pre-assemblytubing",
+        "name": "Pre-assemblytubing"
+      },
+      {
+        "process": "A-2",
+        "pn": "Install 2x fittings on COLD GAS CHECK MANIFOLD",
+        "name": "Install 2x fittings on COLD GAS CHECK MANIFOLD"
+      },
+      {
+        "process": "A-3",
+        "pn": "Install 2x fittings on COLD ZLINK EXIT BLOCK",
+        "name": "Install 2x fittings on COLD ZLINK EXIT BLOCK"
+      },
+      {
+        "process": "A-4",
+        "pn": "Assemble tubing",
+        "name": "Assemble tubing"
+      },
+      {
+        "process": "A-5",
+        "pn": "Final Assembly",
+        "name": "Final Assembly"
+      },
+      {
+        "process": "A-6",
+        "pn": "Cleaning and marking",
+        "name": "Cleaning and marking"
+      },
+      {
+        "process": "A-7",
+        "pn": "Prepare kit hardware",
+        "name": "Prepare kit hardware"
+      },
+      {
+        "process": "A-8",
+        "pn": "Final Inspection",
+        "name": "Final Inspection"
+      },
+      {
+        "process": "A-9",
+        "pn": "Packing",
+        "name": "Packing"
+      },
+      {
+        "process": "S-1",
+        "pn": "Store",
+        "name": "Store"
+      }
+    ]
+  },
+  {
+    "customer": "COHU",
+    "project_code": "Z-LINK 2X4",
+    "project_pn": "8338890901",
+    "description": "Z-LINK 2X4",
+    "est_hours": 8,
+    "sub_assemblies": [
+      {
+        "process": "R-1",
+        "pn": "Receiving material",
+        "name": "Receiving material"
+      },
+      {
+        "process": "A-1",
+        "pn": "Cuting and forming tubing",
+        "name": "Cuting and forming tubing"
+      },
+      {
+        "process": "SUB-1",
+        "pn": "Pins installation",
+        "name": "Pins installation"
+      },
+      {
+        "process": "SUB-2",
+        "pn": "Pivot parts installation",
+        "name": "Pivot parts installation"
+      },
+      {
+        "process": "SUB-3",
+        "pn": "Big ball installation",
+        "name": "Big ball installation"
+      },
+      {
+        "process": "SUB-4",
+        "pn": "Small ball installation",
+        "name": "Small ball installation"
+      },
+      {
+        "process": "SUB-5",
+        "pn": "Pre-assemblytubing",
+        "name": "Pre-assemblytubing"
+      },
+      {
+        "process": "A-2",
+        "pn": "Install 2x fittings on COLD GAS CHECK MANIFOLD",
+        "name": "Install 2x fittings on COLD GAS CHECK MANIFOLD"
+      },
+      {
+        "process": "A-3",
+        "pn": "Install 2x fittings on COLD ZLINK EXIT BLOCK",
+        "name": "Install 2x fittings on COLD ZLINK EXIT BLOCK"
+      },
+      {
+        "process": "A-4",
+        "pn": "Assemble tubing",
+        "name": "Assemble tubing"
+      },
+      {
+        "process": "A-5",
+        "pn": "Final Assembly",
+        "name": "Final Assembly"
+      },
+      {
+        "process": "A-6",
+        "pn": "Cleaning and marking",
+        "name": "Cleaning and marking"
+      },
+      {
+        "process": "A-7",
+        "pn": "Prepare kit hardware",
+        "name": "Prepare kit hardware"
+      },
+      {
+        "process": "A-8",
+        "pn": "Final Inspection",
+        "name": "Final Inspection"
+      },
+      {
+        "process": "A-9",
+        "pn": "Packing",
+        "name": "Packing"
+      },
+      {
+        "process": "S-1",
+        "pn": "Store",
+        "name": "Store"
+      }
+    ]
+  },
+  {
+    "customer": "UIC",
+    "project_code": "FEEDER BASKET",
+    "project_pn": "52777805",
+    "description": "FEEDER BASKET",
+    "est_hours": 4,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "UIC",
+    "project_code": "SCRAP BIN ASSEMBLY",
+    "project_pn": "53853103",
+    "description": "SCRAP BIN ASSEMBLY",
+    "est_hours": 1,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "UIC",
+    "project_code": "KIT DOCKING RIGHT",
+    "project_pn": "52582509",
+    "description": "KIT DOCKING RIGHT",
+    "est_hours": 4,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "UIC",
+    "project_code": "KIT DOCKING LEFT",
+    "project_pn": "52582510",
+    "description": "KIT DOCKING LEFT",
+    "est_hours": 4,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "UIC",
+    "project_code": "KIT DOCKING RIGHT",
+    "project_pn": "52582511",
+    "description": "KIT DOCKING RIGHT",
+    "est_hours": 6,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "UIC",
+    "project_code": "KIT DOCKING LEFT",
+    "project_pn": "52582512",
+    "description": "KIT DOCKING LEFT",
+    "est_hours": 8,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "UIC",
+    "project_code": "FIXED FEEDER BANK ASSY",
+    "project_pn": "52648303",
+    "description": "FIXED FEEDER BANK ASSY",
+    "est_hours": 8,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "UIC",
+    "project_code": "REMOVABLE FEEDER BANK ASSY",
+    "project_pn": "52581707",
+    "description": "REMOVABLE FEEDER BANK ASSY",
+    "est_hours": 4,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "UIC",
+    "project_code": "FEEDER TRANSFER CART",
+    "project_pn": "49401811",
+    "description": "FEEDER TRANSFER CART",
+    "est_hours": 13,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "UIC",
+    "project_code": "STA,MTRX TRY PLFM",
+    "project_pn": "44976203",
+    "description": "STA,MTRX TRY PLFM",
+    "est_hours": 4,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "UIC",
+    "project_code": "INTERFACE ASSY",
+    "project_pn": "44748801",
+    "description": "INTERFACE ASSY",
+    "est_hours": 4,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "UIC",
+    "project_code": "SCRAP TAPE CUTTER DRIVE KIT",
+    "project_pn": "52803004",
+    "description": "SCRAP TAPE CUTTER DRIVE KIT",
+    "est_hours": 4,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "UIC",
+    "project_code": "LH & RH FRAME",
+    "project_pn": "53578603",
+    "description": "LH & RH FRAME",
+    "est_hours": 0.1,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "UIC",
+    "project_code": "LH & RH FRAME",
+    "project_pn": "53578703",
+    "description": "LH & RH FRAME",
+    "est_hours": 0.1,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "ULC",
+    "project_code": "PRX250-CTL&MONITOR",
+    "project_pn": "PRX250-CTL&MONITOR",
+    "description": "PRX250-CTL&MONITOR",
+    "est_hours": 1,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "ULC",
+    "project_code": "PRX250-REEL ASSY",
+    "project_pn": "PRX250-REEL ASSY",
+    "description": "PRX250-REEL ASSY",
+    "est_hours": 3,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "ULC",
+    "project_code": "PRX250-ENCODER",
+    "project_pn": "PRX250-ENCODER",
+    "description": "PRX250-ENCODER",
+    "est_hours": 0.5,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "ULC",
+    "project_code": "PRX250-ED-CABLE-SHORT",
+    "project_pn": "PRX250-ED-CABLE-SHORT",
+    "description": "PRX250-ED-CABLE-SHORT",
+    "est_hours": 0.25,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "ULC",
+    "project_code": "PRX250-LAUNCH TUBE",
+    "project_pn": "PRX250-LAUNCH TUBE",
+    "description": "PRX250-LAUNCH TUBE",
+    "est_hours": 1,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "ULC",
+    "project_code": "PRX250-PENDANT",
+    "project_pn": "PRX250-PENDANT",
+    "description": "PRX250-PENDANT",
+    "est_hours": 1,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "ULC",
+    "project_code": "PRX250-POWER DRIVE",
+    "project_pn": "PRX250-POWER DRIVE",
+    "description": "PRX250-POWER DRIVE",
+    "est_hours": 1,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "ULC",
+    "project_code": "PRX250-ED-CABLE-LONG",
+    "project_pn": "PRX250-ED-CABLE-LONG",
+    "description": "PRX250-ED-CABLE-LONG",
+    "est_hours": 0.25,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "ULC",
+    "project_code": "PRX250-CONTROL CABLE",
+    "project_pn": "PRX250-CONTROL CABLE",
+    "description": "PRX250-CONTROL CABLE",
+    "est_hours": 0.5,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "ULC",
+    "project_code": "PRX250-FOOT SWITCH",
+    "project_pn": "PRX250-FOOT SWITCH",
+    "description": "PRX250-FOOT SWITCH",
+    "est_hours": 0.5,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "ULC",
+    "project_code": "PRX250-103-CAMS",
+    "project_pn": "PRX250-103-CAMS",
+    "description": "PRX250-103-CAMS",
+    "est_hours": 2,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "ULC",
+    "project_code": "PRX250-SPRING_4-6\"",
+    "project_pn": "PRX250-SPRING_4-6\"",
+    "description": "PRX250-SPRING_4-6\"",
+    "est_hours": 0.5,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "ULC",
+    "project_code": "PRX250-SPRING-8-12\"",
+    "project_pn": "PRX250-SPRING-8-12\"",
+    "description": "PRX250-SPRING-8-12\"",
+    "est_hours": 0.5,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "ULC",
+    "project_code": "PRXM-003-00-000",
+    "project_pn": "PRXM-003-00-000",
+    "description": "PRXM-003-00-000",
+    "est_hours": 2,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "ULC",
+    "project_code": "PRXM-004-00-000",
+    "project_pn": "PRXM-004-00-000",
+    "description": "PRXM-004-00-000",
+    "est_hours": 2,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "ULC",
+    "project_code": "PRXM-005-00-000",
+    "project_pn": "PRXM-005-00-000",
+    "description": "PRXM-005-00-000",
+    "est_hours": 2,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "ULC",
+    "project_code": "PRXM-001-00-000",
+    "project_pn": "PRXM-001-00-000",
+    "description": "PRXM-001-00-000",
+    "est_hours": 2,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "ULC",
+    "project_code": "PRXM-002-00-000",
+    "project_pn": "PRXM-002-00-000",
+    "description": "PRXM-002-00-000",
+    "est_hours": 1,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "ULC",
+    "project_code": "XBR-002-00-000",
+    "project_pn": "XBR-002-00-000",
+    "description": "XBR-002-00-000",
+    "est_hours": 1,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "ULC",
+    "project_code": "XBR-018-00-000",
+    "project_pn": "XBR-018-00-000",
+    "description": "XBR-018-00-000",
+    "est_hours": 0.25,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "ULC",
+    "project_code": "PRX250-SPRING-6-8\"",
+    "project_pn": "PRX250-SPRING-6-8\"",
+    "description": "PRX250-SPRING-6-8\"",
+    "est_hours": 0.5,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "ULC",
+    "project_code": "PRX250-103-CAM",
+    "project_pn": "PRX250-103-CAM",
+    "description": "PRX250-103-CAM",
+    "est_hours": 2,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "APIN",
+    "project_code": "49558",
+    "project_pn": "49558",
+    "description": "PLATE,LOWER DRIVE",
+    "est_hours": 0.1,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "APIN",
+    "project_code": "49324",
+    "project_pn": "49324",
+    "description": "WHEEL FOR REEL ASSEMBLY",
+    "est_hours": 0.1,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "APIN",
+    "project_code": "49568",
+    "project_pn": "49568",
+    "description": "SET SCRAW,SPECIAL",
+    "est_hours": 0.1,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "APIN",
+    "project_code": "49847",
+    "project_pn": "49847",
+    "description": "MOUNT, RIGHT CUTTER",
+    "est_hours": 0.1,
+    "sub_assemblies": []
+  },
+  {
+    "customer": "APIN",
+    "project_code": "49861",
+    "project_pn": "49861",
+    "description": "SET SCRAW,SPECIAL",
+    "est_hours": 0.1,
+    "sub_assemblies": []
+  }
+]

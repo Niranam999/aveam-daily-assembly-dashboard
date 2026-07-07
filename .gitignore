@@ -1,0 +1,7 @@
+# Local Data Excel Files (private database sources)
+*.xlsx
+
+# Python caches
+__pycache__/
+*.pyc
+.pytest_cache/
