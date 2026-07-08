@@ -1,4 +1,5 @@
 @echo off
+chcp 65001 > nul
 title AVEAM - Step 1 Compare SO Tracker and Job Relationship
 color 0e
 
