@@ -292,13 +292,31 @@ function renderDetailPanel(project) {
     if (project.sub_assemblies) {
         project.sub_assemblies.forEach(sub => {
             const barColor = getProgressColor(sub.progress);
+            
+            // Extract a short English description (up to 20 chars) from sub.name
+            let engDesc = '';
+            if (sub.name) {
+                const parts = sub.name.split(';');
+                let cleaned = sub.name;
+                if (parts.length > 1 && /^\d[0-9A-Z\-\.\/\s]*$/.test(parts[0].trim().toUpperCase())) {
+                    cleaned = parts.slice(1).join(';').trim();
+                }
+                cleaned = cleaned.replace(/^[\s;]+/, '').trim();
+                if (cleaned.length > 20) {
+                    cleaned = cleaned.substring(0, 20) + '..';
+                }
+                engDesc = cleaned;
+            }
+            
+            const fullLabel = `${sub.pn}${sub.th_desc ? ' ' + sub.th_desc : ''}${engDesc ? ' - ' + engDesc : ''}`;
+            
             barsHtml += `
                 <div class="vertical-bar-item" data-tooltip="${sub.pn}: ${sub.name} (${sub.progress}%)" style="width: ${itemWidth}; flex-shrink: 1;">
                     <span class="vertical-bar-value" style="font-size: ${valueFontSize}; font-weight: 700; margin-bottom: 0.25rem; color: ${sub.progress > 0 ? barColor : 'var(--text-muted)'}">${sub.progress}%</span>
                     <div class="vertical-bar-track" style="width: ${trackWidth};">
                         <div class="vertical-bar-fill" style="height: ${sub.progress}%; background-color: ${barColor}"></div>
                     </div>
-                    <span class="vertical-bar-label" style="font-size: ${labelFontSize}; transform: rotate(${labelRotation});">${sub.pn}${sub.th_desc ? ' ' + sub.th_desc : ''}</span>
+                    <span class="vertical-bar-label" style="font-size: ${labelFontSize}; transform: rotate(${labelRotation});">${fullLabel}</span>
                 </div>
             `;
         });
