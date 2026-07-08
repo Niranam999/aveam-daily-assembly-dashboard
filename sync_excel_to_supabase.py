@@ -268,7 +268,7 @@ def load_excel_data():
         job_str = str(int(float(job_val))) if isinstance(job_val, (int, float)) else (str(job_val).strip() if job_val else '')
         
         if cust_str == 'ULC':
-            group_key = (cust_str, proj_str, 'ULC_' + so_str)
+            group_key = (cust_str, proj_str, 'ULC_ALL')
         else:
             group_key = (cust_str, proj_str, job_str)
             
@@ -284,6 +284,7 @@ def load_excel_data():
                 'jobs': []
             }
         else:
+            projects_grouped[group_key]['qty'] += qty_val
             if mc_str and (not projects_grouped[group_key]['mc_number'] or projects_grouped[group_key]['mc_number'] == '-'):
                 projects_grouped[group_key]['mc_number'] = mc_str
             if m1_str and (not projects_grouped[group_key]['member_1'] or projects_grouped[group_key]['member_1'] == '-'):
@@ -301,42 +302,43 @@ def load_excel_data():
         cust_str, proj_str, group_id_str = key
         
         if cust_str == 'ULC':
-            job_nums = []
-            for j in data['jobs']:
-                if j['job_no']:
-                    try: job_nums.append(int(j['job_no']))
-                    except: pass
-            if job_nums:
-                min_job, max_job = min(job_nums), max(job_nums)
-                job_no_display = f"{min_job}" if min_job == max_job else f"{min_job} - {max_job}"
-            else: job_no_display = '-'
+            job_no_display = ""
+            proj_id = "ULC-PRX-ALL"
         else:
             job_no_display = group_id_str
+            proj_id = f"{proj_str}-{job_no_display.replace(' ', '')}"
             
         master_proj_code = next((p for p in master_sub_assemblies.keys() if p.upper() == proj_str.upper()), None)
         
         subs = []
         if master_proj_code and len(master_sub_assemblies[master_proj_code]) > 0:
             for ms in master_sub_assemblies[master_proj_code]:
-                prog_val = 0
+                prog_vals = []
                 for job in data['jobs']:
                     if job['pn'] == ms['pn'] or (ms['pn'] and ms['pn'] in job['pn']) or (job['pn'] and job['pn'] in ms['pn']):
-                        prog_val = job['progress']
-                        break
+                        prog_vals.append(job['progress'])
+                
+                if prog_vals:
+                    prog_val = sum(prog_vals) / len(prog_vals)
+                else:
+                    prog_val = 0
+                    
                 if ms['process_id'] == 'R-1' and any(j['progress'] > 0 for j in data['jobs']):
                     prog_val = 100
                 if ms['process_id'] == 'MAIN-ASSY' and prog_val == 0:
+                    main_prog_vals = []
                     for job in data['jobs']:
                         if proj_str.upper() in job['name'].upper() or 'ASSY' in job['name'].upper():
-                            prog_val = job['progress']
-                            break
+                            main_prog_vals.append(job['progress'])
+                    if main_prog_vals:
+                        prog_val = sum(main_prog_vals) / len(main_prog_vals)
                             
                 th_desc = clean_thai_desc(ms['process_id'], ms['name'])
                 subs.append({
                     'pn': ms['process_id'],
                     'name': f"{ms['pn']}; {ms['name']}" if ms['pn'] else ms['name'],
                     'th_desc': th_desc,
-                    'progress': prog_val
+                    'progress': int(prog_val)
                 })
         else:
             for job in data['jobs']:
@@ -375,7 +377,6 @@ def load_excel_data():
         if data['jobs']:
             main_pn = next((j['pn'] for j in data['jobs'] if j['pn'] in master_info), data['jobs'][0]['pn'])
             
-        proj_id = f"{proj_str}-{job_no_display.replace(' ', '')}"
         excel_projects.append({
             'id': proj_id,
             'customer': cust_str,

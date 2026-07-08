@@ -348,7 +348,7 @@ function renderDetailPanel(project) {
                 <h3 class="detail-project-name" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 0.4rem;">${project.project_code}</h3>
                 <p class="detail-job-number" style="line-height: 1.5; margin-top: 0.5rem;">
                     Part Number: <strong>${project.part_number || '-'}</strong><br>
-                    Job: <strong>${project.job_no}</strong>${project.mc_number && project.mc_number !== '-' ? ' (MC: <strong>' + project.mc_number + '</strong>)' : ''}<br>
+                    ${project.job_no ? 'Job: <strong>' + project.job_no + '</strong>' : ''}${project.mc_number && project.mc_number !== '-' ? (project.job_no ? ' ' : '') + '(MC: <strong>' + project.mc_number + '</strong>)' : ''}${project.job_no || (project.mc_number && project.mc_number !== '-') ? '<br>' : ''}
                     Qty: <strong>${project.qty}</strong><br>
                     Time: <strong>${project.est_hours}</strong> hrs/unit (Total: <strong>${(project.qty * project.est_hours).toLocaleString()}</strong> hrs)
                 </p>
@@ -456,7 +456,7 @@ function renderProjects() {
             <div class="thumb-info">
                 <span class="thumb-client ${p.customer.toLowerCase()}">${p.customer}</span>
                 <span class="thumb-code">${p.project_code}</span>
-                <span class="thumb-job">Job: ${p.job_no}${p.mc_number && p.mc_number !== '-' ? ' (' + p.mc_number + ')' : ''}</span>
+                <span class="thumb-job">${p.job_no ? 'Job: ' + p.job_no : ''}${p.mc_number && p.mc_number !== '-' ? (p.job_no ? ' ' : '') + '(' + p.mc_number + ')' : ''}</span>
             </div>
             
             <div class="thumb-progress-wrap">
