@@ -1,4 +1,5 @@
 @echo off
+chcp 874 > nul
 title AVEAM - Step 2 Clean Completed Jobs and Sync Board
 color 0b
 
