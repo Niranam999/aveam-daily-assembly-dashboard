@@ -63,6 +63,7 @@ def main():
         c_pn = headers.index("Part Number") + 1
         c_desc = headers.index("Description") + 1
         c_mc = headers.index("MC Number") + 1
+        c_proj_id = headers.index("ProjectID") + 1
         c_job = headers.index("Job Number") + 1
         c_qty = headers.index("Qty") + 1
         c_assigned = headers.index("ASSIGNED") + 1
@@ -87,6 +88,7 @@ def main():
             pn = clean_value(ws_src.cell(r, c_pn).value)
             desc = clean_value(ws_src.cell(r, c_desc).value)
             mc = clean_value(ws_src.cell(r, c_mc).value)
+            proj_id = clean_value(ws_src.cell(r, c_proj_id).value)
             job = clean_value(ws_src.cell(r, c_job).value)
             qty = clean_value(ws_src.cell(r, c_qty).value)
             tl = clean_value(ws_src.cell(r, c_tl).value)
@@ -104,7 +106,8 @@ def main():
                 "project_code": proj,
                 "part_number": pn,
                 "description": desc,
-                "mc_number": mc,
+                "mc_number": mc if mc else "ไม่มีข้อมูล",
+                "project_id": proj_id if proj_id else "ไม่มีข้อมูล",
                 "job_number": job,
                 "qty": qty,
                 "team_leader": tl,
@@ -133,17 +136,17 @@ def main():
     ws_k.page_margins.top = 0.25
     ws_k.page_margins.bottom = 0.25
     
-    # Define Column Widths
+    # Define Column Widths (A4 optimized layout)
     ws_k.column_dimensions['A'].width = 3
-    ws_k.column_dimensions['B'].width = 11
-    ws_k.column_dimensions['C'].width = 15
-    ws_k.column_dimensions['D'].width = 11
-    ws_k.column_dimensions['E'].width = 15
+    ws_k.column_dimensions['B'].width = 12
+    ws_k.column_dimensions['C'].width = 16
+    ws_k.column_dimensions['D'].width = 12
+    ws_k.column_dimensions['E'].width = 16
     ws_k.column_dimensions['F'].width = 3
-    ws_k.column_dimensions['G'].width = 11
-    ws_k.column_dimensions['H'].width = 15
-    ws_k.column_dimensions['I'].width = 11
-    ws_k.column_dimensions['J'].width = 15
+    ws_k.column_dimensions['G'].width = 12
+    ws_k.column_dimensions['H'].width = 16
+    ws_k.column_dimensions['I'].width = 12
+    ws_k.column_dimensions['J'].width = 16
     ws_k.column_dimensions['K'].width = 3
     
     # Custom Brand Colors for Card Headers (Depending on Customer)
@@ -188,9 +191,9 @@ def main():
         col_idx = slot % 2
         
         # Calculate cell coordinates
-        # 8 rows per card slot + 1 spacer row = 32 rows per page
-        page_offset = page * 33
-        start_row = page_offset + row_idx * 8 + 2
+        # 9 content rows per card + 1 spacer row = 10 rows per card slot -> 40 rows per A4 page
+        page_offset = page * 41
+        start_row = page_offset + row_idx * 10 + 2
         start_col = 2 if col_idx == 0 else 7 # Column B or Column G
         
         # Setup row heights for the page if not set
@@ -198,13 +201,15 @@ def main():
             ws_k.row_dimensions[page_offset + 1].height = 15 # Top margin
             
         ws_k.row_dimensions[start_row].height = 24     # Header
-        ws_k.row_dimensions[start_row + 1].height = 18 # Data 1
-        ws_k.row_dimensions[start_row + 2].height = 18 # Data 2
-        ws_k.row_dimensions[start_row + 3].height = 18 # Data 3
-        ws_k.row_dimensions[start_row + 4].height = 18 # Data 4
-        ws_k.row_dimensions[start_row + 5].height = 18 # Data 5
-        ws_k.row_dimensions[start_row + 6].height = 14 # Banner
-        ws_k.row_dimensions[start_row + 7].height = 15 # Spacer row
+        ws_k.row_dimensions[start_row + 1].height = 18 # Data 1 (Job No)
+        ws_k.row_dimensions[start_row + 2].height = 18 # Data 2 (Part No)
+        ws_k.row_dimensions[start_row + 3].height = 18 # Data 3 (Machine No)
+        ws_k.row_dimensions[start_row + 4].height = 18 # Data 4 (ProjectID)
+        ws_k.row_dimensions[start_row + 5].height = 18 # Data 5 (Qty)
+        ws_k.row_dimensions[start_row + 6].height = 18 # Data 6 (Lead)
+        ws_k.row_dimensions[start_row + 7].height = 18 # Data 7 (Members / แม่ทีม)
+        ws_k.row_dimensions[start_row + 8].height = 14 # Banner
+        ws_k.row_dimensions[start_row + 9].height = 15 # Spacer row
         
         # Determine Header Color
         cust_upper = job["customer"].upper()
@@ -212,7 +217,7 @@ def main():
         fill_header = PatternFill(start_color=h_color, end_color=h_color, fill_type="solid")
         
         # Fill base background cells
-        for r in range(start_row, start_row + 7):
+        for r in range(start_row, start_row + 9):
             for c in range(start_col, start_col + 4):
                 ws_k.cell(row=r, column=c).fill = fill_bg
                 
@@ -228,9 +233,11 @@ def main():
         labels = [
             ("Job No:", job["job_number"], f_bold_val),
             ("Part No:", job["part_number"], f_value),
-            ("Qty:", f"{job['qty']} Units", f_bold_val),
+            ("Machine No:", job["mc_number"], f_value),
+            ("ProjectID:", job["project_id"], f_value),
+            ("Qty:", f"{job['qty']} Units" if job['qty'] else "ไม่มีข้อมูล", f_bold_val),
             ("Lead:", job["team_leader"], f_value),
-            ("Members:", job["members"], f_value)
+            ("แม่ทีม:", job["members"], f_value)
         ]
         
         for offset, (label, val, val_font) in enumerate(labels):
@@ -253,9 +260,9 @@ def main():
             ws_k.cell(row=curr_row, column=start_col + 3).border = thin_border
             
         # 3. Card Bottom Banner (Merged scan reminder)
-        ws_k.merge_cells(start_row=start_row + 6, start_column=start_col, end_row=start_row + 6, end_column=start_col + 3)
-        b_cell = ws_k.cell(row=start_row + 6, column=start_col)
-        b_cell.value = "📲 Scan QR to Update Shop Floor Dashboard"
+        ws_k.merge_cells(start_row=start_row + 8, start_column=start_col, end_row=start_row + 8, end_column=start_col + 3)
+        b_cell = ws_k.cell(row=start_row + 8, column=start_col)
+        b_cell.value = "📲 Scan QR to Update Assembly Dashboard"
         b_cell.font = f_banner
         b_cell.alignment = align_center
         b_cell.fill = fill_banner
@@ -264,7 +271,7 @@ def main():
         # 4. Generate & Insert QR Code
         # URL template: https://niranam999.github.io/aveam-daily-assembly-dashboard/update.html?job=JOB_NUMBER
         update_url = f"https://niranam999.github.io/aveam-daily-assembly-dashboard/update.html?job={job['job_number']}"
-        qr_url = f"https://api.qrserver.com/v1/create-qr-code/?size=95x95&data={urllib.parse.quote(update_url)}"
+        qr_url = f"https://api.qrserver.com/v1/create-qr-code/?size=115x115&data={urllib.parse.quote(update_url)}"
         
         qr_file = os.path.join(TEMP_QR_DIR, f"qr_{job['job_number']}.png")
         
@@ -280,7 +287,7 @@ def main():
             print(f"[Warning] ไม่สามารถโหลด QR code สำหรับจ๊อบ {job['job_number']}: {e}")
             
         # 5. Draw Card Outer Outline Border (Medium Border)
-        draw_card_outer_border(ws_k, start_row, start_col, start_row + 6, start_col + 3)
+        draw_card_outer_border(ws_k, start_row, start_col, start_row + 8, start_col + 3)
         
     # Save Workbook
     try:
