@@ -611,6 +611,8 @@ function getProductImage(project) {
         if (code.includes('8001') || pn.endsWith('8001')) return 'Asset/Products-RBG/COHU-8001.png';
         if (code.includes('900') || code.includes('900X')) return 'Asset/Products-RBG/COHU-900X.png';
         if (code.includes('ZLINK') || code.includes('Z-LINK')) return 'Asset/Products-RBG/COHU-ZLINK.png';
+    } else if (customer === 'ULC') {
+        return 'Asset/Products-RBG/ULC.png';
     }
     return null;
 }
