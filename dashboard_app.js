@@ -338,7 +338,7 @@ function renderDetailPanel(project) {
     const currentPath = window.location.pathname;
     const dirPath = currentPath.substring(0, currentPath.lastIndexOf('/'));
     const serverOrigin = `${window.location.protocol}//${window.location.host}${dirPath}`;
-    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=${encodeURIComponent(serverOrigin + '/update.html?job=' + project.job_no)}`;
+    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=${encodeURIComponent(serverOrigin + '/update.html?job=' + (project.job_no || project.id))}`;
 
     selectedJobPanel.innerHTML = `
         <!-- Column 1: Info & Horizontal FG Status -->
@@ -409,7 +409,7 @@ function renderDetailPanel(project) {
             <div class="big-qr-box" title="สแกนเพื่อทำงานประกอบ">
                 <img src="${qrUrl}" alt="Job QR">
             </div>
-            <a class="submit-btn" href="${serverOrigin}/update.html?job=${project.job_no}" target="_blank" style="width: 100%; font-size: 0.72rem; height: 32px; display: flex; align-items: center; justify-content: center; text-decoration: none;">
+            <a class="submit-btn" href="${serverOrigin}/update.html?job=${project.job_no || project.id}" target="_blank" style="width: 100%; font-size: 0.72rem; height: 32px; display: flex; align-items: center; justify-content: center; text-decoration: none;">
                 🔍 เปิดหน้าจอรายงานจ๊อบนี้
             </a>
         </div>

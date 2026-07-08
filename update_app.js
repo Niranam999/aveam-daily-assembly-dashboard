@@ -84,7 +84,7 @@ async function init() {
         
         if (jobParam) {
             // Try to match job
-            const matched = projects.find(p => p.job_no === jobParam || p.job_no.includes(jobParam));
+            const matched = projects.find(p => p.id === jobParam || p.job_no === jobParam || (p.job_no && p.job_no.includes(jobParam)));
             if (matched) {
                 loadJobForm(matched);
             } else {

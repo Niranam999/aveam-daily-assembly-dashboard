@@ -74,7 +74,7 @@ def main():
         print(f"[Error] คอลัมน์ที่จำเป็นไม่ครบถ้วนในไฟล์หลัก: {e}")
         sys.exit(1)
         
-    active_jobs = []
+    active_jobs_grouped = {}
     
     # Read active jobs (marked in ASSIGNED or IN PROGRESS)
     for r in range(2, ws_src.max_row + 1):
@@ -94,26 +94,67 @@ def main():
             tl = clean_value(ws_src.cell(r, c_tl).value)
             m1 = clean_value(ws_src.cell(r, c_m1).value)
             
+            cust_str = str(cust).strip()
+            proj_str = str(proj).strip() if proj else 'PRX'
+            if cust_str == 'ULC':
+                proj_str = 'PRX'
+            
+            # Parse Qty
+            try:
+                qty_val = int(float(qty))
+            except:
+                qty_val = 1
+                
+            if cust_str == 'ULC':
+                group_key = (cust_str, proj_str, 'ULC_ALL')
+            else:
+                group_key = (cust_str, proj_str, job)
+                
             # Combine other members if available (Columns 32 to 35)
             members = [m1] if m1 else []
             for col_m in range(32, 36):
                 m_val = clean_value(ws_src.cell(r, col_m).value)
                 if m_val:
                     members.append(m_val)
-            
-            active_jobs.append({
-                "customer": cust,
-                "project_code": proj,
-                "part_number": pn,
-                "description": desc,
-                "mc_number": mc if mc else "ไม่มีข้อมูล",
-                "project_id": proj_id if proj_id else "ไม่มีข้อมูล",
-                "job_number": job,
-                "qty": qty,
-                "team_leader": tl,
-                "members": ", ".join(members) if members else "ไม่มีข้อมูลสมาชิก"
-            })
-            
+                    
+            if group_key not in active_jobs_grouped:
+                active_jobs_grouped[group_key] = {
+                    "customer": cust_str,
+                    "project_code": proj_str,
+                    "part_number": pn,
+                    "description": desc,
+                    "mc_number": mc if mc else "ไม่มีข้อมูล",
+                    "project_id": proj_id if proj_id else "ไม่มีข้อมูล",
+                    "job_number": "" if cust_str == 'ULC' else job,
+                    "qty": qty_val,
+                    "team_leader": tl,
+                    "members_list": members
+                }
+            else:
+                active_jobs_grouped[group_key]["qty"] += qty_val
+                for m in members:
+                    if m not in active_jobs_grouped[group_key]["members_list"]:
+                        active_jobs_grouped[group_key]["members_list"].append(m)
+                if mc and active_jobs_grouped[group_key]["mc_number"] == "ไม่มีข้อมูล":
+                    active_jobs_grouped[group_key]["mc_number"] = mc
+                if proj_id and active_jobs_grouped[group_key]["project_id"] == "ไม่มีข้อมูล":
+                    active_jobs_grouped[group_key]["project_id"] = proj_id
+                    
+    active_jobs = []
+    for key, item in active_jobs_grouped.items():
+        active_jobs.append({
+            "customer": item["customer"],
+            "project_code": item["project_code"],
+            "part_number": item["part_number"] if item["customer"] != "ULC" else "PRX250-REEL ASSY",
+            "description": item["description"] if item["customer"] != "ULC" else "PRX250 Standard Module Assembly",
+            "mc_number": item["mc_number"],
+            "project_id": item["project_id"] if item["customer"] != "ULC" else "ULC-PRX-ALL",
+            "job_number": item["job_number"],
+            "qty": item["qty"],
+            "team_leader": item["team_leader"] if item["team_leader"] else "WANLOP CHANPHET",
+            "members": ", ".join(item["members_list"]) if item["members_list"] else "ไม่มีข้อมูลสมาชิก"
+        })
+        
     print(f"สแกนเสร็จสิ้น! พบจ๊อบที่ต้องสร้างการ์ดคันบังทั้งหมด: {len(active_jobs)} รายการ")
     
     if not active_jobs:
@@ -231,7 +272,7 @@ def main():
         
         # 2. Card Content (Left Columns)
         labels = [
-            ("Job No:", job["job_number"], f_bold_val),
+            ("Job No:", job["job_number"] if job["job_number"] else job["project_id"], f_bold_val),
             ("Part No:", job["part_number"], f_value),
             ("Machine No:", job["mc_number"], f_value),
             ("ProjectID:", job["project_id"], f_value),
@@ -270,10 +311,11 @@ def main():
         
         # 4. Generate & Insert QR Code
         # URL template: https://niranam999.github.io/aveam-daily-assembly-dashboard/update.html?job=JOB_NUMBER
-        update_url = f"https://niranam999.github.io/aveam-daily-assembly-dashboard/update.html?job={job['job_number']}"
+        job_id_for_qr = job['job_number'] if job['job_number'] else job['project_id']
+        update_url = f"https://niranam999.github.io/aveam-daily-assembly-dashboard/update.html?job={job_id_for_qr}"
         qr_url = f"https://api.qrserver.com/v1/create-qr-code/?size=115x115&data={urllib.parse.quote(update_url)}"
         
-        qr_file = os.path.join(TEMP_QR_DIR, f"qr_{job['job_number']}.png")
+        qr_file = os.path.join(TEMP_QR_DIR, f"qr_{job_id_for_qr}.png")
         
         try:
             # Download QR code image from API
