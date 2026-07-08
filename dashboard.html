@@ -113,6 +113,10 @@
                 width: auto !important;
                 padding: 0 1.5rem !important;
             }
+            /* Adjust bottom thumbnail grid to 2 columns on small screens */
+            .thumbnails-list {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
         }
 
         /* Narrow screens (Mobile Portrait) - Fallback to 1 single column */
@@ -140,6 +144,10 @@
             }
             .detail-qr-side .submit-btn {
                 width: 100% !important;
+            }
+            /* On very narrow screens, 1 column is better for thumbnails */
+            .thumbnails-list {
+                grid-template-columns: 1fr !important;
             }
         }
     </style>
