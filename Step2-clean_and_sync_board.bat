@@ -1,9 +1,9 @@
 @echo off
-title AVEAM - Clean Completed Jobs and Sync Board
+title AVEAM - Step 2 Clean Completed Jobs and Sync Board
 color 0b
 
 echo =====================================================================
-echo          AVEAM ASSEMBLY PRODUCTION BOARD - AUTOMATED UPDATE
+echo          AVEAM ASSEMBLY PRODUCTION BOARD - STEP 2: CLEAN & SYNC
 echo =====================================================================
 echo.
 echo [ขั้นตอนที่ 1/2] กำลังย้ายงานประกอบที่เสร็จสมบูรณ์ไปยังไฟล์ประวัติ...
