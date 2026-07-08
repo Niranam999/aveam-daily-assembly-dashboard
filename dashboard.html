@@ -29,7 +29,7 @@
             padding: 0.4rem 0.9rem;
         }
 
-        /* Allow vertical scrolling on mobile and tablet screens with lower heights */
+        /* Allow vertical scrolling and responsive stack on mobile/tablet screens */
         @media (max-height: 820px) or (max-width: 1024px) {
             body {
                 overflow-y: auto !important;
@@ -43,6 +43,103 @@
             .dashboard-side {
                 height: auto !important;
                 overflow-y: visible !important;
+            }
+
+            /* Selected Job Panel Responsive Layout */
+            .selected-job-panel {
+                grid-template-columns: 1fr 1fr !important; /* Split into 2 columns */
+                height: auto !important;
+                min-height: auto !important;
+                max-height: none !important;
+                gap: 1.5rem !important;
+                padding: 1.5rem !important;
+            }
+            
+            /* Column 1 (Info) and Column 2 (Product Image) stay side-by-side on Row 1 */
+            .detail-left {
+                grid-column: 1 !important;
+                border-right: 1px solid var(--card-border) !important;
+                border-bottom: 1px solid var(--card-border) !important;
+                padding-right: 1rem !important;
+                padding-bottom: 1.5rem !important;
+                height: auto !important;
+            }
+            .detail-product-col {
+                grid-column: 2 !important;
+                border-right: none !important;
+                border-bottom: 1px solid var(--card-border) !important;
+                padding-right: 0 !important;
+                padding-bottom: 1.5rem !important;
+                height: auto !important;
+            }
+            
+            /* Column 3 (Donut Progress) and Column 4 (Sub-assemblies) go side-by-side on Row 2 */
+            .detail-middle {
+                grid-column: 1 !important;
+                border-right: 1px solid var(--card-border) !important;
+                border-bottom: 1px solid var(--card-border) !important;
+                padding-right: 1rem !important;
+                padding-bottom: 1.5rem !important;
+                height: auto !important;
+            }
+            .detail-right {
+                grid-column: 2 !important;
+                border-bottom: 1px solid var(--card-border) !important;
+                padding-bottom: 1.5rem !important;
+                height: auto !important;
+            }
+            
+            /* Column 5 (QR Code) spans full width on Row 3 */
+            .detail-qr-side {
+                grid-column: 1 / span 2 !important;
+                border-left: none !important;
+                padding-left: 0 !important;
+                padding-top: 1rem !important;
+                width: 100% !important;
+                flex-direction: row !important;
+                justify-content: space-around !important;
+                align-items: center !important;
+                text-align: left !important;
+                gap: 1.5rem !important;
+            }
+            .qr-title-box {
+                flex: 1 !important;
+            }
+            .big-qr-box {
+                margin: 0 !important;
+                flex-shrink: 0 !important;
+            }
+            .detail-qr-side .submit-btn {
+                width: auto !important;
+                padding: 0 1.5rem !important;
+            }
+        }
+
+        /* Narrow screens (Mobile Portrait) - Fallback to 1 single column */
+        @media (max-width: 600px) {
+            .selected-job-panel {
+                grid-template-columns: 1fr !important;
+            }
+            .detail-left, .detail-product-col, .detail-middle, .detail-right, .detail-qr-side {
+                grid-column: 1 / span 1 !important;
+                border-right: none !important;
+                border-left: none !important;
+                border-bottom: 1px solid var(--card-border) !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                padding-top: 0.5rem !important;
+                padding-bottom: 1.25rem !important;
+                height: auto !important;
+            }
+            .detail-qr-side {
+                border-bottom: none !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
+                gap: 1rem !important;
+            }
+            .detail-qr-side .submit-btn {
+                width: 100% !important;
             }
         }
     </style>

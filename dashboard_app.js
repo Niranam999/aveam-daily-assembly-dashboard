@@ -500,7 +500,11 @@ function renderRecentUpdates() {
         return;
     }
     
-    updates.slice(0, 10).forEach(u => {
+    // Show only 3 items on mobile/tablet (width <= 1024px or height <= 600px), otherwise 10
+    const isMobileOrTablet = window.innerWidth <= 1024 || window.innerHeight <= 600;
+    const limit = isMobileOrTablet ? 3 : 10;
+    
+    updates.slice(0, limit).forEach(u => {
         // Format timestamp cleanly
         let cleanTime = u.timestamp;
         if (cleanTime && cleanTime.includes('T')) {
@@ -816,3 +820,6 @@ function stopCelebration() {
 
 // Start app
 window.onload = init;
+
+// Re-render logs dynamically on window resize or orientation changes
+window.addEventListener('resize', renderRecentUpdates);
