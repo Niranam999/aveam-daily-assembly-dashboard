@@ -119,6 +119,62 @@
             }
         }
 
+        /* Responsive layout specifically for vertical small screens (Mobile/Tablet Portrait) */
+        @media (max-width: 800px) {
+            /* Adjust the bottom split row to 2 columns */
+            .bottom-split-row {
+                grid-template-columns: 1.6fr 1.4fr !important;
+                grid-template-rows: auto 1fr !important;
+                height: auto !important;
+                min-height: 480px !important;
+                overflow: visible !important;
+                gap: 0.5rem !important;
+            }
+
+            .thumbnails-section {
+                grid-column: 1 !important;
+                grid-row: 1 / span 2 !important;
+                height: 100% !important;
+                overflow: visible !important;
+            }
+
+            /* Master QR Container goes on top right */
+            .master-qr-container {
+                grid-column: 2 !important;
+                grid-row: 1 !important;
+                padding: 0.5rem !important;
+                height: auto !important;
+            }
+
+            /* Reduce QR code frame size to fit smaller screen */
+            .master-qr-container img {
+                width: 80px !important;
+                height: 80px !important;
+            }
+            .master-qr-container div {
+                font-size: 0.65rem !important;
+                line-height: 1.3 !important;
+                margin-bottom: 0.4rem !important;
+            }
+            .master-qr-container div:nth-child(2) {
+                padding: 0.35rem !important; /* Reduce padding inside the white frame */
+            }
+
+            /* Recent Logs Container goes on bottom right, under QR code */
+            .recent-logs-container {
+                grid-column: 2 !important;
+                grid-row: 2 !important;
+                margin-top: 0.25rem !important;
+                height: auto !important;
+                min-height: 250px !important;
+            }
+            
+            /* Adjust bottom thumbnail grid to 2 columns on small screens */
+            .thumbnails-list {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
         /* Narrow screens (Mobile Portrait) - Fallback to 1 single column */
         @media (max-width: 600px) {
             .selected-job-panel {
@@ -248,7 +304,7 @@
                     </div>
                     
                     <!-- Middle: Compact Recent Updates Log -->
-                    <div style="display: flex; flex-direction: column; overflow: hidden; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 0.6rem 0.75rem;">
+                    <div class="recent-logs-container" style="display: flex; flex-direction: column; overflow: hidden; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 0.6rem 0.75rem;">
                         <h2 class="section-title" style="font-size: 0.8rem; flex-shrink: 0;">บันทึกรายงานล่าสุด</h2>
                         <div class="recent-list" id="recent-list" style="flex: 1; overflow-y: auto; font-size: 0.7rem; margin-top: 0.4rem; display: flex; flex-direction: column; gap: 0.4rem; padding-right: 0.2rem;">
                             <!-- Filled by JS -->
@@ -256,7 +312,7 @@
                     </div>
                     
                     <!-- Right: Master QR Code for update portal -->
-                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 0.6rem 0.75rem; text-align: center;">
+                    <div class="master-qr-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 0.6rem 0.75rem; text-align: center;">
                         <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-primary); line-height: 1.45; margin-bottom: 0.6rem;">
                             สแกนด้านล่าง เพื่อเลือกจ๊อบที่จะอัพเดทจากหน้ารวม
                         </div>
