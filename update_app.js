@@ -123,10 +123,10 @@ function showManualSelector() {
     
     // Fill job dropdown select list
     selectJobManual.innerHTML = '<option value="" disabled selected>-- เลือกโครงการ/จ๊อบที่ต้องการอัปเดต --</option>';
-    projects.forEach(p => {
+    projects.filter(p => (p.kanban_in_progress || 0) > 0).forEach(p => {
         const opt = document.createElement('option');
         opt.value = p.id;
-        opt.textContent = `[${p.customer}] ${p.project_code} (Job: ${p.job_no})`;
+        opt.textContent = `[${p.customer}] ${p.project_code} ${p.job_no ? '(Job: ' + p.job_no + ')' : ''}`;
         selectJobManual.appendChild(opt);
     });
 }

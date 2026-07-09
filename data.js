@@ -241,7 +241,7 @@ const EXCEL_PROJECTS = [
         "kanban_completed": 0
     },
     {
-        "id": "COHU-JLP CART-51028",
+        "id": "COHU-JLP CART-51027",
         "customer": "COHU",
         "project_code": "JLP CART",
         "part_number": "8337427001",
@@ -249,10 +249,10 @@ const EXCEL_PROJECTS = [
         "status": "ontime",
         "team_leader": "NATTHAVUT",
         "member_1": "KESORN",
-        "job_no": "51028",
+        "job_no": "51027",
         "mc_number": "-",
         "progress": 0,
-        "qty": 20,
+        "qty": 40,
         "est_hours": 2.0,
         "sub_assemblies": [
             {
@@ -421,6 +421,118 @@ const EXCEL_PROJECTS = [
         "kanban_completed": 0
     },
     {
+        "id": "COHU-JLP CART-51028",
+        "customer": "COHU",
+        "project_code": "JLP CART",
+        "part_number": "8337427001",
+        "description": "JLP CART",
+        "status": "ontime",
+        "team_leader": "NATTHAVUT",
+        "member_1": "KESORN",
+        "job_no": "51028",
+        "mc_number": "-",
+        "progress": 0,
+        "qty": 20,
+        "est_hours": 2.0,
+        "sub_assemblies": [
+            {
+                "pn": "0",
+                "name": "Parts Receiving",
+                "th_desc": "รับพาร์ท",
+                "progress": 0
+            },
+            {
+                "pn": "1",
+                "name": "Stamping PN (แสตมป์พาร์ทนัมเบอร์)",
+                "th_desc": "แสตมป์พาร์ท",
+                "progress": 0
+            },
+            {
+                "pn": "2",
+                "name": "Etching PN (เอจชิ่งพาร์ทนัมเบอร์)",
+                "th_desc": "เอจชิ่งพาร์ท",
+                "progress": 0
+            },
+            {
+                "pn": "3",
+                "name": "Pin installation-Base Plate (ติดตั้งพินที่แผ่น Base Plate)",
+                "th_desc": "ติดพิน Base",
+                "progress": 0
+            },
+            {
+                "pn": "4",
+                "name": "Pin installation-Top Plate (ติดตั้งพินที่แผ่น Top Plate)",
+                "th_desc": "ติดพิน Top",
+                "progress": 0
+            },
+            {
+                "pn": "5",
+                "name": "Pin installation-Side Plate (ติดตั้งพินที่แผ่น Top Plate)",
+                "th_desc": "ติดพิน Side",
+                "progress": 0
+            },
+            {
+                "pn": "6",
+                "name": "Brake Floor Lock Assy (ประกอบชุดเบรก)",
+                "th_desc": "ประกอบเบรก",
+                "progress": 0
+            },
+            {
+                "pn": "7",
+                "name": "Top Plate Assy (ประกอบชุดท็อปเพลท)",
+                "th_desc": "ประกอบท็อป",
+                "progress": 0
+            },
+            {
+                "pn": "8",
+                "name": "Handle Assy (ประกอบชุดมือจับ)",
+                "th_desc": "ประกอบมือจับ",
+                "progress": 0
+            },
+            {
+                "pn": "9",
+                "name": "Rear Plate Assy (ประกอบชุดฝาหลัง)",
+                "th_desc": "ประกอบฝาหลัง",
+                "progress": 0
+            },
+            {
+                "pn": "10",
+                "name": "Ground Cable Assy (ประกอบสายกราวน์)",
+                "th_desc": "ประกอบสายดิน",
+                "progress": 0
+            },
+            {
+                "pn": "11",
+                "name": "Land yard cable Assy (ประกอบสายแลนยาร์ด)",
+                "th_desc": "ประกอบแลนยาร์ด",
+                "progress": 0
+            },
+            {
+                "pn": "12",
+                "name": "Main Assy (ประกอบชุดเมนแอสเซมบลี้)",
+                "th_desc": "ประกอบเมนแอสเซมบลี้",
+                "progress": 0
+            },
+            {
+                "pn": "13",
+                "name": "Final Inspection (การตรวจสอบขั้นสุดท้าย)",
+                "th_desc": "การตรวจสอบขั้นสุดท้าย",
+                "progress": 0
+            },
+            {
+                "pn": "14",
+                "name": "Packing (การแพ็คงาน)",
+                "th_desc": "แพ็คงาน",
+                "progress": 0
+            }
+        ],
+        "kanban_backlog": 0,
+        "kanban_assigned": 1,
+        "kanban_in_progress": 0,
+        "kanban_qa": 0,
+        "kanban_completed": 0
+    },
+    {
         "id": "ULC-PRX-ALL",
         "customer": "ULC",
         "project_code": "PRX",
@@ -428,12 +540,12 @@ const EXCEL_PROJECTS = [
         "description": "PRX250 Standard Module Assembly",
         "status": "ontime",
         "team_leader": "WANLOP",
-        "member_1": "SUMOLTHA",
+        "member_1": "KAIRUNG",
         "job_no": "",
         "mc_number": "-",
         "progress": 0,
         "qty": 777,
-        "est_hours": 1.1292,
+        "est_hours": 1.125,
         "sub_assemblies": [
             {
                 "pn": "PRX250-REEL ASSY",
@@ -577,7 +689,7 @@ const EXCEL_PROJECTS = [
                 "th_desc": "",
                 "progress": 0,
                 "qty": 500,
-                "std_time": 0.084
+                "std_time": 0.0
             },
             {
                 "pn": "PRX250-206-LT-ASSY",
@@ -599,118 +711,6 @@ const EXCEL_PROJECTS = [
         "kanban_backlog": 0,
         "kanban_assigned": 0,
         "kanban_in_progress": 20,
-        "kanban_qa": 0,
-        "kanban_completed": 0
-    },
-    {
-        "id": "COHU-JLP CART-51027",
-        "customer": "COHU",
-        "project_code": "JLP CART",
-        "part_number": "8337427001",
-        "description": "JLP CART",
-        "status": "ontime",
-        "team_leader": "NATTHAVUT",
-        "member_1": "KESORN",
-        "job_no": "51027",
-        "mc_number": "-",
-        "progress": 0,
-        "qty": 40,
-        "est_hours": 2.0,
-        "sub_assemblies": [
-            {
-                "pn": "0",
-                "name": "Parts Receiving",
-                "th_desc": "รับพาร์ท",
-                "progress": 0
-            },
-            {
-                "pn": "1",
-                "name": "Stamping PN (แสตมป์พาร์ทนัมเบอร์)",
-                "th_desc": "แสตมป์พาร์ท",
-                "progress": 0
-            },
-            {
-                "pn": "2",
-                "name": "Etching PN (เอจชิ่งพาร์ทนัมเบอร์)",
-                "th_desc": "เอจชิ่งพาร์ท",
-                "progress": 0
-            },
-            {
-                "pn": "3",
-                "name": "Pin installation-Base Plate (ติดตั้งพินที่แผ่น Base Plate)",
-                "th_desc": "ติดพิน Base",
-                "progress": 0
-            },
-            {
-                "pn": "4",
-                "name": "Pin installation-Top Plate (ติดตั้งพินที่แผ่น Top Plate)",
-                "th_desc": "ติดพิน Top",
-                "progress": 0
-            },
-            {
-                "pn": "5",
-                "name": "Pin installation-Side Plate (ติดตั้งพินที่แผ่น Top Plate)",
-                "th_desc": "ติดพิน Side",
-                "progress": 0
-            },
-            {
-                "pn": "6",
-                "name": "Brake Floor Lock Assy (ประกอบชุดเบรก)",
-                "th_desc": "ประกอบเบรก",
-                "progress": 0
-            },
-            {
-                "pn": "7",
-                "name": "Top Plate Assy (ประกอบชุดท็อปเพลท)",
-                "th_desc": "ประกอบท็อป",
-                "progress": 0
-            },
-            {
-                "pn": "8",
-                "name": "Handle Assy (ประกอบชุดมือจับ)",
-                "th_desc": "ประกอบมือจับ",
-                "progress": 0
-            },
-            {
-                "pn": "9",
-                "name": "Rear Plate Assy (ประกอบชุดฝาหลัง)",
-                "th_desc": "ประกอบฝาหลัง",
-                "progress": 0
-            },
-            {
-                "pn": "10",
-                "name": "Ground Cable Assy (ประกอบสายกราวน์)",
-                "th_desc": "ประกอบสายดิน",
-                "progress": 0
-            },
-            {
-                "pn": "11",
-                "name": "Land yard cable Assy (ประกอบสายแลนยาร์ด)",
-                "th_desc": "ประกอบแลนยาร์ด",
-                "progress": 0
-            },
-            {
-                "pn": "12",
-                "name": "Main Assy (ประกอบชุดเมนแอสเซมบลี้)",
-                "th_desc": "ประกอบเมนแอสเซมบลี้",
-                "progress": 0
-            },
-            {
-                "pn": "13",
-                "name": "Final Inspection (การตรวจสอบขั้นสุดท้าย)",
-                "th_desc": "การตรวจสอบขั้นสุดท้าย",
-                "progress": 0
-            },
-            {
-                "pn": "14",
-                "name": "Packing (การแพ็คงาน)",
-                "th_desc": "แพ็คงาน",
-                "progress": 0
-            }
-        ],
-        "kanban_backlog": 0,
-        "kanban_assigned": 1,
-        "kanban_in_progress": 0,
         "kanban_qa": 0,
         "kanban_completed": 0
     },
@@ -1657,7 +1657,7 @@ const EXCEL_PROJECTS = [
                 "th_desc": "",
                 "progress": 0,
                 "qty": 1,
-                "std_time": 0.25
+                "std_time": 0.0
             },
             {
                 "pn": "05-25-03085",
