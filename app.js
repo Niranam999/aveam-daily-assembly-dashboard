@@ -282,11 +282,11 @@ function updateStats() {
     let completed = 0;
     
     projects.forEach(p => {
-        backlog += p.kanban_backlog || 0;
-        assigned += p.kanban_assigned || 0;
-        inProgress += p.kanban_in_progress || 0;
-        qa += p.kanban_qa || 0;
-        completed += p.kanban_completed || 0;
+        if ((p.kanban_backlog || 0) > 0) backlog += 1;
+        if ((p.kanban_assigned || 0) > 0) assigned += 1;
+        if ((p.kanban_in_progress || 0) > 0) inProgress += 1;
+        if ((p.kanban_qa || 0) > 0) qa += 1;
+        if ((p.kanban_completed || 0) > 0) completed += 1;
     });
     
     if (kanbanBacklog) kanbanBacklog.textContent = backlog;
