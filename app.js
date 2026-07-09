@@ -181,10 +181,11 @@ async function init() {
     }
     
     // Default select first project
-    if (projects.length > 0) {
-        const stillExists = projects.some(p => p.id === selectedProjectId);
+    const filtered = getFilteredProjects();
+    if (filtered.length > 0) {
+        const stillExists = filtered.some(p => p.id === selectedProjectId);
         if (!stillExists) {
-            selectedProjectId = projects[0].id;
+            selectedProjectId = filtered[0].id;
         }
     } else {
         selectedProjectId = null;
@@ -269,8 +270,8 @@ function renderFilters() {
 }
 
 function getFilteredProjects() {
-    if (currentFilter === 'ALL') return projects;
-    return projects.filter(p => p.customer.toUpperCase() === currentFilter);
+    if (currentFilter === 'ALL') return projects.filter(p => p.kanban_in_progress > 0);
+    return projects.filter(p => p.customer.toUpperCase() === currentFilter && p.kanban_in_progress > 0);
 }
 
 function updateStats() {
