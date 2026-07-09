@@ -290,11 +290,24 @@ def load_excel_data():
             if m1_str and (not projects_grouped[group_key]['member_1'] or projects_grouped[group_key]['member_1'] == '-'):
                 projects_grouped[group_key]['member_1'] = m1_str
             
+        # Find standard time for this row/part
+        row_std_time = 0.0
+        pn_clean = str(pn).strip()
+        if pn_clean in master_info:
+            row_std_time = master_info[pn_clean]['std_time']
+        else:
+            for mpn, m in master_info.items():
+                if mpn.upper() == pn_clean.upper():
+                    row_std_time = m['std_time']
+                    break
+
         projects_grouped[group_key]['jobs'].append({
-            'pn': str(pn).strip(),
+            'pn': pn_clean,
             'name': str(desc).strip() if desc else '',
             'progress': int(prog_val),
-            'job_no': job_str
+            'job_no': job_str,
+            'qty': qty_val,
+            'std_time': row_std_time
         })
         
     excel_projects = []
@@ -346,7 +359,9 @@ def load_excel_data():
                     'pn': job['pn'],
                     'name': job['name'],
                     'th_desc': '',
-                    'progress': job['progress']
+                    'progress': job['progress'],
+                    'qty': job.get('qty', 0),
+                    'std_time': job.get('std_time', 0.0)
                 })
                 
         overall_prog = 0
@@ -370,11 +385,32 @@ def load_excel_data():
                     main_desc = m['description']
                     break
         if cust_str == 'ULC':
-            est_hours = 19.5
+            # Calculate average std_time of all jobs in this ULC group
+            ulc_times = []
+            for job in data['jobs']:
+                if job['pn'] in master_info:
+                    ulc_times.append(master_info[job['pn']]['std_time'])
+                else:
+                    found = False
+                    for mpn, m in master_info.items():
+                        if mpn.upper() == job['pn'].upper():
+                            ulc_times.append(m['std_time'])
+                            found = True
+                            break
+                    if not found:
+                        ulc_times.append(0.0)
+            
+            if ulc_times:
+                est_hours = round(sum(ulc_times) / len(ulc_times), 4)
+            else:
+                est_hours = 1.1292
+                
             main_desc = 'PRX250 Standard Module Assembly'
             
         main_pn = '-'
-        if data['jobs']:
+        if cust_str == 'ULC':
+            main_pn = 'PRX250-All Assy'
+        elif data['jobs']:
             main_pn = next((j['pn'] for j in data['jobs'] if j['pn'] in master_info), data['jobs'][0]['pn'])
             
         excel_projects.append({

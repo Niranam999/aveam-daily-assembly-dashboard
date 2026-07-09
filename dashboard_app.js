@@ -232,6 +232,21 @@ function getFilteredProjects() {
     return projects.filter(p => p.customer.toUpperCase() === currentFilter);
 }
 
+function getProjectTotalHours(project) {
+    if (!project) return 0;
+    if (project.customer && project.customer.toUpperCase() === 'ULC') {
+        if (project.sub_assemblies && project.sub_assemblies.length > 0) {
+            let total = 0;
+            project.sub_assemblies.forEach(sub => {
+                total += (sub.qty || 0) * (sub.std_time || 0);
+            });
+            return total > 0 ? total : 361.5;
+        }
+        return 361.5;
+    }
+    return project.qty * project.est_hours;
+}
+
 function updateStats() {
     statTotal.textContent = projects.length;
     statOnTime.textContent = projects.filter(p => p.status === 'ontime').length;
@@ -330,8 +345,8 @@ function renderDetailPanel(project) {
             <!-- Column 2: Product Image -->
             <div class="detail-product-col" style="display: flex; flex-direction: column; align-items: center; border-right: 1px solid var(--card-border); padding-right: 1rem; height: 100%;">
                 <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.25rem; flex-shrink: 0;">Product Picture</span>
-                <div class="product-col-image-box" style="flex: 1; width: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">
-                    <img src="${imgPath}" alt="${project.project_code}" class="product-col-img" style="max-width: 100%; max-height: 220px; object-fit: contain;">
+                <div class="product-col-image-box" style="flex: 1; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.01); border: 1px solid var(--card-border); border-radius: 8px; margin-top: 0.5rem; width: 100%; overflow: hidden; padding: 0.5rem; box-sizing: border-box;">
+                    <img src="${imgPath}" alt="${project.project_code}" style="max-width: 100%; max-height: 100px; object-fit: contain; border-radius: 4px;">
                 </div>
             </div>
         `;
@@ -368,7 +383,7 @@ function renderDetailPanel(project) {
                     Part Number: <strong>${project.part_number || '-'}</strong><br>
                     ${project.job_no ? 'Job: <strong>' + project.job_no + '</strong>' : ''}${project.mc_number && project.mc_number !== '-' ? (project.job_no ? ' ' : '') + '(MC: <strong>' + project.mc_number + '</strong>)' : ''}${project.job_no || (project.mc_number && project.mc_number !== '-') ? '<br>' : ''}
                     Qty: <strong>${project.qty}</strong><br>
-                    Time: <strong>${project.est_hours}</strong> hrs/unit (Total: <strong>${(project.qty * project.est_hours).toLocaleString()}</strong> hrs)
+                    Time: <strong>${Number(project.est_hours).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 2 })}</strong> hrs/unit (Total: <strong>${getProjectTotalHours(project).toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</strong> hrs)
                 </p>
                 <div class="detail-desc-box" style="margin-top: 0.4rem;">
                     Description: <em>${project.description}</em>
@@ -376,7 +391,7 @@ function renderDetailPanel(project) {
             </div>
             
             <!-- Bottom Horizontal FG Status Bar -->
-            <div class="detail-fg-status-horizontal" style="display: flex; flex-direction: column; width: 100%; background: rgba(255,255,255,0.02); border: 1px solid var(--card-border); border-radius: 8px; padding: 0.5rem 0.75rem; margin-top: 0.5rem; box-sizing: border-box;">
+            <div class="detail-fg-status-horizontal" style="display: flex; flex-direction: column; width: 100%; background: rgba(255,255,255,0.02); border-radius: 8px; padding: 0.5rem 0.75rem; margin-top: 0.5rem; box-sizing: border-box;">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                     <span style="font-size: 0.75rem; color: #fb923c; font-weight: 700; text-transform: uppercase; letter-spacing: 0.75px;">FG Status</span>
                     <span style="font-size: 1.15rem; font-weight: 800; color: var(--text-title);">${qtyDone}/${qtyTarget}</span>

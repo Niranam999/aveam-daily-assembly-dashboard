@@ -213,9 +213,9 @@ for r in range(2, sh_jobs.max_row+1):
     job_val = sh_jobs.cell(r, c_job).value
     job_str = str(int(float(job_val))) if isinstance(job_val, (int, float)) else (str(job_val).strip() if job_val else '')
     
-    # ULC projects are grouped under SO No. to show overall system progress with range of jobs
+    # ULC projects are grouped under a single key to show overall system progress as a single card
     if cust_str == 'ULC':
-        group_key = (cust_str, proj_str, 'ULC_' + so_str)
+        group_key = (cust_str, proj_str, 'ULC_ALL')
     else:
         # Others are grouped by their specific Job Number (Column L) so they appear as separate cards
         group_key = (cust_str, proj_str, job_str)
@@ -232,16 +232,30 @@ for r in range(2, sh_jobs.max_row+1):
             'jobs': []
         }
     else:
+        projects_grouped[group_key]['qty'] += qty_val
         if mc_str and (not projects_grouped[group_key]['mc_number'] or projects_grouped[group_key]['mc_number'] == '-'):
             projects_grouped[group_key]['mc_number'] = mc_str
         if m1_str and (not projects_grouped[group_key]['member_1'] or projects_grouped[group_key]['member_1'] == '-'):
             projects_grouped[group_key]['member_1'] = m1_str
         
+    # Find standard time for this row/part
+    row_std_time = 0.0
+    pn_clean = str(pn).strip()
+    if pn_clean in master_info:
+        row_std_time = master_info[pn_clean]['std_time']
+    else:
+        for mpn, m in master_info.items():
+            if mpn.upper() == pn_clean.upper():
+                row_std_time = m['std_time']
+                break
+
     projects_grouped[group_key]['jobs'].append({
-        'pn': str(pn).strip(),
+        'pn': pn_clean,
         'name': str(desc).strip() if desc else '',
         'progress': int(prog_val),
-        'job_no': job_str
+        'job_no': job_str,
+        'qty': qty_val,
+        'std_time': row_std_time
     })
 
 # Format projects for prototype data.js
@@ -251,23 +265,8 @@ for key, data in projects_grouped.items():
     
     # Determine the Job Number display format
     if cust_str == 'ULC':
-        so_str = group_id_str.replace('ULC_', '')
-        job_nums = []
-        for job in data['jobs']:
-            if job['job_no']:
-                try:
-                    job_nums.append(int(job['job_no']))
-                except:
-                    pass
-        if job_nums:
-            min_job = min(job_nums)
-            max_job = max(job_nums)
-            if min_job == max_job:
-                job_no_display = str(min_job)
-            else:
-                job_no_display = f"{min_job} - {max_job}"
-        else:
-            job_no_display = '-'
+        job_no_display = ''
+        so_str = data['so']
     else:
         job_no_display = group_id_str
         so_str = data['so']
@@ -319,7 +318,9 @@ for key, data in projects_grouped.items():
                 'pn': job['pn'],
                 'name': job['name'],
                 'th_desc': '', # Fallback doesn't need th_desc since the name itself is already english/thai
-                'progress': job['progress']
+                'progress': job['progress'],
+                'qty': job.get('qty', 0),
+                'std_time': job.get('std_time', 0.0)
             })
             
     # Calculate overall progress
@@ -354,12 +355,33 @@ for key, data in projects_grouped.items():
                 break
                 
     if cust_str == 'ULC':
-        est_hours = 19.5
+        # Calculate average std_time of all jobs in this ULC group
+        ulc_times = []
+        for job in data['jobs']:
+            if job['pn'] in master_info:
+                ulc_times.append(master_info[job['pn']]['std_time'])
+            else:
+                found = False
+                for mpn, m in master_info.items():
+                    if mpn.upper() == job['pn'].upper():
+                        ulc_times.append(m['std_time'])
+                        found = True
+                        break
+                if not found:
+                    ulc_times.append(0.0)
+        
+        if ulc_times:
+            est_hours = round(sum(ulc_times) / len(ulc_times), 4)
+        else:
+            est_hours = 1.1292
+            
         main_desc = 'PRX250 Standard Module Assembly'
         
     # Find main part number
     main_pn = '-'
-    if data['jobs']:
+    if cust_str == 'ULC':
+        main_pn = 'PRX250-All Assy'
+    elif data['jobs']:
         for job in data['jobs']:
             if job['pn'] in master_info:
                 main_pn = job['pn']
@@ -371,8 +393,12 @@ for key, data in projects_grouped.items():
     if overall_prog >= 100:
         status = 'completed'
         
+    proj_id = f"{proj_str}-{job_no_display.replace(' ', '')}"
+    if cust_str == 'ULC':
+        proj_id = "ULC-PRX-ALL"
+        
     formatted_projects.append({
-        'id': f"{proj_str}-{job_no_display.replace(' ', '')}",
+        'id': proj_id,
         'customer': cust_str,
         'project_code': proj_str,
         'part_number': main_pn,

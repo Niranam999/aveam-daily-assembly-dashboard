@@ -289,6 +289,21 @@ function populateOperators() {
     });
 }
 
+function getProjectTotalHours(project) {
+    if (!project) return 0;
+    if (project.customer && project.customer.toUpperCase() === 'ULC') {
+        if (project.sub_assemblies && project.sub_assemblies.length > 0) {
+            let total = 0;
+            project.sub_assemblies.forEach(sub => {
+                total += (sub.qty || 0) * (sub.std_time || 0);
+            });
+            return total > 0 ? total : 361.5;
+        }
+        return 361.5;
+    }
+    return project.qty * project.est_hours;
+}
+
 // ==========================================================================
 // RENDER DETAIL PANEL (TOP SELECTED JOB VIEW)
 // ==========================================================================
@@ -381,7 +396,7 @@ function renderDetailPanel(project) {
                     <p class="detail-job-number" style="font-size: 0.68rem; line-height: 1.45;">
                         Part Number: <strong>${project.part_number || '-'}</strong><br>
                         Job: <strong>${project.job_no}</strong>${project.mc_number && project.mc_number !== '-' ? ' (MC: <strong>' + project.mc_number + '</strong>)' : ''} | Qty: <strong>${project.qty}</strong><br>
-                        Time: <strong>${project.est_hours}</strong> hrs/unit (Total: <strong>${(project.qty * project.est_hours).toLocaleString()}</strong> hrs)
+                        Time: <strong>${Number(project.est_hours).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 2 })}</strong> hrs/unit (Total: <strong>${getProjectTotalHours(project).toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</strong> hrs)
                     </p>
                     <div class="detail-desc-box" style="margin-top: 0.25rem;">
                         Description: <em>${project.description}</em>
