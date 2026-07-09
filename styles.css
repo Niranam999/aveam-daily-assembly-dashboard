@@ -77,27 +77,27 @@
 
 /* Green Sage/Forest Theme Override */
 :root[data-theme="green"] {
-    --bg-primary: #f5f4ef;
-    --bg-secondary: #e9e7df;
-    --card-bg: rgba(255, 255, 255, 0.85);
-    --card-border: rgba(46, 90, 68, 0.12);
-    --text-primary: #2d3b32;
-    --text-secondary: #5a6e60;
-    --text-muted: #8fa093;
-    --text-title: #1f3a2b;
+    --bg-primary: #ebf1ea;          /* Cool corporate sage cream backdrop */
+    --bg-secondary: #dee5dd;        /* Darker sage green */
+    --card-bg: #ffffff;             /* Crisp white cards like the mockup */
+    --card-border: #cedcce;         /* Cool sage borders */
+    --text-primary: #1a331e;        /* Dark forest green text */
+    --text-secondary: #4e6353;      /* Sage gray-green text */
+    --text-muted: #7f9685;
+    --text-title: #153e25;          /* Corporate forest green titles */
     
-    --brand-color: #2e5a44; /* Forest Green from backdrop text */
-    --brand-glow: 0 0 12px rgba(46, 90, 68, 0.25);
-    --panel-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(233, 231, 223, 0.95) 100%);
-    --time-badge-bg: rgba(255, 255, 255, 0.85);
-    --circle-bg: rgba(46, 90, 68, 0.05);
-    --bar-track-bg: rgba(46, 90, 68, 0.05);
+    --brand-color: #2e6f40;         /* Header indicator green from mockup */
+    --brand-glow: 0 0 12px rgba(46, 111, 64, 0.2);
+    --panel-bg: #ffffff;
+    --time-badge-bg: #ffffff;
+    --circle-bg: rgba(46, 111, 64, 0.06);
+    --bar-track-bg: rgba(46, 111, 64, 0.08);
     
     /* Phone simulator variables */
-    --phone-screen-bg: #faf9f6;
+    --phone-screen-bg: #ebf1ea;
     --input-bg: #ffffff;
-    --slider-bg: rgba(46, 90, 68, 0.05);
-    --form-info-bg: rgba(245, 244, 239, 0.8);
+    --slider-bg: rgba(46, 111, 64, 0.05);
+    --form-info-bg: rgba(255, 255, 255, 0.9);
     --success-screen-bg: rgba(255, 255, 255, 0.97);
 
     /* Softer natural status colors */
