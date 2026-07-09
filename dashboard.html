@@ -242,32 +242,58 @@
                 </div>
             </header>
 
-            <!-- Stats Bar (Based on WIP Assembly Jobs) -->
+            <!-- Stats Bar (Kanban Flow & Status Cards) -->
             <section class="stats-row">
-                <div class="stat-card total">
-                    <span class="stat-label">จ๊อบที่กำลังประกอบใน Assembly</span>
-                    <span class="stat-value" id="stat-total">0</span>
-                    <span class="stat-sub">จ๊อบในกระบวนการประกอบ (WIP)</span>
+                <!-- 1. Kanban Flow Container (Left) -->
+                <div class="kanban-flow-container">
+                    <div class="kanban-step-card backlog">
+                        <span class="stat-label">Backlog/Waiting</span>
+                        <span class="stat-value" id="kanban-backlog">0</span>
+                        <span class="stat-sub">รอมอบหมายงาน</span>
+                    </div>
+                    <div class="kanban-arrow">➔</div>
+                    <div class="kanban-step-card assigned">
+                        <span class="stat-label">Assigned</span>
+                        <span class="stat-value" id="kanban-assigned">0</span>
+                        <span class="stat-sub">จัดสรรพนักงาน</span>
+                    </div>
+                    <div class="kanban-arrow">➔</div>
+                    <div class="kanban-step-card inprogress">
+                        <span class="stat-label">In Progress</span>
+                        <span class="stat-value" id="kanban-inprogress">0</span>
+                        <span class="stat-sub">กำลังประกอบ</span>
+                    </div>
+                    <div class="kanban-arrow">➔</div>
+                    <div class="kanban-step-card qa">
+                        <span class="stat-label">QA/Inspection</span>
+                        <span class="stat-value" id="kanban-qa">0</span>
+                        <span class="stat-sub">รอตรวจคุณภาพ</span>
+                    </div>
+                    <div class="kanban-arrow">➔</div>
+                    <div class="kanban-step-card completed">
+                        <span class="stat-label">Completed</span>
+                        <span class="stat-value" id="kanban-completed">0</span>
+                        <span class="stat-sub">ประกอบเสร็จสิ้น</span>
+                    </div>
                 </div>
-                <div class="stat-card ontime">
-                    <span class="stat-label">ประกอบปกติ (On-Time)</span>
-                    <span class="stat-value" id="stat-ontime">0</span>
-                    <span class="stat-sub">🟢 ดำเนินการตามแผน</span>
-                </div>
-                <div class="stat-card atrisk">
-                    <span class="stat-label">เฝ้าระวัง (At Risk)</span>
-                    <span class="stat-value" id="stat-atrisk">0</span>
-                    <span class="stat-sub">🟡 ประสบปัญหาเล็กน้อย</span>
-                </div>
-                <div class="stat-card delayed">
-                    <span class="stat-label">ติดล่าช้า (Delayed)</span>
-                    <span class="stat-value" id="stat-delayed">0</span>
-                    <span class="stat-sub">🔴 ประสบปัญหาหน้างาน</span>
-                </div>
-                <div class="stat-card completed">
-                    <span class="stat-label">ประกอบเสร็จ (Completed)</span>
-                    <span class="stat-value" id="stat-completed">0</span>
-                    <span class="stat-sub">🔵 ยืนยัน QA / รอส่งสโตร์</span>
+
+                <!-- 2. Status Cards Container (Right) -->
+                <div class="status-cards-container">
+                    <div class="stat-card ontime">
+                        <span class="stat-label">ประกอบปกติ (ON-TIME)</span>
+                        <span class="stat-value" id="stat-ontime">0</span>
+                        <span class="stat-sub">🟢 ดำเนินตามแผน</span>
+                    </div>
+                    <div class="stat-card atrisk">
+                        <span class="stat-label">เฝ้าระวัง (AT RISK)</span>
+                        <span class="stat-value" id="stat-atrisk">0</span>
+                        <span class="stat-sub">🟡 ปัญหาเล็กน้อย</span>
+                    </div>
+                    <div class="stat-card delayed">
+                        <span class="stat-label">ติดล่าช้า (DELAYED)</span>
+                        <span class="stat-value" id="stat-delayed">0</span>
+                        <span class="stat-sub">🔴 ประสบปัญหา</span>
+                    </div>
                 </div>
             </section>
 

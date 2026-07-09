@@ -20,6 +20,11 @@ CREATE TABLE IF NOT EXISTS projects (
     qty_done INTEGER NOT NULL DEFAULT 0, -- Cumulative Finish Goods
     est_hours NUMERIC DEFAULT 0,
     sub_assemblies JSONB, -- Stores array of sub-assembly steps and progress
+    kanban_backlog INTEGER NOT NULL DEFAULT 0,
+    kanban_assigned INTEGER NOT NULL DEFAULT 0,
+    kanban_in_progress INTEGER NOT NULL DEFAULT 0,
+    kanban_qa INTEGER NOT NULL DEFAULT 0,
+    kanban_completed INTEGER NOT NULL DEFAULT 0,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
 );
 

@@ -243,10 +243,74 @@ body {
 /* Stats Row */
 .stats-row {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: 5.8fr 3.2fr;
     gap: 0.75rem;
     margin-bottom: 0.75rem;
     flex-shrink: 0;
+}
+
+/* Kanban Flow Container & Steps */
+.kanban-flow-container {
+    display: flex;
+    align-items: stretch;
+    gap: 0.25rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 0.45rem 0.5rem;
+}
+
+.kanban-step-card {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.015);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 0.45rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.kanban-step-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.kanban-step-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+}
+
+.kanban-step-card.backlog::before { background-color: var(--text-muted); }
+.kanban-step-card.assigned::before { background-color: #818cf8; }
+.kanban-step-card.inprogress::before { background-color: var(--color-completed); }
+.kanban-step-card.qa::before { background-color: var(--color-atrisk); }
+.kanban-step-card.completed::before { background-color: var(--color-ontime); }
+
+.kanban-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 1rem;
+    padding: 0 0.15rem;
+    user-select: none;
+    flex-shrink: 0;
+    font-family: Outfit, sans-serif;
+}
+
+/* Status Cards Container */
+.status-cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
 }
 
 .stat-card {
@@ -254,7 +318,7 @@ body {
     border: 1px solid var(--card-border);
     backdrop-filter: blur(10px);
     border-radius: 10px;
-    padding: 0.75rem;
+    padding: 0.45rem 0.5rem;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -1251,4 +1315,25 @@ body {
     box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
     border-radius: 1px;
     transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Responsive stats-row grid layouts */
+@media (max-width: 1200px) {
+    .stats-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .kanban-flow-container {
+        flex-direction: column;
+        gap: 0.4rem;
+        align-items: stretch;
+    }
+    .kanban-arrow {
+        transform: rotate(90deg);
+        padding: 0.1rem 0;
+        margin: 0 auto;
+    }
 }

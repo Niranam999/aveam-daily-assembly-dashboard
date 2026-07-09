@@ -152,17 +152,27 @@ c_qty = headers.index('Qty') + 1
 c_progress = headers.index('Job Progress (%)') + 1
 c_eval_progress = headers.index('My Evaluate Progress (%)') + 1
 c_tl = headers.index('TEAM LEADER') + 1
+c_backlog = headers.index('BACKLOG/UNASSIGNED') + 1
+c_assigned = headers.index('ASSIGNED') + 1
 c_in_progress = headers.index('IN PROGRESS') + 1
+c_qa = headers.index('QA/INSPECTION') + 1
+c_complete = headers.index('COMPLETE') + 1
 c_mc = headers.index('MC Number') + 1
 c_job = headers.index('Job Number') + 1
 c_m1 = headers.index('MEMBER 1') + 1
 
-# Group jobs by (Customer, Project Code, SO No.) where IN PROGRESS == '✓'
+# Group jobs by (Customer, Project Code, SO/Job) where active in any Kanban column
 projects_grouped = {}
 
 for r in range(2, sh_jobs.max_row+1):
-    in_progress = sh_jobs.cell(r, c_in_progress).value
-    if in_progress != '✓':
+    val_y = sh_jobs.cell(r, c_backlog).value
+    val_z = sh_jobs.cell(r, c_assigned).value
+    val_aa = sh_jobs.cell(r, c_in_progress).value
+    val_ab = sh_jobs.cell(r, c_qa).value
+    val_ac = sh_jobs.cell(r, c_complete).value
+    
+    is_active = any(v == '✓' for v in [val_y, val_z, val_aa, val_ab, val_ac])
+    if not is_active:
         continue
         
     cust = sh_jobs.cell(r, c_cust).value
@@ -213,6 +223,17 @@ for r in range(2, sh_jobs.max_row+1):
     job_val = sh_jobs.cell(r, c_job).value
     job_str = str(int(float(job_val))) if isinstance(job_val, (int, float)) else (str(job_val).strip() if job_val else '')
     
+    # Determine this row's kanban stage
+    kanban_stage = 'backlog'
+    if val_ac == '✓':
+        kanban_stage = 'completed'
+    elif val_ab == '✓':
+        kanban_stage = 'qa_inspection'
+    elif val_aa == '✓':
+        kanban_stage = 'in_progress'
+    elif val_z == '✓':
+        kanban_stage = 'assigned'
+
     # ULC projects are grouped under a single key to show overall system progress as a single card
     if cust_str == 'ULC':
         group_key = (cust_str, proj_str, 'ULC_ALL')
@@ -255,7 +276,8 @@ for r in range(2, sh_jobs.max_row+1):
         'progress': int(prog_val),
         'job_no': job_str,
         'qty': qty_val,
-        'std_time': row_std_time
+        'std_time': row_std_time,
+        'kanban_stage': kanban_stage
     })
 
 # Format projects for prototype data.js
@@ -389,11 +411,18 @@ for key, data in projects_grouped.items():
         if main_pn == '-':
             main_pn = data['jobs'][0]['pn']
 
+    # Aggregate Kanban stage counts
+    kanban_backlog = sum(1 for j in data['jobs'] if j.get('kanban_stage') == 'backlog')
+    kanban_assigned = sum(1 for j in data['jobs'] if j.get('kanban_stage') == 'assigned')
+    kanban_in_progress = sum(1 for j in data['jobs'] if j.get('kanban_stage') == 'in_progress')
+    kanban_qa = sum(1 for j in data['jobs'] if j.get('kanban_stage') == 'qa_inspection')
+    kanban_completed = sum(1 for j in data['jobs'] if j.get('kanban_stage') == 'completed')
+
     status = 'ontime'
-    if overall_prog >= 100:
+    if overall_prog >= 100 or kanban_completed > 0:
         status = 'completed'
         
-    proj_id = f"{proj_str}-{job_no_display.replace(' ', '')}"
+    proj_id = f"{cust_str}-{proj_str}-{job_no_display.replace(' ', '')}"
     if cust_str == 'ULC':
         proj_id = "ULC-PRX-ALL"
         
@@ -411,7 +440,12 @@ for key, data in projects_grouped.items():
         'progress': int(overall_prog),
         'qty': data['qty'],
         'est_hours': est_hours,
-        'sub_assemblies': subs
+        'sub_assemblies': subs,
+        'kanban_backlog': kanban_backlog,
+        'kanban_assigned': kanban_assigned,
+        'kanban_in_progress': kanban_in_progress,
+        'kanban_qa': kanban_qa,
+        'kanban_completed': kanban_completed
     })
 
 # 4. Write data.js

@@ -90,11 +90,14 @@ const PROGRESS_INTERVAL = 100;    // update bar every 100ms
 const projectsGrid = document.getElementById('thumbnails-list');
 const recentList = document.getElementById('recent-list');
 const filterContainer = document.getElementById('customer-filters');
-const statTotal = document.getElementById('stat-total');
+const kanbanBacklog = document.getElementById('kanban-backlog');
+const kanbanAssigned = document.getElementById('kanban-assigned');
+const kanbanInProgress = document.getElementById('kanban-inprogress');
+const kanbanQA = document.getElementById('kanban-qa');
+const kanbanCompleted = document.getElementById('kanban-completed');
 const statOnTime = document.getElementById('stat-ontime');
 const statAtRisk = document.getElementById('stat-atrisk');
 const statDelayed = document.getElementById('stat-delayed');
-const statCompleted = document.getElementById('stat-completed');
 const selectedJobPanel = document.getElementById('selected-job-panel');
 const carouselBar = document.getElementById('carousel-bar');
 
@@ -271,12 +274,29 @@ function getFilteredProjects() {
 }
 
 function updateStats() {
-    // Stats represent WIP assembly jobs
-    statTotal.textContent = projects.length;
-    statOnTime.textContent = projects.filter(p => p.status === 'ontime').length;
-    statAtRisk.textContent = projects.filter(p => p.status === 'atrisk').length;
-    statDelayed.textContent = projects.filter(p => p.status === 'delayed').length;
-    statCompleted.textContent = projects.filter(p => p.status === 'completed').length;
+    let backlog = 0;
+    let assigned = 0;
+    let inProgress = 0;
+    let qa = 0;
+    let completed = 0;
+    
+    projects.forEach(p => {
+        backlog += p.kanban_backlog || 0;
+        assigned += p.kanban_assigned || 0;
+        inProgress += p.kanban_in_progress || 0;
+        qa += p.kanban_qa || 0;
+        completed += p.kanban_completed || 0;
+    });
+    
+    if (kanbanBacklog) kanbanBacklog.textContent = backlog;
+    if (kanbanAssigned) kanbanAssigned.textContent = assigned;
+    if (kanbanInProgress) kanbanInProgress.textContent = inProgress;
+    if (kanbanQA) kanbanQA.textContent = qa;
+    if (kanbanCompleted) kanbanCompleted.textContent = completed;
+    
+    if (statOnTime) statOnTime.textContent = projects.filter(p => p.status === 'ontime').length;
+    if (statAtRisk) statAtRisk.textContent = projects.filter(p => p.status === 'atrisk').length;
+    if (statDelayed) statDelayed.textContent = projects.filter(p => p.status === 'delayed').length;
 }
 
 function populateOperators() {
