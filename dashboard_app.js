@@ -367,8 +367,8 @@ function renderDetailPanel(project) {
             <!-- Column 2: Product Image -->
             <div class="detail-product-col" style="display: flex; flex-direction: column; align-items: center; border-right: 1px solid var(--card-border); padding-right: 1rem; height: 100%;">
                 <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.25rem; flex-shrink: 0;">Product Picture</span>
-                <div class="product-col-image-box" style="flex: 1; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.01); border: 1px solid var(--card-border); border-radius: 8px; margin-top: 0.5rem; width: 100%; overflow: hidden; padding: 0.5rem; box-sizing: border-box;">
-                    <img src="${imgPath}" alt="${project.project_code}" style="max-width: 100%; max-height: 100px; object-fit: contain; border-radius: 4px;">
+                <div class="product-col-image-box" style="flex: 1; display: flex; align-items: center; justify-content: center; margin-top: 0.5rem; width: 100%; overflow: hidden; box-sizing: border-box;">
+                    <img src="${imgPath}" alt="${project.project_code}" style="width: 100%; max-width: 100%; max-height: 220px; object-fit: contain; border-radius: 4px;">
                 </div>
             </div>
         `;
