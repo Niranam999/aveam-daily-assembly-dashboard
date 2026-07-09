@@ -180,15 +180,15 @@ def main():
     
     # Define Column Widths (A4 optimized portrait layout)
     ws_k.column_dimensions['A'].width = 3
-    ws_k.column_dimensions['B'].width = 10
-    ws_k.column_dimensions['C'].width = 14
-    ws_k.column_dimensions['D'].width = 14
-    ws_k.column_dimensions['E'].width = 12
+    ws_k.column_dimensions['B'].width = 4     # Left margin padding (so text never hits border)
+    ws_k.column_dimensions['C'].width = 14    # Labels
+    ws_k.column_dimensions['D'].width = 12    # QR Code (Centered)
+    ws_k.column_dimensions['E'].width = 18    # Right value space
     ws_k.column_dimensions['F'].width = 4
-    ws_k.column_dimensions['G'].width = 10
-    ws_k.column_dimensions['H'].width = 14
-    ws_k.column_dimensions['I'].width = 14
-    ws_k.column_dimensions['J'].width = 12
+    ws_k.column_dimensions['G'].width = 4     # Left margin padding (so text never hits border)
+    ws_k.column_dimensions['H'].width = 14    # Labels
+    ws_k.column_dimensions['I'].width = 12    # QR Code (Centered)
+    ws_k.column_dimensions['J'].width = 18    # Right value space
     ws_k.column_dimensions['K'].width = 3
     
     # Custom Brand Colors for Card Headers (Depending on Customer)
@@ -351,7 +351,7 @@ def main():
             
             # Place image centered vertically/horizontally
             img = Image(qr_file)
-            img_cell = ws_k.cell(row=start_row + 10, column=start_col + 1) # Centered in Col C or H
+            img_cell = ws_k.cell(row=start_row + 10, column=start_col + 2) # Perfectly centered in Col D or I
             ws_k.add_image(img, img_cell.coordinate)
         except Exception as e:
             print(f"[Warning] ไม่สามารถโหลด QR code สำหรับจ๊อบ {job['job_number']}: {e}")
