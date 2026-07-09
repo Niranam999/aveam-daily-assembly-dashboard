@@ -76,19 +76,17 @@ def main():
         
     active_jobs_grouped = {}
     
-    # Read active jobs (marked in ASSIGNED or IN PROGRESS)
+    # Read active jobs (marked in IN PROGRESS only)
     for r in range(2, ws_src.max_row + 1):
-        assigned_val = clean_value(ws_src.cell(r, c_assigned).value)
         progress_val = clean_value(ws_src.cell(r, c_in_progress).value)
         
-        # Check if row is assigned or in progress (marked with checkmark)
-        if "✓" in assigned_val or "✓" in progress_val:
+        # Check if row is in progress (marked with checkmark)
+        if "✓" in progress_val:
             cust = clean_value(ws_src.cell(r, c_cust).value)
             proj = clean_value(ws_src.cell(r, c_proj).value)
             pn = clean_value(ws_src.cell(r, c_pn).value)
             desc = clean_value(ws_src.cell(r, c_desc).value)
             mc = clean_value(ws_src.cell(r, c_mc).value)
-            proj_id = clean_value(ws_src.cell(r, c_proj_id).value)
             job = clean_value(ws_src.cell(r, c_job).value)
             qty = clean_value(ws_src.cell(r, c_qty).value)
             tl = clean_value(ws_src.cell(r, c_tl).value)
@@ -98,6 +96,9 @@ def main():
             proj_str = str(proj).strip() if proj else 'PRX'
             if cust_str == 'ULC':
                 proj_str = 'PRX'
+                proj_id_unique = "ULC-PRX-ALL"
+            else:
+                proj_id_unique = f"{cust_str}-{proj_str}-{job.replace(' ', '')}"
             
             # Parse Qty
             try:
@@ -124,7 +125,7 @@ def main():
                     "part_number": pn,
                     "description": desc,
                     "mc_number": mc if mc else "ไม่มีข้อมูล",
-                    "project_id": proj_id if proj_id else "ไม่มีข้อมูล",
+                    "project_id": proj_id_unique,
                     "job_number": "" if cust_str == 'ULC' else job,
                     "qty": qty_val,
                     "team_leader": tl,
@@ -137,8 +138,8 @@ def main():
                         active_jobs_grouped[group_key]["members_list"].append(m)
                 if mc and active_jobs_grouped[group_key]["mc_number"] == "ไม่มีข้อมูล":
                     active_jobs_grouped[group_key]["mc_number"] = mc
-                if proj_id and active_jobs_grouped[group_key]["project_id"] == "ไม่มีข้อมูล":
-                    active_jobs_grouped[group_key]["project_id"] = proj_id
+                if proj_id_unique and active_jobs_grouped[group_key]["project_id"] == "ไม่มีข้อมูล":
+                    active_jobs_grouped[group_key]["project_id"] = proj_id_unique
                     
     active_jobs = []
     for key, item in active_jobs_grouped.items():
@@ -148,7 +149,7 @@ def main():
             "part_number": item["part_number"] if item["customer"] != "ULC" else "PRX250-REEL ASSY",
             "description": item["description"] if item["customer"] != "ULC" else "PRX250 Standard Module Assembly",
             "mc_number": item["mc_number"],
-            "project_id": item["project_id"] if item["customer"] != "ULC" else "ULC-PRX-ALL",
+            "project_id": item["project_id"],
             "job_number": item["job_number"],
             "qty": item["qty"],
             "team_leader": item["team_leader"] if item["team_leader"] else "WANLOP CHANPHET",
