@@ -178,17 +178,17 @@ def main():
     ws_k.page_margins.top = 0.25
     ws_k.page_margins.bottom = 0.25
     
-    # Define Column Widths (A4 optimized layout)
+    # Define Column Widths (A4 optimized portrait layout)
     ws_k.column_dimensions['A'].width = 3
-    ws_k.column_dimensions['B'].width = 12
-    ws_k.column_dimensions['C'].width = 16
-    ws_k.column_dimensions['D'].width = 12
-    ws_k.column_dimensions['E'].width = 16
-    ws_k.column_dimensions['F'].width = 3
-    ws_k.column_dimensions['G'].width = 12
-    ws_k.column_dimensions['H'].width = 16
-    ws_k.column_dimensions['I'].width = 12
-    ws_k.column_dimensions['J'].width = 16
+    ws_k.column_dimensions['B'].width = 10
+    ws_k.column_dimensions['C'].width = 14
+    ws_k.column_dimensions['D'].width = 14
+    ws_k.column_dimensions['E'].width = 12
+    ws_k.column_dimensions['F'].width = 4
+    ws_k.column_dimensions['G'].width = 10
+    ws_k.column_dimensions['H'].width = 14
+    ws_k.column_dimensions['I'].width = 14
+    ws_k.column_dimensions['J'].width = 12
     ws_k.column_dimensions['K'].width = 3
     
     # Custom Brand Colors for Card Headers (Depending on Customer)
@@ -222,36 +222,40 @@ def main():
         right=Side(style='thin', color='E2E8F0')
     )
 
-    total_pages = (len(active_jobs) + 7) // 8
+    total_pages = (len(active_jobs) + 3) // 4
     print(f"กำลังจัดเตรียมหน้ากระดาษ A4 ทั้งหมด: {total_pages} หน้า...")
     
-    # Loop to generate cards
+    # Loop to generate cards (Portrait style, 4 cards per A4 page)
     for idx, job in enumerate(active_jobs):
-        page = idx // 8
-        slot = idx % 8
+        page = idx // 4
+        slot = idx % 4
         row_idx = slot // 2
         col_idx = slot % 2
         
         # Calculate cell coordinates
-        # 9 content rows per card + 1 spacer row = 10 rows per card slot -> 40 rows per A4 page
-        page_offset = page * 41
-        start_row = page_offset + row_idx * 10 + 2
+        # 17 content rows per card + 1 spacer row = 18 rows per card slot -> 36 rows per A4 page
+        page_offset = page * 37
+        start_row = page_offset + row_idx * 18 + 2
         start_col = 2 if col_idx == 0 else 7 # Column B or Column G
         
         # Setup row heights for the page if not set
         if slot == 0:
             ws_k.row_dimensions[page_offset + 1].height = 15 # Top margin
             
-        ws_k.row_dimensions[start_row].height = 24     # Header
-        ws_k.row_dimensions[start_row + 1].height = 18 # Data 1 (Job No)
-        ws_k.row_dimensions[start_row + 2].height = 18 # Data 2 (Part No)
-        ws_k.row_dimensions[start_row + 3].height = 18 # Data 3 (Machine No)
-        ws_k.row_dimensions[start_row + 4].height = 18 # Data 4 (ProjectID)
-        ws_k.row_dimensions[start_row + 5].height = 18 # Data 5 (Qty)
-        ws_k.row_dimensions[start_row + 6].height = 18 # Data 6 (Lead)
-        ws_k.row_dimensions[start_row + 7].height = 18 # Data 7 (Members / แม่ทีม)
-        ws_k.row_dimensions[start_row + 8].height = 14 # Banner
-        ws_k.row_dimensions[start_row + 9].height = 15 # Spacer row
+        ws_k.row_dimensions[start_row].height = 24     # Hole punch area
+        ws_k.row_dimensions[start_row + 1].height = 26 # Header banner
+        ws_k.row_dimensions[start_row + 2].height = 20 # Job No
+        ws_k.row_dimensions[start_row + 3].height = 20 # Part No
+        ws_k.row_dimensions[start_row + 4].height = 20 # Machine No
+        ws_k.row_dimensions[start_row + 5].height = 20 # ProjectID
+        ws_k.row_dimensions[start_row + 6].height = 20 # Qty
+        ws_k.row_dimensions[start_row + 7].height = 20 # Lead
+        ws_k.row_dimensions[start_row + 8].height = 20 # แม่ทีม
+        ws_k.row_dimensions[start_row + 9].height = 8  # Divider line
+        for r_qr in range(10, 16):
+            ws_k.row_dimensions[start_row + r_qr].height = 18 # QR space (6 rows * 18 = 108pt)
+        ws_k.row_dimensions[start_row + 16].height = 18 # Banner
+        ws_k.row_dimensions[start_row + 17].height = 20 # Spacer row
         
         # Determine Header Color
         cust_upper = job["customer"].upper()
@@ -259,19 +263,26 @@ def main():
         fill_header = PatternFill(start_color=h_color, end_color=h_color, fill_type="solid")
         
         # Fill base background cells
-        for r in range(start_row, start_row + 9):
+        for r in range(start_row, start_row + 17):
             for c in range(start_col, start_col + 4):
                 ws_k.cell(row=r, column=c).fill = fill_bg
                 
-        # 1. Card Header (Merged row)
+        # 1. Card Top Hole Punch Area (Merged row with a circle character)
         ws_k.merge_cells(start_row=start_row, start_column=start_col, end_row=start_row, end_column=start_col + 3)
-        h_cell = ws_k.cell(row=start_row, column=start_col)
-        h_cell.value = f" {job['customer']} - {job['project_code']}"
+        hole_cell = ws_k.cell(row=start_row, column=start_col)
+        hole_cell.value = "○"
+        hole_cell.font = Font(name="Segoe UI", size=14, color="64748B")
+        hole_cell.alignment = align_center
+        
+        # 2. Card Header (Merged row)
+        ws_k.merge_cells(start_row=start_row + 1, start_column=start_col, end_row=start_row + 1, end_column=start_col + 3)
+        h_cell = ws_k.cell(row=start_row + 1, column=start_col)
+        h_cell.value = f"{job['customer']} - {job['project_code']}"
         h_cell.font = f_header
         h_cell.alignment = align_center
         h_cell.fill = fill_header
         
-        # 2. Card Content (Left Columns)
+        # 3. Card Content (Merged values to prevent text cuts/overlap)
         labels = [
             ("Job No:", job["job_number"] if job["job_number"] else job["project_id"], f_bold_val),
             ("Part No:", job["part_number"], f_value),
@@ -283,35 +294,51 @@ def main():
         ]
         
         for offset, (label, val, val_font) in enumerate(labels):
-            curr_row = start_row + 1 + offset
+            curr_row = start_row + 2 + offset
             
             l_cell = ws_k.cell(row=curr_row, column=start_col)
             l_cell.value = label
             l_cell.font = f_label
             l_cell.alignment = align_right
+            l_cell.border = thin_border
             
+            ws_k.merge_cells(start_row=curr_row, start_column=start_col + 1, end_row=curr_row, end_column=start_col + 3)
             v_cell = ws_k.cell(row=curr_row, column=start_col + 1)
             v_cell.value = val
             v_cell.font = val_font
             v_cell.alignment = align_left
             
-            # Draw thin borders internally
-            l_cell.border = thin_border
-            v_cell.border = thin_border
-            ws_k.cell(row=curr_row, column=start_col + 2).border = thin_border
-            ws_k.cell(row=curr_row, column=start_col + 3).border = thin_border
+            # Apply borders to all columns in this detail row
+            for c in range(start_col + 1, start_col + 4):
+                ws_k.cell(row=curr_row, column=c).border = thin_border
+                
+        # 4. Card Divider Line (Thick thematic color border)
+        div_row = start_row + 9
+        ws_k.merge_cells(start_row=div_row, start_column=start_col, end_row=div_row, end_column=start_col + 3)
+        div_cell = ws_k.cell(row=div_row, column=start_col)
+        div_cell.value = ""
+        theme_border_side = Side(style='medium', color=h_color)
+        div_cell.border = Border(bottom=theme_border_side)
+        for c in range(start_col + 1, start_col + 4):
+            ws_k.cell(row=div_row, column=c).border = Border(bottom=theme_border_side)
             
-        # 3. Card Bottom Banner (Merged scan reminder)
-        ws_k.merge_cells(start_row=start_row + 8, start_column=start_col, end_row=start_row + 8, end_column=start_col + 3)
-        b_cell = ws_k.cell(row=start_row + 8, column=start_col)
+        # 5. QR Code Area (Merged rows 10-15 to clear gridlines)
+        qr_start_row = start_row + 10
+        ws_k.merge_cells(start_row=qr_start_row, start_column=start_col, end_row=start_row + 15, end_column=start_col + 3)
+        for r_qr in range(qr_start_row, start_row + 16):
+            for c_qr in range(start_col, start_col + 4):
+                ws_k.cell(row=r_qr, column=c_qr).border = Border() # Clear inner borders for QR
+                
+        # 6. Card Bottom Banner (Scan reminder)
+        banner_row = start_row + 16
+        ws_k.merge_cells(start_row=banner_row, start_column=start_col, end_row=banner_row, end_column=start_col + 3)
+        b_cell = ws_k.cell(row=banner_row, column=start_col)
         b_cell.value = "📲 Scan QR to Update Assembly Dashboard"
         b_cell.font = f_banner
         b_cell.alignment = align_center
         b_cell.fill = fill_banner
-        b_cell.border = thin_border
         
-        # 4. Generate & Insert QR Code
-        # URL template: https://niranam999.github.io/aveam-daily-assembly-dashboard/update.html?job=JOB_NUMBER
+        # 7. Generate & Insert QR Code
         job_id_for_qr = job['job_number'] if job['job_number'] else job['project_id']
         update_url = f"https://niranam999.github.io/aveam-daily-assembly-dashboard/update.html?job={job_id_for_qr}"
         qr_url = f"https://api.qrserver.com/v1/create-qr-code/?size=115x115&data={urllib.parse.quote(update_url)}"
@@ -322,15 +349,15 @@ def main():
             # Download QR code image from API
             urllib.request.urlretrieve(qr_url, qr_file)
             
-            # Place image starting at column D/I (c+2) and row 2 of the card
+            # Place image centered vertically/horizontally
             img = Image(qr_file)
-            img_cell = ws_k.cell(row=start_row + 1, column=start_col + 2)
+            img_cell = ws_k.cell(row=start_row + 10, column=start_col + 1) # Centered in Col C or H
             ws_k.add_image(img, img_cell.coordinate)
         except Exception as e:
             print(f"[Warning] ไม่สามารถโหลด QR code สำหรับจ๊อบ {job['job_number']}: {e}")
             
-        # 5. Draw Card Outer Outline Border (Medium Border)
-        draw_card_outer_border(ws_k, start_row, start_col, start_row + 8, start_col + 3)
+        # 8. Draw Card Outer Outline Border (Medium Border)
+        draw_card_outer_border(ws_k, start_row, start_col, start_row + 16, start_col + 3)
         
     # Save Workbook
     try:
