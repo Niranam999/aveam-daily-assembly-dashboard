@@ -296,20 +296,27 @@ def main():
         for offset, (label, val, val_font) in enumerate(labels):
             curr_row = start_row + 2 + offset
             
-            l_cell = ws_k.cell(row=curr_row, column=start_col)
+            # Left margin spacer cell (Column B/G)
+            sp_cell = ws_k.cell(row=curr_row, column=start_col)
+            sp_cell.value = ""
+            sp_cell.border = thin_border
+            
+            # Label cell (Column C/H)
+            l_cell = ws_k.cell(row=curr_row, column=start_col + 1)
             l_cell.value = label
             l_cell.font = f_label
             l_cell.alignment = align_right
             l_cell.border = thin_border
             
-            ws_k.merge_cells(start_row=curr_row, start_column=start_col + 1, end_row=curr_row, end_column=start_col + 3)
-            v_cell = ws_k.cell(row=curr_row, column=start_col + 1)
+            # Value cells merged (Column D/I to E/J)
+            ws_k.merge_cells(start_row=curr_row, start_column=start_col + 2, end_row=curr_row, end_column=start_col + 3)
+            v_cell = ws_k.cell(row=curr_row, column=start_col + 2)
             v_cell.value = val
             v_cell.font = val_font
             v_cell.alignment = align_left
             
-            # Apply borders to all columns in this detail row
-            for c in range(start_col + 1, start_col + 4):
+            # Apply borders to the merged value cells
+            for c in range(start_col + 2, start_col + 4):
                 ws_k.cell(row=curr_row, column=c).border = thin_border
                 
         # 4. Card Divider Line (Thick thematic color border)
