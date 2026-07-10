@@ -124,26 +124,49 @@
             body {
                 overflow: hidden !important; /* No scrollbars on shop floor TV! */
             }
-            /* Hide the red-circled status cards (On-Time, At Risk, Delayed) as requested */
-            .status-cards-container {
-                display: none !important;
-            }
-            /* Make Kanban flow container span full width of stats row */
+            /* Side-by-side Kanban and Status cards row on TV dashboard as requested */
             .stats-row {
-                grid-template-columns: 1fr !important;
-                height: 75px !important;
-                margin-bottom: 0.4rem !important;
+                display: grid !important;
+                grid-template-columns: 1fr auto !important; /* Kanban flow on left, Status cards on right */
+                gap: 1rem !important;
+                height: 80px !important;
+                min-height: 80px !important;
+                max-height: 80px !important;
+                margin-bottom: 0.5rem !important;
             }
             .kanban-flow-container {
-                width: 100% !important;
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                width: auto !important;
+            }
+            .status-cards-container {
+                display: grid !important; /* Show the status cards! */
+                grid-template-columns: repeat(3, 130px) !important; /* Slightly narrower to fit 1366px width comfortably */
+                gap: 0.5rem !important;
+                height: auto !important;
+            }
+            .stat-card {
+                padding: 0.4rem 0.6rem !important;
+                height: 68px !important;
+                box-sizing: border-box !important;
+            }
+            .stat-card .stat-label {
+                font-size: 0.62rem !important;
+            }
+            .stat-card .stat-value {
+                font-size: 1.15rem !important;
+            }
+            .stat-card .stat-sub {
+                font-size: 0.62rem !important;
             }
             
             /* Selected Job Panel sizing */
             .selected-job-panel {
-                height: 300px !important;
-                min-height: 300px !important;
-                max-height: 300px !important;
-                padding: 0.75rem 1.2rem !important;
+                height: 320px !important;
+                min-height: 320px !important;
+                max-height: 320px !important;
+                padding: 0.8rem 1.2rem !important;
                 gap: 1.25rem !important;
                 grid-template-columns: 310px 200px 200px 1fr 160px !important; /* Widescreen spacing */
             }
@@ -151,35 +174,35 @@
                 padding-right: 0.8rem !important;
             }
             .detail-project-name {
-                font-size: 1.5rem !important;
-                margin-top: 0.15rem !important;
+                font-size: 1.6rem !important;
+                margin-top: 0.2rem !important;
             }
             .detail-job-number {
-                font-size: 0.85rem !important;
-                margin-top: 0.05rem !important;
+                font-size: 0.9rem !important;
+                margin-top: 0.1rem !important;
             }
             .detail-desc-box {
-                font-size: 0.75rem !important;
-                margin-top: 0.2rem !important;
+                font-size: 0.8rem !important;
+                margin-top: 0.3rem !important;
                 display: -webkit-box !important;
                 -webkit-line-clamp: 2 !important;
                 -webkit-box-orient: vertical !important;
                 overflow: hidden !important;
             }
             .detail-fg-status-horizontal {
-                padding: 0.35rem 0.7rem !important;
-                margin-top: 0.3rem !important;
+                padding: 0.4rem 0.75rem !important;
+                margin-top: 0.35rem !important;
             }
             .detail-fg-status-horizontal span:first-child {
-                font-size: 0.65rem !important;
+                font-size: 0.7rem !important;
             }
             .detail-fg-status-horizontal span:last-child {
-                font-size: 0.95rem !important;
+                font-size: 1.05rem !important;
             }
             .fg-bar-track-horizontal {
-                height: 10px !important;
-                margin-top: 0.2rem !important;
-                margin-bottom: 0.2rem !important;
+                height: 12px !important;
+                margin-top: 0.25rem !important;
+                margin-bottom: 0.25rem !important;
             }
             .detail-product-col {
                 padding-right: 0.8rem !important;
@@ -188,7 +211,7 @@
                 font-size: 0.75rem !important;
             }
             .detail-product-col img {
-                max-height: 170px !important;
+                max-height: 185px !important;
             }
             /* Donut Chart Sizing via Transform */
             .detail-middle {
@@ -198,52 +221,52 @@
                 justify-content: center;
             }
             .big-progress-circle-wrap {
-                transform: scale(0.78) !important; /* Slightly smaller to fit 300px panel height */
+                transform: scale(0.82) !important; /* Perfect fit for 320px height */
                 transform-origin: center !important;
                 margin: -20px 0 !important;
             }
             .detail-meta-text {
-                margin-top: 0.15rem !important;
-                gap: 0.15rem !important;
+                margin-top: 0.2rem !important;
+                gap: 0.2rem !important;
             }
             .detail-meta-text .stat-sub {
-                font-size: 0.8rem !important;
+                font-size: 0.85rem !important;
             }
             .detail-lead-label {
-                font-size: 0.75rem !important;
+                font-size: 0.8rem !important;
             }
             /* Sub-assemblies vertical chart sizing */
             .detail-subs-header {
-                font-size: 0.75rem !important;
+                font-size: 0.8rem !important;
             }
             .fg-bar-track, .vertical-bar-track {
-                height: 120px !important; /* Taller sub-assembly bars fitting 300px */
+                height: 130px !important; /* Taller sub-assembly bars fitting 320px */
             }
             .vertical-bar-value {
-                font-size: 0.58rem !important;
+                font-size: 0.6rem !important;
             }
             .vertical-bar-label {
-                font-size: 0.58rem !important;
+                font-size: 0.6rem !important;
             }
             /* Column 5: QR side spacing */
             .detail-qr-side {
                 padding-left: 0.8rem !important;
             }
             .qr-title-box {
-                font-size: 0.58rem !important;
-                line-height: 1.25rem !important;
+                font-size: 0.6rem !important;
+                line-height: 1.3rem !important;
             }
             .qr-title-box strong {
-                font-size: 0.65rem !important;
+                font-size: 0.7rem !important;
             }
             .big-qr-box {
-                padding: 4px !important;
-                width: 85px !important;
-                height: 85px !important;
+                padding: 5px !important;
+                width: 95px !important;
+                height: 95px !important;
             }
             .detail-qr-side .submit-btn {
-                height: 26px !important;
-                font-size: 0.65rem !important;
+                height: 28px !important;
+                font-size: 0.7rem !important;
                 padding: 0 !important;
             }
             /* Hide middle and right sections of bottom split row */
@@ -256,16 +279,16 @@
             /* Make thumbnails section full width and single row */
             .bottom-split-row {
                 grid-template-columns: 1fr !important; /* Only 1 column (full width) */
-                height: 120px !important;
-                min-height: 120px !important;
-                max-height: 120px !important;
+                height: 130px !important;
+                min-height: 130px !important;
+                max-height: 130px !important;
                 gap: 0 !important;
                 overflow: hidden !important;
-                margin-top: 0.2rem !important;
+                margin-top: 0.25rem !important;
             }
             .thumbnails-section {
                 width: 100% !important;
-                padding: 0.35rem 0.6rem !important;
+                padding: 0.4rem 0.6rem !important;
                 box-sizing: border-box !important;
             }
             .thumbnails-list {
@@ -274,13 +297,13 @@
                 flex-wrap: nowrap !important;
                 gap: 0.5rem !important;
                 overflow-x: auto !important;
-                margin-top: 0.15rem !important;
+                margin-top: 0.2rem !important;
                 padding-bottom: 4px !important;
                 width: 100% !important;
             }
             .thumb-card {
                 flex: 0 0 190px !important; /* Keep cards at a fixed 190px width */
-                height: 68px !important; /* Compact height for single-row cards */
+                height: 70px !important; /* Compact height for single-row cards */
                 padding: 0.35rem 0.5rem !important;
                 box-sizing: border-box !important;
             }
