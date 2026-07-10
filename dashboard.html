@@ -125,55 +125,55 @@
                 overflow: hidden !important; /* No scrollbars on shop floor TV! */
             }
             .selected-job-panel {
-                height: 275px !important;
-                min-height: 275px !important;
-                max-height: 275px !important;
-                padding: 0.6rem 1rem !important;
-                gap: 0.8rem !important;
-                grid-template-columns: 290px 180px 180px 1fr 150px !important; /* Slightly scale down column widths */
+                height: 330px !important;
+                min-height: 330px !important;
+                max-height: 330px !important;
+                padding: 0.8rem 1.2rem !important;
+                gap: 1.25rem !important;
+                grid-template-columns: 310px 200px 200px 1fr 160px !important; /* Widescreen spacing */
             }
             .detail-left {
-                padding-right: 0.6rem !important;
+                padding-right: 0.8rem !important;
             }
             .detail-project-name {
-                font-size: 1.4rem !important;
-                margin-top: 0.1rem !important;
+                font-size: 1.6rem !important;
+                margin-top: 0.2rem !important;
             }
             .detail-job-number {
-                font-size: 0.85rem !important;
+                font-size: 0.9rem !important;
                 margin-top: 0.1rem !important;
             }
             .detail-desc-box {
-                font-size: 0.75rem !important;
-                margin-top: 0.2rem !important;
+                font-size: 0.8rem !important;
+                margin-top: 0.3rem !important;
                 display: -webkit-box !important;
                 -webkit-line-clamp: 2 !important;
                 -webkit-box-orient: vertical !important;
                 overflow: hidden !important;
             }
             .detail-fg-status-horizontal {
-                padding: 0.35rem 0.6rem !important;
-                margin-top: 0.25rem !important;
+                padding: 0.4rem 0.75rem !important;
+                margin-top: 0.35rem !important;
             }
             .detail-fg-status-horizontal span:first-child {
-                font-size: 0.65rem !important;
-            }
-            .detail-fg-status-horizontal span:last-child {
-                font-size: 0.95rem !important;
-            }
-            .fg-bar-track-horizontal {
-                height: 10px !important;
-                margin-top: 0.2rem !important;
-                margin-bottom: 0.2rem !important;
-            }
-            .detail-product-col {
-                padding-right: 0.6rem !important;
-            }
-            .detail-product-col span {
                 font-size: 0.7rem !important;
             }
+            .detail-fg-status-horizontal span:last-child {
+                font-size: 1.05rem !important;
+            }
+            .fg-bar-track-horizontal {
+                height: 12px !important;
+                margin-top: 0.25rem !important;
+                margin-bottom: 0.25rem !important;
+            }
+            .detail-product-col {
+                padding-right: 0.8rem !important;
+            }
+            .detail-product-col span {
+                font-size: 0.75rem !important;
+            }
             .detail-product-col img {
-                max-height: 145px !important;
+                max-height: 195px !important;
             }
             /* Donut Chart Sizing via Transform */
             .detail-middle {
@@ -183,87 +183,91 @@
                 justify-content: center;
             }
             .big-progress-circle-wrap {
-                transform: scale(0.72) !important;
+                transform: scale(0.85) !important; /* Larger progress wheel */
                 transform-origin: center !important;
-                margin: -25px 0 !important;
+                margin: -15px 0 !important;
             }
             .detail-meta-text {
-                margin-top: 0.15rem !important;
-                gap: 0.15rem !important;
+                margin-top: 0.2rem !important;
+                gap: 0.2rem !important;
             }
             .detail-meta-text .stat-sub {
-                font-size: 0.8rem !important;
+                font-size: 0.85rem !important;
             }
             .detail-lead-label {
-                font-size: 0.75rem !important;
+                font-size: 0.8rem !important;
             }
             /* Sub-assemblies vertical chart sizing */
             .detail-subs-header {
-                font-size: 0.75rem !important;
+                font-size: 0.8rem !important;
             }
             .fg-bar-track, .vertical-bar-track {
-                height: 110px !important;
+                height: 135px !important; /* Taller sub-assembly bars */
             }
             .vertical-bar-value {
-                font-size: 0.55rem !important;
+                font-size: 0.6rem !important;
             }
             .vertical-bar-label {
-                font-size: 0.55rem !important;
+                font-size: 0.6rem !important;
             }
             /* Column 5: QR side spacing */
             .detail-qr-side {
-                padding-left: 0.6rem !important;
+                padding-left: 0.8rem !important;
             }
             .qr-title-box {
-                font-size: 0.55rem !important;
-                line-height: 1.25 !important;
+                font-size: 0.6rem !important;
+                line-height: 1.3rem !important;
             }
             .qr-title-box strong {
-                font-size: 0.65rem !important;
+                font-size: 0.7rem !important;
             }
             .big-qr-box {
-                padding: 4px !important;
-                width: 85px !important;
-                height: 85px !important;
+                padding: 5px !important;
+                width: 95px !important;
+                height: 95px !important;
             }
             .detail-qr-side .submit-btn {
-                height: 26px !important;
-                font-size: 0.65rem !important;
+                height: 28px !important;
+                font-size: 0.7rem !important;
                 padding: 0 !important;
             }
-            /* Bottom row height scale */
-            .bottom-split-row {
-                height: 245px !important;
-                min-height: 245px !important;
-                gap: 0.6rem !important;
-            }
-            .thumbnails-section {
-                padding: 0.5rem 0.6rem !important;
-            }
-            .thumbnails-list {
-                gap: 0.35rem !important;
-                margin-top: 0.25rem !important;
-            }
-            .thumb-card {
-                padding: 0.35rem 0.5rem !important;
-            }
+            /* Hide middle and right sections of bottom split row */
             .recent-logs-container {
-                padding: 0.5rem 0.6rem !important;
-            }
-            .recent-list {
-                gap: 0.3rem !important;
-                margin-top: 0.25rem !important;
+                display: none !important;
             }
             .master-qr-container {
-                padding: 0.5rem 0.6rem !important;
+                display: none !important;
             }
-            .master-qr-container div {
-                font-size: 0.68rem !important;
-                margin-bottom: 0.4rem !important;
+            /* Make thumbnails section full width and single row */
+            .bottom-split-row {
+                grid-template-columns: 1fr !important; /* Only 1 column (full width) */
+                height: 130px !important;
+                min-height: 130px !important;
+                max-height: 130px !important;
+                gap: 0 !important;
+                overflow: hidden !important;
+                margin-top: 0.25rem !important;
             }
-            .master-qr-container img {
-                width: 80px !important;
-                height: 80px !important;
+            .thumbnails-section {
+                width: 100% !important;
+                padding: 0.4rem 0.6rem !important;
+                box-sizing: border-box !important;
+            }
+            .thumbnails-list {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                gap: 0.5rem !important;
+                overflow-x: auto !important;
+                margin-top: 0.2rem !important;
+                padding-bottom: 4px !important;
+                width: 100% !important;
+            }
+            .thumb-card {
+                flex: 0 0 190px !important; /* Keep cards at a fixed 190px width */
+                height: 70px !important; /* Compact height for single-row cards */
+                padding: 0.35rem 0.5rem !important;
+                box-sizing: border-box !important;
             }
         }
 
