@@ -892,29 +892,14 @@ window.addEventListener('resize', renderRecentUpdates);
 
 // Automatically scale dashboard to fit widescreen low-height displays (like TCL 32")
 function adjustDashboardScale() {
+    // Disabled as requested to retain natural full-width layout
     const container = document.querySelector('.app-container');
-    if (!container) return;
-    
-    // Only apply scale transform in widescreen landscape viewports
-    if (window.innerWidth > 900 && window.innerWidth > window.innerHeight) {
-        const targetHeight = 810; // Target layout height in pixels
-        const scale = Math.min(1.0, window.innerHeight / targetHeight);
-        
-        if (scale < 1.0) {
-            container.style.transform = `scale(${scale})`;
-            container.style.transformOrigin = 'top center';
-            container.style.width = `${100 / scale}%`;
-            container.style.height = `${100 / scale}%`;
-            document.body.style.overflow = 'hidden';
-            return;
-        }
+    if (container) {
+        container.style.transform = '';
+        container.style.transformOrigin = '';
+        container.style.width = '';
+        container.style.height = '';
     }
-    
-    // Reset properties if screen is portrait/tablet
-    container.style.transform = '';
-    container.style.transformOrigin = '';
-    container.style.width = '';
-    container.style.height = '';
     document.body.style.overflow = '';
 }
 
