@@ -124,85 +124,88 @@
             body {
                 overflow: hidden !important; /* No scrollbars on shop floor TV! */
             }
-            /* Side-by-side Kanban and Status cards row on TV dashboard as requested */
+            /* 1. Hide the red-circled status cards and stretch Kanban Flow across full width */
+            .status-cards-container {
+                display: none !important;
+            }
             .stats-row {
-                display: grid !important;
-                grid-template-columns: 1fr auto !important; /* Kanban flow on left, Status cards on right */
-                gap: 1rem !important;
-                height: 80px !important;
-                min-height: 80px !important;
-                max-height: 80px !important;
-                margin-bottom: 0.5rem !important;
+                display: block !important;
+                height: 75px !important;
+                min-height: 75px !important;
+                max-height: 75px !important;
+                margin-bottom: 0.35rem !important;
             }
             .kanban-flow-container {
                 display: flex !important;
-                flex-direction: row !important;
+                justify-content: space-between !important;
                 align-items: center !important;
-                width: auto !important;
+                width: 100% !important;
+                height: 100% !important;
+                gap: 0.25rem !important;
             }
-            .status-cards-container {
-                display: grid !important; /* Show the status cards! */
-                grid-template-columns: repeat(3, 130px) !important; /* Slightly narrower to fit 1366px width comfortably */
-                gap: 0.5rem !important;
-                height: auto !important;
-            }
-            .stat-card {
-                padding: 0.4rem 0.6rem !important;
-                height: 68px !important;
+            .kanban-step-card {
+                flex: 1 !important; /* Stretch cards to take full width */
+                height: 65px !important;
+                padding: 0.35rem 0.5rem !important;
                 box-sizing: border-box !important;
             }
-            .stat-card .stat-label {
+            .kanban-step-card .stat-label {
+                font-size: 0.65rem !important;
+            }
+            .kanban-step-card .stat-value {
+                font-size: 1.1rem !important;
+            }
+            .kanban-step-card .stat-sub {
                 font-size: 0.62rem !important;
             }
-            .stat-card .stat-value {
-                font-size: 1.15rem !important;
-            }
-            .stat-card .stat-sub {
-                font-size: 0.62rem !important;
+            .kanban-arrow {
+                font-size: 0.8rem !important;
+                color: var(--text-muted) !important;
             }
             
-            /* Selected Job Panel sizing - reduced to 240px to prevent overlapping and clipping */
+            /* 2. Selected Job Panel sizing - reduced to 215px height (10% reduction) to prevent overlapping */
+            /* 3. Shifted blue divider left (200px info col) and hid QR code (last col) to maximize space for sub-assemblies chart (1fr) */
             .selected-job-panel {
-                height: 240px !important;
-                min-height: 240px !important;
-                max-height: 240px !important;
-                padding: 0.5rem 1rem !important;
+                height: 215px !important;
+                min-height: 215px !important;
+                max-height: 215px !important;
+                padding: 0.4rem 0.8rem !important;
                 gap: 1rem !important;
-                grid-template-columns: 280px 150px 170px 1fr 140px !important; /* TV-optimized column widths */
+                grid-template-columns: 200px 140px 170px 1fr !important; /* Left divider moved to 200px, 5th column hidden */
             }
             .detail-left {
                 padding-right: 0.5rem !important;
             }
             .detail-project-name {
-                font-size: 1.3rem !important;
-                margin-top: 0.1rem !important;
-                line-height: 1.2 !important;
+                font-size: 1.15rem !important;
+                margin-top: 0.05rem !important;
+                line-height: 1.15 !important;
             }
             .detail-job-number {
-                font-size: 0.8rem !important;
+                font-size: 0.72rem !important;
                 margin-top: 0.02rem !important;
             }
             .detail-desc-box {
-                font-size: 0.72rem !important;
-                margin-top: 0.15rem !important;
-                line-height: 1.3 !important;
+                font-size: 0.68rem !important;
+                margin-top: 0.1rem !important;
+                line-height: 1.25 !important;
                 display: -webkit-box !important;
                 -webkit-line-clamp: 2 !important;
                 -webkit-box-orient: vertical !important;
                 overflow: hidden !important;
             }
             .detail-fg-status-horizontal {
-                padding: 0.3rem 0.6rem !important;
-                margin-top: 0.25rem !important;
+                padding: 0.25rem 0.5rem !important;
+                margin-top: 0.2rem !important;
             }
             .detail-fg-status-horizontal span:first-child {
-                font-size: 0.62rem !important;
+                font-size: 0.58rem !important;
             }
             .detail-fg-status-horizontal span:last-child {
-                font-size: 0.85rem !important;
+                font-size: 0.78rem !important;
             }
             .fg-bar-track-horizontal {
-                height: 8px !important;
+                height: 6px !important;
                 margin-top: 0.15rem !important;
                 margin-bottom: 0.15rem !important;
             }
@@ -214,10 +217,10 @@
                 align-items: center;
             }
             .detail-product-col span {
-                font-size: 0.7rem !important;
+                font-size: 0.65rem !important;
             }
             .detail-product-col img {
-                max-height: 120px !important; /* Scale image down */
+                max-height: 100px !important; /* Scale image down to fit 215px height */
                 object-fit: contain !important;
             }
             /* Donut Chart Sizing via Transform */
@@ -228,27 +231,27 @@
                 justify-content: center;
             }
             .big-progress-circle-wrap {
-                transform: scale(0.62) !important; /* Scale donut chart down to fit 240px height */
+                transform: scale(0.55) !important; /* Scale donut chart down to fit 215px height */
                 transform-origin: center !important;
-                margin: -35px 0 !important;
+                margin: -45px 0 !important;
             }
             .detail-meta-text {
-                margin-top: -5px !important; /* pull text closer to the scaled chart */
-                gap: 0.1rem !important;
+                margin-top: -12px !important; /* pull text closer to the scaled chart */
+                gap: 0.05rem !important;
             }
             .detail-meta-text .stat-sub {
-                font-size: 0.75rem !important;
+                font-size: 0.7rem !important;
             }
             .detail-lead-label {
-                font-size: 0.72rem !important;
+                font-size: 0.68rem !important;
             }
             /* Sub-assemblies vertical chart sizing */
             .detail-subs-header {
-                font-size: 0.72rem !important;
-                margin-bottom: 0.2rem !important;
+                font-size: 0.68rem !important;
+                margin-bottom: 0.15rem !important;
             }
             .fg-bar-track, .vertical-bar-track {
-                height: 90px !important; /* Shorter sub-assembly bars fitting 240px */
+                height: 75px !important; /* Shorter sub-assembly bars fitting 215px */
             }
             .vertical-bar-value {
                 font-size: 0.52rem !important;
@@ -256,32 +259,9 @@
             .vertical-bar-label {
                 font-size: 0.52rem !important;
             }
-            /* Column 5: QR side spacing */
+            /* Hide QR Code Side entirely to maximize space for sub-assemblies */
             .detail-qr-side {
-                padding-left: 0.5rem !important;
-                gap: 0.4rem !important;
-                justify-content: center !important;
-            }
-            .qr-title-box {
-                font-size: 0.52rem !important;
-                line-height: 1.15rem !important;
-            }
-            .qr-title-box strong {
-                font-size: 0.6rem !important;
-            }
-            .big-qr-box {
-                padding: 3px !important;
-                width: 70px !important;
-                height: 70px !important;
-            }
-            .big-qr-box img {
-                width: 100% !important;
-                height: 100% !important;
-            }
-            .detail-qr-side .submit-btn {
-                height: 24px !important;
-                font-size: 0.6rem !important;
-                padding: 0 !important;
+                display: none !important;
             }
             /* Hide middle and right sections of bottom split row */
             .recent-logs-container {
@@ -320,6 +300,7 @@
                 height: 60px !important; /* Compact height for single-row cards */
                 padding: 0.25rem 0.4rem !important;
                 box-sizing: border-box !important;
+            }
         }
 
         /* Responsive layout specifically for vertical small screens (Mobile/Tablet Portrait) */
