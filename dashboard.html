@@ -29,8 +29,8 @@
             padding: 0.4rem 0.9rem;
         }
 
-        /* Allow vertical scrolling and responsive stack on mobile/tablet screens */
-        @media (max-height: 820px) or (max-width: 1024px) {
+        /* Allow vertical scrolling and responsive stack on mobile/tablet screens in portrait mode */
+        @media (max-width: 900px) or (orientation: portrait) {
             body {
                 overflow-y: auto !important;
                 height: auto !important;
@@ -116,6 +116,154 @@
             /* Adjust bottom thumbnail grid to 2 columns on small screens */
             .thumbnails-list {
                 grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
+        /* Widescreen but low height layout (e.g. 32" HD TVs at 1366x768 or 1280x720 landscape) */
+        @media (max-height: 820px) and (min-width: 901px) and (orientation: landscape) {
+            body {
+                overflow: hidden !important; /* No scrollbars on shop floor TV! */
+            }
+            .selected-job-panel {
+                height: 275px !important;
+                min-height: 275px !important;
+                max-height: 275px !important;
+                padding: 0.6rem 1rem !important;
+                gap: 0.8rem !important;
+                grid-template-columns: 290px 180px 180px 1fr 150px !important; /* Slightly scale down column widths */
+            }
+            .detail-left {
+                padding-right: 0.6rem !important;
+            }
+            .detail-project-name {
+                font-size: 1.4rem !important;
+                margin-top: 0.1rem !important;
+            }
+            .detail-job-number {
+                font-size: 0.85rem !important;
+                margin-top: 0.1rem !important;
+            }
+            .detail-desc-box {
+                font-size: 0.75rem !important;
+                margin-top: 0.2rem !important;
+                display: -webkit-box !important;
+                -webkit-line-clamp: 2 !important;
+                -webkit-box-orient: vertical !important;
+                overflow: hidden !important;
+            }
+            .detail-fg-status-horizontal {
+                padding: 0.35rem 0.6rem !important;
+                margin-top: 0.25rem !important;
+            }
+            .detail-fg-status-horizontal span:first-child {
+                font-size: 0.65rem !important;
+            }
+            .detail-fg-status-horizontal span:last-child {
+                font-size: 0.95rem !important;
+            }
+            .fg-bar-track-horizontal {
+                height: 10px !important;
+                margin-top: 0.2rem !important;
+                margin-bottom: 0.2rem !important;
+            }
+            .detail-product-col {
+                padding-right: 0.6rem !important;
+            }
+            .detail-product-col span {
+                font-size: 0.7rem !important;
+            }
+            .detail-product-col img {
+                max-height: 145px !important;
+            }
+            /* Donut Chart Sizing via Transform */
+            .detail-middle {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .big-progress-circle-wrap {
+                transform: scale(0.72) !important;
+                transform-origin: center !important;
+                margin: -25px 0 !important;
+            }
+            .detail-meta-text {
+                margin-top: 0.15rem !important;
+                gap: 0.15rem !important;
+            }
+            .detail-meta-text .stat-sub {
+                font-size: 0.8rem !important;
+            }
+            .detail-lead-label {
+                font-size: 0.75rem !important;
+            }
+            /* Sub-assemblies vertical chart sizing */
+            .detail-subs-header {
+                font-size: 0.75rem !important;
+            }
+            .fg-bar-track, .vertical-bar-track {
+                height: 110px !important;
+            }
+            .vertical-bar-value {
+                font-size: 0.55rem !important;
+            }
+            .vertical-bar-label {
+                font-size: 0.55rem !important;
+            }
+            /* Column 5: QR side spacing */
+            .detail-qr-side {
+                padding-left: 0.6rem !important;
+            }
+            .qr-title-box {
+                font-size: 0.55rem !important;
+                line-height: 1.25 !important;
+            }
+            .qr-title-box strong {
+                font-size: 0.65rem !important;
+            }
+            .big-qr-box {
+                padding: 4px !important;
+                width: 85px !important;
+                height: 85px !important;
+            }
+            .detail-qr-side .submit-btn {
+                height: 26px !important;
+                font-size: 0.65rem !important;
+                padding: 0 !important;
+            }
+            /* Bottom row height scale */
+            .bottom-split-row {
+                height: 245px !important;
+                min-height: 245px !important;
+                gap: 0.6rem !important;
+            }
+            .thumbnails-section {
+                padding: 0.5rem 0.6rem !important;
+            }
+            .thumbnails-list {
+                gap: 0.35rem !important;
+                margin-top: 0.25rem !important;
+            }
+            .thumb-card {
+                padding: 0.35rem 0.5rem !important;
+            }
+            .recent-logs-container {
+                padding: 0.5rem 0.6rem !important;
+            }
+            .recent-list {
+                gap: 0.3rem !important;
+                margin-top: 0.25rem !important;
+            }
+            .master-qr-container {
+                padding: 0.5rem 0.6rem !important;
+            }
+            .master-qr-container div {
+                font-size: 0.68rem !important;
+                margin-bottom: 0.4rem !important;
+            }
+            .master-qr-container img {
+                width: 80px !important;
+                height: 80px !important;
             }
         }
 
