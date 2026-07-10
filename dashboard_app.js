@@ -480,6 +480,11 @@ function renderDetailPanel(project) {
     } else {
         stopCelebration();
     }
+    
+    // Ensure scaling fits after rendering
+    if (typeof adjustDashboardScale === 'function') {
+        adjustDashboardScale();
+    }
 }
 
 // ==========================================================================
@@ -912,3 +917,6 @@ function adjustDashboardScale() {
     container.style.height = '';
     document.body.style.overflow = '';
 }
+
+// Scale again 300ms after load to guarantee scaling is correct
+window.addEventListener('load', () => setTimeout(adjustDashboardScale, 300));
