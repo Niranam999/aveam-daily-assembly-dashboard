@@ -90,6 +90,10 @@ async function init() {
         // 5. Start Carousel
         startCarousel();
         
+        // 6. Adjust scale for TV screen
+        adjustDashboardScale();
+        window.addEventListener('resize', adjustDashboardScale);
+        
     } catch (err) {
         console.error("Dashboard Initialization Error:", err);
         selectedJobPanel.innerHTML = `
@@ -880,3 +884,31 @@ window.onload = init;
 
 // Re-render logs dynamically on window resize or orientation changes
 window.addEventListener('resize', renderRecentUpdates);
+
+// Automatically scale dashboard to fit widescreen low-height displays (like TCL 32")
+function adjustDashboardScale() {
+    const container = document.querySelector('.app-container');
+    if (!container) return;
+    
+    // Only apply scale transform in widescreen landscape viewports
+    if (window.innerWidth > 900 && window.innerWidth > window.innerHeight) {
+        const targetHeight = 810; // Target layout height in pixels
+        const scale = Math.min(1.0, window.innerHeight / targetHeight);
+        
+        if (scale < 1.0) {
+            container.style.transform = `scale(${scale})`;
+            container.style.transformOrigin = 'top center';
+            container.style.width = `${100 / scale}%`;
+            container.style.height = `${100 / scale}%`;
+            document.body.style.overflow = 'hidden';
+            return;
+        }
+    }
+    
+    // Reset properties if screen is portrait/tablet
+    container.style.transform = '';
+    container.style.transformOrigin = '';
+    container.style.width = '';
+    container.style.height = '';
+    document.body.style.overflow = '';
+}
