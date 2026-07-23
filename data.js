@@ -1,395 +1,5 @@
-// Live data compiled from 5_PN_Job_Relationship_rev00-test.xlsx & 1-List of each sub-assembly.xlsx
+// Live data compiled from 5_Shipment Plan and Project Detail.xlsx & 9-List of each sub-assembly.xlsx
 const EXCEL_PROJECTS = [
-    {
-        "id": "COHU-302195778-",
-        "customer": "COHU",
-        "project_code": "302195778",
-        "part_number": "302195778",
-        "description": "ASSY, Z-LINK, 2X4, LEFT",
-        "status": "ontime",
-        "team_leader": "WANLOP",
-        "member_1": "ASSAMA",
-        "job_no": "",
-        "mc_number": "-",
-        "progress": 50,
-        "qty": 1,
-        "est_hours": 1.0,
-        "sub_assemblies": [
-            {
-                "pn": "302195778",
-                "name": "ASSY, Z-LINK, 2X4, LEFT",
-                "th_desc": "",
-                "progress": 50,
-                "qty": 1,
-                "std_time": 1.0
-            }
-        ],
-        "kanban_backlog": 0,
-        "kanban_assigned": 0,
-        "kanban_in_progress": 1,
-        "kanban_qa": 0,
-        "kanban_completed": 0
-    },
-    {
-        "id": "COHU-Spare Part-",
-        "customer": "COHU",
-        "project_code": "Spare Part",
-        "part_number": "8334478101",
-        "description": "MAIN RING-TRAY FLIP,8334478101",
-        "status": "ontime",
-        "team_leader": "MACHINE SHOP",
-        "member_1": "ASSAMA",
-        "job_no": "",
-        "mc_number": "-",
-        "progress": 0,
-        "qty": 28,
-        "est_hours": 0.1,
-        "sub_assemblies": [
-            {
-                "pn": "8334478101",
-                "name": "MAIN RING-TRAY FLIP,8334478101",
-                "th_desc": "",
-                "progress": 0,
-                "qty": 20,
-                "std_time": 0.1
-            },
-            {
-                "pn": "8335676001",
-                "name": "ASSY, CONNECTOR, MANIFOLD",
-                "th_desc": "",
-                "progress": 0,
-                "qty": 8,
-                "std_time": 1.0
-            }
-        ],
-        "kanban_backlog": 0,
-        "kanban_assigned": 0,
-        "kanban_in_progress": 0,
-        "kanban_qa": 2,
-        "kanban_completed": 0
-    },
-    {
-        "id": "UIC-LH & RH FRAME-49700",
-        "customer": "UIC",
-        "project_code": "LH & RH FRAME",
-        "part_number": "53578603",
-        "description": "LH & RH FRAME",
-        "status": "completed",
-        "team_leader": "SUWAT",
-        "member_1": "-",
-        "job_no": "49700",
-        "mc_number": "#22-24",
-        "progress": 100,
-        "qty": 3,
-        "est_hours": 0.1,
-        "sub_assemblies": [
-            {
-                "pn": "53578603",
-                "name": "LH Frame (Support LH)",
-                "th_desc": "",
-                "progress": 100,
-                "qty": 3,
-                "std_time": 0.1
-            }
-        ],
-        "kanban_backlog": 0,
-        "kanban_assigned": 0,
-        "kanban_in_progress": 0,
-        "kanban_qa": 1,
-        "kanban_completed": 0
-    },
-    {
-        "id": "UIC-LH & RH FRAME-49701",
-        "customer": "UIC",
-        "project_code": "LH & RH FRAME",
-        "part_number": "53578703",
-        "description": "LH & RH FRAME",
-        "status": "completed",
-        "team_leader": "SUWAT",
-        "member_1": "-",
-        "job_no": "49701",
-        "mc_number": "#22-24",
-        "progress": 100,
-        "qty": 3,
-        "est_hours": 0.1,
-        "sub_assemblies": [
-            {
-                "pn": "53578703",
-                "name": "RH Frame (Support RH)",
-                "th_desc": "",
-                "progress": 100,
-                "qty": 3,
-                "std_time": 0.1
-            }
-        ],
-        "kanban_backlog": 0,
-        "kanban_assigned": 0,
-        "kanban_in_progress": 0,
-        "kanban_qa": 1,
-        "kanban_completed": 0
-    },
-    {
-        "id": "COHU-JLP CART-51026",
-        "customer": "COHU",
-        "project_code": "JLP CART",
-        "part_number": "8337427001",
-        "description": "JLP CART",
-        "status": "ontime",
-        "team_leader": "NATTHAVUT",
-        "member_1": "KESORN",
-        "job_no": "51026",
-        "mc_number": "-",
-        "progress": 25,
-        "qty": 35,
-        "est_hours": 2.0,
-        "sub_assemblies": [
-            {
-                "pn": "0",
-                "name": "Parts Receiving",
-                "th_desc": "รับพาร์ท",
-                "progress": 0
-            },
-            {
-                "pn": "1",
-                "name": "Stamping PN (แสตมป์พาร์ทนัมเบอร์)",
-                "th_desc": "แสตมป์พาร์ท",
-                "progress": 0
-            },
-            {
-                "pn": "2",
-                "name": "Etching PN (เอจชิ่งพาร์ทนัมเบอร์)",
-                "th_desc": "เอจชิ่งพาร์ท",
-                "progress": 0
-            },
-            {
-                "pn": "3",
-                "name": "Pin installation-Base Plate (ติดตั้งพินที่แผ่น Base Plate)",
-                "th_desc": "ติดพิน Base",
-                "progress": 0
-            },
-            {
-                "pn": "4",
-                "name": "Pin installation-Top Plate (ติดตั้งพินที่แผ่น Top Plate)",
-                "th_desc": "ติดพิน Top",
-                "progress": 0
-            },
-            {
-                "pn": "5",
-                "name": "Pin installation-Side Plate (ติดตั้งพินที่แผ่น Top Plate)",
-                "th_desc": "ติดพิน Side",
-                "progress": 0
-            },
-            {
-                "pn": "6",
-                "name": "Brake Floor Lock Assy (ประกอบชุดเบรก)",
-                "th_desc": "ประกอบเบรก",
-                "progress": 0
-            },
-            {
-                "pn": "7",
-                "name": "Top Plate Assy (ประกอบชุดท็อปเพลท)",
-                "th_desc": "ประกอบท็อป",
-                "progress": 0
-            },
-            {
-                "pn": "8",
-                "name": "Handle Assy (ประกอบชุดมือจับ)",
-                "th_desc": "ประกอบมือจับ",
-                "progress": 0
-            },
-            {
-                "pn": "9",
-                "name": "Rear Plate Assy (ประกอบชุดฝาหลัง)",
-                "th_desc": "ประกอบฝาหลัง",
-                "progress": 0
-            },
-            {
-                "pn": "10",
-                "name": "Ground Cable Assy (ประกอบสายกราวน์)",
-                "th_desc": "ประกอบสายดิน",
-                "progress": 0
-            },
-            {
-                "pn": "11",
-                "name": "Land yard cable Assy (ประกอบสายแลนยาร์ด)",
-                "th_desc": "ประกอบแลนยาร์ด",
-                "progress": 0
-            },
-            {
-                "pn": "12",
-                "name": "Main Assy (ประกอบชุดเมนแอสเซมบลี้)",
-                "th_desc": "ประกอบเมนแอสเซมบลี้",
-                "progress": 0
-            },
-            {
-                "pn": "13",
-                "name": "Final Inspection (การตรวจสอบขั้นสุดท้าย)",
-                "th_desc": "การตรวจสอบขั้นสุดท้าย",
-                "progress": 0
-            },
-            {
-                "pn": "14",
-                "name": "Packing (การแพ็คงาน)",
-                "th_desc": "แพ็คงาน",
-                "progress": 0
-            }
-        ],
-        "kanban_backlog": 0,
-        "kanban_assigned": 0,
-        "kanban_in_progress": 1,
-        "kanban_qa": 0,
-        "kanban_completed": 0
-    },
-    {
-        "id": "COHU-JLP CART-51027",
-        "customer": "COHU",
-        "project_code": "JLP CART",
-        "part_number": "8337427001",
-        "description": "JLP CART",
-        "status": "ontime",
-        "team_leader": "NATTHAVUT",
-        "member_1": "KESORN",
-        "job_no": "51027",
-        "mc_number": "-",
-        "progress": 0,
-        "qty": 40,
-        "est_hours": 2.0,
-        "sub_assemblies": [
-            {
-                "pn": "0",
-                "name": "Parts Receiving",
-                "th_desc": "รับพาร์ท",
-                "progress": 0
-            },
-            {
-                "pn": "1",
-                "name": "Stamping PN (แสตมป์พาร์ทนัมเบอร์)",
-                "th_desc": "แสตมป์พาร์ท",
-                "progress": 0
-            },
-            {
-                "pn": "2",
-                "name": "Etching PN (เอจชิ่งพาร์ทนัมเบอร์)",
-                "th_desc": "เอจชิ่งพาร์ท",
-                "progress": 0
-            },
-            {
-                "pn": "3",
-                "name": "Pin installation-Base Plate (ติดตั้งพินที่แผ่น Base Plate)",
-                "th_desc": "ติดพิน Base",
-                "progress": 0
-            },
-            {
-                "pn": "4",
-                "name": "Pin installation-Top Plate (ติดตั้งพินที่แผ่น Top Plate)",
-                "th_desc": "ติดพิน Top",
-                "progress": 0
-            },
-            {
-                "pn": "5",
-                "name": "Pin installation-Side Plate (ติดตั้งพินที่แผ่น Top Plate)",
-                "th_desc": "ติดพิน Side",
-                "progress": 0
-            },
-            {
-                "pn": "6",
-                "name": "Brake Floor Lock Assy (ประกอบชุดเบรก)",
-                "th_desc": "ประกอบเบรก",
-                "progress": 0
-            },
-            {
-                "pn": "7",
-                "name": "Top Plate Assy (ประกอบชุดท็อปเพลท)",
-                "th_desc": "ประกอบท็อป",
-                "progress": 0
-            },
-            {
-                "pn": "8",
-                "name": "Handle Assy (ประกอบชุดมือจับ)",
-                "th_desc": "ประกอบมือจับ",
-                "progress": 0
-            },
-            {
-                "pn": "9",
-                "name": "Rear Plate Assy (ประกอบชุดฝาหลัง)",
-                "th_desc": "ประกอบฝาหลัง",
-                "progress": 0
-            },
-            {
-                "pn": "10",
-                "name": "Ground Cable Assy (ประกอบสายกราวน์)",
-                "th_desc": "ประกอบสายดิน",
-                "progress": 0
-            },
-            {
-                "pn": "11",
-                "name": "Land yard cable Assy (ประกอบสายแลนยาร์ด)",
-                "th_desc": "ประกอบแลนยาร์ด",
-                "progress": 0
-            },
-            {
-                "pn": "12",
-                "name": "Main Assy (ประกอบชุดเมนแอสเซมบลี้)",
-                "th_desc": "ประกอบเมนแอสเซมบลี้",
-                "progress": 0
-            },
-            {
-                "pn": "13",
-                "name": "Final Inspection (การตรวจสอบขั้นสุดท้าย)",
-                "th_desc": "การตรวจสอบขั้นสุดท้าย",
-                "progress": 0
-            },
-            {
-                "pn": "14",
-                "name": "Packing (การแพ็คงาน)",
-                "th_desc": "แพ็คงาน",
-                "progress": 0
-            }
-        ],
-        "kanban_backlog": 0,
-        "kanban_assigned": 0,
-        "kanban_in_progress": 1,
-        "kanban_qa": 0,
-        "kanban_completed": 0
-    },
-    {
-        "id": "COHU-100051263-",
-        "customer": "COHU",
-        "project_code": "100051263",
-        "part_number": "100051263",
-        "description": "MANIFOLD, COLD GAS, CHUCK ASSY",
-        "status": "ontime",
-        "team_leader": "WANLOP",
-        "member_1": "ASSAMA",
-        "job_no": "",
-        "mc_number": "-",
-        "progress": 0,
-        "qty": 5,
-        "est_hours": 2.0,
-        "sub_assemblies": [
-            {
-                "pn": "100051263",
-                "name": "MANIFOLD, COLD GAS, CHUCK ASSY",
-                "th_desc": "",
-                "progress": 0,
-                "qty": 1,
-                "std_time": 2.0
-            },
-            {
-                "pn": "100051263",
-                "name": "MANIFOLD, COLD GAS, CHUCK ASSY",
-                "th_desc": "",
-                "progress": 0,
-                "qty": 4,
-                "std_time": 2.0
-            }
-        ],
-        "kanban_backlog": 1,
-        "kanban_assigned": 1,
-        "kanban_in_progress": 0,
-        "kanban_qa": 0,
-        "kanban_completed": 0
-    },
     {
         "id": "UIC-FEEDER BASKET-49798",
         "customer": "UIC",
@@ -418,119 +28,109 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 1,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-07-27"
     },
     {
-        "id": "COHU-JLP CART-51028",
-        "customer": "COHU",
-        "project_code": "JLP CART",
-        "part_number": "8337427001",
-        "description": "JLP CART",
+        "id": "UIC-LH & RH FRAME-49702",
+        "customer": "UIC",
+        "project_code": "LH & RH FRAME",
+        "part_number": "53578603",
+        "description": "LH & RH FRAME",
         "status": "ontime",
-        "team_leader": "NATTHAVUT",
-        "member_1": "KESORN",
-        "job_no": "51028",
-        "mc_number": "-",
-        "progress": 0,
-        "qty": 20,
-        "est_hours": 2.0,
+        "team_leader": "SUWAT",
+        "member_1": "-",
+        "job_no": "49702",
+        "mc_number": "LH&RH#25-27",
+        "progress": 50,
+        "qty": 6,
+        "est_hours": 0.1,
         "sub_assemblies": [
             {
-                "pn": "0",
-                "name": "Parts Receiving",
-                "th_desc": "รับพาร์ท",
-                "progress": 0
-            },
-            {
-                "pn": "1",
-                "name": "Stamping PN (แสตมป์พาร์ทนัมเบอร์)",
-                "th_desc": "แสตมป์พาร์ท",
-                "progress": 0
-            },
-            {
-                "pn": "2",
-                "name": "Etching PN (เอจชิ่งพาร์ทนัมเบอร์)",
-                "th_desc": "เอจชิ่งพาร์ท",
-                "progress": 0
-            },
-            {
-                "pn": "3",
-                "name": "Pin installation-Base Plate (ติดตั้งพินที่แผ่น Base Plate)",
-                "th_desc": "ติดพิน Base",
-                "progress": 0
-            },
-            {
-                "pn": "4",
-                "name": "Pin installation-Top Plate (ติดตั้งพินที่แผ่น Top Plate)",
-                "th_desc": "ติดพิน Top",
-                "progress": 0
-            },
-            {
-                "pn": "5",
-                "name": "Pin installation-Side Plate (ติดตั้งพินที่แผ่น Top Plate)",
-                "th_desc": "ติดพิน Side",
-                "progress": 0
-            },
-            {
-                "pn": "6",
-                "name": "Brake Floor Lock Assy (ประกอบชุดเบรก)",
-                "th_desc": "ประกอบเบรก",
-                "progress": 0
-            },
-            {
-                "pn": "7",
-                "name": "Top Plate Assy (ประกอบชุดท็อปเพลท)",
-                "th_desc": "ประกอบท็อป",
-                "progress": 0
-            },
-            {
-                "pn": "8",
-                "name": "Handle Assy (ประกอบชุดมือจับ)",
-                "th_desc": "ประกอบมือจับ",
-                "progress": 0
-            },
-            {
-                "pn": "9",
-                "name": "Rear Plate Assy (ประกอบชุดฝาหลัง)",
-                "th_desc": "ประกอบฝาหลัง",
-                "progress": 0
-            },
-            {
-                "pn": "10",
-                "name": "Ground Cable Assy (ประกอบสายกราวน์)",
-                "th_desc": "ประกอบสายดิน",
-                "progress": 0
-            },
-            {
-                "pn": "11",
-                "name": "Land yard cable Assy (ประกอบสายแลนยาร์ด)",
-                "th_desc": "ประกอบแลนยาร์ด",
-                "progress": 0
-            },
-            {
-                "pn": "12",
-                "name": "Main Assy (ประกอบชุดเมนแอสเซมบลี้)",
-                "th_desc": "ประกอบเมนแอสเซมบลี้",
-                "progress": 0
-            },
-            {
-                "pn": "13",
-                "name": "Final Inspection (การตรวจสอบขั้นสุดท้าย)",
-                "th_desc": "การตรวจสอบขั้นสุดท้าย",
-                "progress": 0
-            },
-            {
-                "pn": "14",
-                "name": "Packing (การแพ็คงาน)",
-                "th_desc": "แพ็คงาน",
-                "progress": 0
+                "pn": "53578603",
+                "name": "LH Frame (Support LH)",
+                "th_desc": "",
+                "progress": 50,
+                "qty": 6,
+                "std_time": 0.1
             }
         ],
         "kanban_backlog": 0,
-        "kanban_assigned": 1,
+        "kanban_assigned": 0,
+        "kanban_in_progress": 1,
+        "kanban_qa": 0,
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-07-30"
+    },
+    {
+        "id": "UIC-LH & RH FRAME-49703",
+        "customer": "UIC",
+        "project_code": "LH & RH FRAME",
+        "part_number": "53578703",
+        "description": "LH & RH FRAME",
+        "status": "ontime",
+        "team_leader": "SUWAT",
+        "member_1": "-",
+        "job_no": "49703",
+        "mc_number": "LH&RH#25-27",
+        "progress": 50,
+        "qty": 6,
+        "est_hours": 0.1,
+        "sub_assemblies": [
+            {
+                "pn": "53578703",
+                "name": "RH Frame (Support RH)",
+                "th_desc": "",
+                "progress": 50,
+                "qty": 6,
+                "std_time": 0.1
+            }
+        ],
+        "kanban_backlog": 0,
+        "kanban_assigned": 0,
+        "kanban_in_progress": 1,
+        "kanban_qa": 0,
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-07-30"
+    },
+    {
+        "id": "UIC-SCRAP TAPE CUTTER DRIVE KIT-49841",
+        "customer": "UIC",
+        "project_code": "SCRAP TAPE CUTTER DRIVE KIT",
+        "part_number": "52803004",
+        "description": "SCRAP TAPE CUTTER DRIVE KIT",
+        "status": "ontime",
+        "team_leader": "WANLOP",
+        "member_1": "KAIRUNG",
+        "job_no": "49841",
+        "mc_number": "ScrapTape (026-050)",
+        "progress": 0,
+        "qty": 25,
+        "est_hours": 4.0,
+        "sub_assemblies": [
+            {
+                "pn": "52803004",
+                "name": "Scrap Tape Cutter Drive Kit",
+                "th_desc": "",
+                "progress": 0,
+                "qty": 12,
+                "std_time": 4.0
+            },
+            {
+                "pn": "52803004",
+                "name": "Scrap Tape Cutter Drive Kit",
+                "th_desc": "",
+                "progress": 0,
+                "qty": 13,
+                "std_time": 4.0
+            }
+        ],
+        "kanban_backlog": 0,
+        "kanban_assigned": 2,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-07-30"
     },
     {
         "id": "ULC-PRX-ALL",
@@ -545,7 +145,7 @@ const EXCEL_PROJECTS = [
         "mc_number": "-",
         "progress": 0,
         "qty": 777,
-        "est_hours": 1.125,
+        "est_hours": 1.1292,
         "sub_assemblies": [
             {
                 "pn": "PRX250-REEL ASSY",
@@ -689,7 +289,7 @@ const EXCEL_PROJECTS = [
                 "th_desc": "",
                 "progress": 0,
                 "qty": 500,
-                "std_time": 0.0
+                "std_time": 0.084
             },
             {
                 "pn": "PRX250-206-LT-ASSY",
@@ -712,127 +312,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 20,
         "kanban_qa": 0,
-        "kanban_completed": 0
-    },
-    {
-        "id": "UIC-LH & RH FRAME-49702",
-        "customer": "UIC",
-        "project_code": "LH & RH FRAME",
-        "part_number": "53578603",
-        "description": "LH & RH FRAME",
-        "status": "ontime",
-        "team_leader": "SUWAT",
-        "member_1": "-",
-        "job_no": "49702",
-        "mc_number": "#25-27",
-        "progress": 25,
-        "qty": 6,
-        "est_hours": 0.1,
-        "sub_assemblies": [
-            {
-                "pn": "53578603",
-                "name": "LH Frame (Support LH)",
-                "th_desc": "",
-                "progress": 25,
-                "qty": 6,
-                "std_time": 0.1
-            }
-        ],
-        "kanban_backlog": 0,
-        "kanban_assigned": 1,
-        "kanban_in_progress": 0,
-        "kanban_qa": 0,
-        "kanban_completed": 0
-    },
-    {
-        "id": "UIC-LH & RH FRAME-49703",
-        "customer": "UIC",
-        "project_code": "LH & RH FRAME",
-        "part_number": "53578703",
-        "description": "LH & RH FRAME",
-        "status": "ontime",
-        "team_leader": "SUWAT",
-        "member_1": "-",
-        "job_no": "49703",
-        "mc_number": "#25-27",
-        "progress": 25,
-        "qty": 6,
-        "est_hours": 0.1,
-        "sub_assemblies": [
-            {
-                "pn": "53578703",
-                "name": "RH Frame (Support RH)",
-                "th_desc": "",
-                "progress": 25,
-                "qty": 6,
-                "std_time": 0.1
-            }
-        ],
-        "kanban_backlog": 0,
-        "kanban_assigned": 1,
-        "kanban_in_progress": 0,
-        "kanban_qa": 0,
-        "kanban_completed": 0
-    },
-    {
-        "id": "UIC-SCRAP TAPE CUTTER DRIVE KIT-49552",
-        "customer": "UIC",
-        "project_code": "SCRAP TAPE CUTTER DRIVE KIT",
-        "part_number": "52803004",
-        "description": "SCRAP TAPE CUTTER DRIVE KIT",
-        "status": "ontime",
-        "team_leader": "WANLOP CHANPHET",
-        "member_1": "-",
-        "job_no": "49552",
-        "mc_number": "No.026-050",
-        "progress": 0,
-        "qty": 12,
-        "est_hours": 4.0,
-        "sub_assemblies": [
-            {
-                "pn": "52803004",
-                "name": "Scrap Tape Cutter Drive Kit",
-                "th_desc": "",
-                "progress": 0,
-                "qty": 12,
-                "std_time": 4.0
-            }
-        ],
-        "kanban_backlog": 1,
-        "kanban_assigned": 0,
-        "kanban_in_progress": 0,
-        "kanban_qa": 0,
-        "kanban_completed": 0
-    },
-    {
-        "id": "UIC-SCRAP TAPE CUTTER DRIVE KIT-49841",
-        "customer": "UIC",
-        "project_code": "SCRAP TAPE CUTTER DRIVE KIT",
-        "part_number": "52803004",
-        "description": "SCRAP TAPE CUTTER DRIVE KIT",
-        "status": "ontime",
-        "team_leader": "WANLOP CHANPHET",
-        "member_1": "-",
-        "job_no": "49841",
-        "mc_number": "No.051-075",
-        "progress": 0,
-        "qty": 13,
-        "est_hours": 4.0,
-        "sub_assemblies": [
-            {
-                "pn": "52803004",
-                "name": "Scrap Tape Cutter Drive Kit",
-                "th_desc": "",
-                "progress": 0,
-                "qty": 13,
-                "std_time": 4.0
-            }
-        ],
-        "kanban_backlog": 1,
-        "kanban_assigned": 0,
-        "kanban_in_progress": 0,
-        "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-07-30"
     },
     {
         "id": "Veeco-ACBOX-49286",
@@ -998,7 +479,121 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 1,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-07-30"
+    },
+    {
+        "id": "COHU-JLP CART-51026",
+        "customer": "COHU",
+        "project_code": "JLP CART",
+        "part_number": "8337427001",
+        "description": "JLP CART",
+        "status": "ontime",
+        "team_leader": "NATTHAVUT",
+        "member_1": "KESORN",
+        "job_no": "51026",
+        "mc_number": "-",
+        "progress": 50,
+        "qty": 35,
+        "est_hours": 2.0,
+        "sub_assemblies": [
+            {
+                "pn": "R-1",
+                "name": "Parts Receiving",
+                "th_desc": "รับพาร์ท",
+                "progress": 100
+            },
+            {
+                "pn": "STAMP-1",
+                "name": "Stamping PN (แสตมป์พาร์ทนัมเบอร์)",
+                "th_desc": "แสตมป์พาร์ท",
+                "progress": 0
+            },
+            {
+                "pn": "ETCH-1",
+                "name": "Etching PN (เอจชิ่งพาร์ทนัมเบอร์)",
+                "th_desc": "เอจชิ่งพาร์ท",
+                "progress": 0
+            },
+            {
+                "pn": "PIN-1",
+                "name": "Pin installation-Base Plate (ติดตั้งพินที่แผ่น Base Plate)",
+                "th_desc": "ติดพิน Base",
+                "progress": 0
+            },
+            {
+                "pn": "PIN-2",
+                "name": "Pin installation-Top Plate (ติดตั้งพินที่แผ่น Top Plate)",
+                "th_desc": "ติดพิน Top",
+                "progress": 0
+            },
+            {
+                "pn": "PIN-3",
+                "name": "Pin installation-Side Plate (ติดตั้งพินที่แผ่น Top Plate)",
+                "th_desc": "ติดพิน Side",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-1",
+                "name": "Brake Floor Lock Assy (ประกอบชุดเบรก)",
+                "th_desc": "ประกอบเบรก",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-2",
+                "name": "Top Plate Assy (ประกอบชุดท็อปเพลท)",
+                "th_desc": "ประกอบท็อป",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-3",
+                "name": "Handle Assy (ประกอบชุดมือจับ)",
+                "th_desc": "ประกอบมือจับ",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-4",
+                "name": "Rear Plate Assy (ประกอบชุดฝาหลัง)",
+                "th_desc": "ประกอบฝาหลัง",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-5",
+                "name": "Ground Cable Assy (ประกอบสายกราวน์)",
+                "th_desc": "ประกอบสายดิน",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-6",
+                "name": "Land yard cable Assy (ประกอบสายแลนยาร์ด)",
+                "th_desc": "ประกอบแลนยาร์ด",
+                "progress": 0
+            },
+            {
+                "pn": "MAIN-1",
+                "name": "Main Assy (ประกอบชุดเมนแอสเซมบลี้)",
+                "th_desc": "ประกอบเมนแอสเซมบลี้",
+                "progress": 0
+            },
+            {
+                "pn": "INS",
+                "name": "Final Inspection (การตรวจสอบขั้นสุดท้าย)",
+                "th_desc": "การตรวจสอบขั้นสุดท้าย",
+                "progress": 0
+            },
+            {
+                "pn": "PACK",
+                "name": "Packing (การแพ็คงาน)",
+                "th_desc": "แพ็คงาน",
+                "progress": 0
+            }
+        ],
+        "kanban_backlog": 0,
+        "kanban_assigned": 0,
+        "kanban_in_progress": 1,
+        "kanban_qa": 0,
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-07-31"
     },
     {
         "id": "COHU-100042141-",
@@ -1007,8 +602,8 @@ const EXCEL_PROJECTS = [
         "part_number": "100042141",
         "description": "TS COLD MANIFOLD, 50MM, 4 CHKS",
         "status": "ontime",
-        "team_leader": "WANLOP CHANPHET",
-        "member_1": "-",
+        "team_leader": "WANLOP",
+        "member_1": "ASSAMA",
         "job_no": "",
         "mc_number": "-",
         "progress": 0,
@@ -1024,11 +619,12 @@ const EXCEL_PROJECTS = [
                 "std_time": 1.0
             }
         ],
-        "kanban_backlog": 1,
-        "kanban_assigned": 0,
+        "kanban_backlog": 0,
+        "kanban_assigned": 1,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-07-31"
     },
     {
         "id": "COHU-Z-LINK REV.D-",
@@ -1037,8 +633,8 @@ const EXCEL_PROJECTS = [
         "part_number": "8308859901",
         "description": "Z-LINK REV.C",
         "status": "ontime",
-        "team_leader": "WANLOP CHANPHET",
-        "member_1": "-",
+        "team_leader": "WANLOP",
+        "member_1": "ASSAMA",
         "job_no": "",
         "mc_number": "-",
         "progress": 0,
@@ -1142,11 +738,125 @@ const EXCEL_PROJECTS = [
                 "progress": 0
             }
         ],
-        "kanban_backlog": 3,
-        "kanban_assigned": 0,
+        "kanban_backlog": 2,
+        "kanban_assigned": 1,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-07-31"
+    },
+    {
+        "id": "COHU-JLP CART-51027",
+        "customer": "COHU",
+        "project_code": "JLP CART",
+        "part_number": "8337427001",
+        "description": "JLP CART",
+        "status": "ontime",
+        "team_leader": "NATTHAVUT",
+        "member_1": "KESORN",
+        "job_no": "51027",
+        "mc_number": "-",
+        "progress": 0,
+        "qty": 40,
+        "est_hours": 2.0,
+        "sub_assemblies": [
+            {
+                "pn": "R-1",
+                "name": "Parts Receiving",
+                "th_desc": "รับพาร์ท",
+                "progress": 0
+            },
+            {
+                "pn": "STAMP-1",
+                "name": "Stamping PN (แสตมป์พาร์ทนัมเบอร์)",
+                "th_desc": "แสตมป์พาร์ท",
+                "progress": 0
+            },
+            {
+                "pn": "ETCH-1",
+                "name": "Etching PN (เอจชิ่งพาร์ทนัมเบอร์)",
+                "th_desc": "เอจชิ่งพาร์ท",
+                "progress": 0
+            },
+            {
+                "pn": "PIN-1",
+                "name": "Pin installation-Base Plate (ติดตั้งพินที่แผ่น Base Plate)",
+                "th_desc": "ติดพิน Base",
+                "progress": 0
+            },
+            {
+                "pn": "PIN-2",
+                "name": "Pin installation-Top Plate (ติดตั้งพินที่แผ่น Top Plate)",
+                "th_desc": "ติดพิน Top",
+                "progress": 0
+            },
+            {
+                "pn": "PIN-3",
+                "name": "Pin installation-Side Plate (ติดตั้งพินที่แผ่น Top Plate)",
+                "th_desc": "ติดพิน Side",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-1",
+                "name": "Brake Floor Lock Assy (ประกอบชุดเบรก)",
+                "th_desc": "ประกอบเบรก",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-2",
+                "name": "Top Plate Assy (ประกอบชุดท็อปเพลท)",
+                "th_desc": "ประกอบท็อป",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-3",
+                "name": "Handle Assy (ประกอบชุดมือจับ)",
+                "th_desc": "ประกอบมือจับ",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-4",
+                "name": "Rear Plate Assy (ประกอบชุดฝาหลัง)",
+                "th_desc": "ประกอบฝาหลัง",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-5",
+                "name": "Ground Cable Assy (ประกอบสายกราวน์)",
+                "th_desc": "ประกอบสายดิน",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-6",
+                "name": "Land yard cable Assy (ประกอบสายแลนยาร์ด)",
+                "th_desc": "ประกอบแลนยาร์ด",
+                "progress": 0
+            },
+            {
+                "pn": "MAIN-1",
+                "name": "Main Assy (ประกอบชุดเมนแอสเซมบลี้)",
+                "th_desc": "ประกอบเมนแอสเซมบลี้",
+                "progress": 0
+            },
+            {
+                "pn": "INS",
+                "name": "Final Inspection (การตรวจสอบขั้นสุดท้าย)",
+                "th_desc": "การตรวจสอบขั้นสุดท้าย",
+                "progress": 0
+            },
+            {
+                "pn": "PACK",
+                "name": "Packing (การแพ็คงาน)",
+                "th_desc": "แพ็คงาน",
+                "progress": 0
+            }
+        ],
+        "kanban_backlog": 0,
+        "kanban_assigned": 0,
+        "kanban_in_progress": 1,
+        "kanban_qa": 0,
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-07-31"
     },
     {
         "id": "UIC-REMOVABLE FEEDER BANK ASSY-",
@@ -1155,8 +865,8 @@ const EXCEL_PROJECTS = [
         "part_number": "52581707",
         "description": "REMOVABLE FEEDER BANK ASSY",
         "status": "ontime",
-        "team_leader": "WANLOP CHANPHET",
-        "member_1": "-",
+        "team_leader": "THANANCHAI",
+        "member_1": "SUMOLTHA",
         "job_no": "",
         "mc_number": "-",
         "progress": 0,
@@ -1172,11 +882,164 @@ const EXCEL_PROJECTS = [
                 "std_time": 4.0
             }
         ],
-        "kanban_backlog": 1,
-        "kanban_assigned": 0,
+        "kanban_backlog": 0,
+        "kanban_assigned": 1,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-08-02"
+    },
+    {
+        "id": "COHU-JLP CART-51028",
+        "customer": "COHU",
+        "project_code": "JLP CART",
+        "part_number": "8337427001",
+        "description": "JLP CART",
+        "status": "ontime",
+        "team_leader": "NATTHAVUT",
+        "member_1": "KESORN",
+        "job_no": "51028",
+        "mc_number": "-",
+        "progress": 0,
+        "qty": 20,
+        "est_hours": 2.0,
+        "sub_assemblies": [
+            {
+                "pn": "R-1",
+                "name": "Parts Receiving",
+                "th_desc": "รับพาร์ท",
+                "progress": 0
+            },
+            {
+                "pn": "STAMP-1",
+                "name": "Stamping PN (แสตมป์พาร์ทนัมเบอร์)",
+                "th_desc": "แสตมป์พาร์ท",
+                "progress": 0
+            },
+            {
+                "pn": "ETCH-1",
+                "name": "Etching PN (เอจชิ่งพาร์ทนัมเบอร์)",
+                "th_desc": "เอจชิ่งพาร์ท",
+                "progress": 0
+            },
+            {
+                "pn": "PIN-1",
+                "name": "Pin installation-Base Plate (ติดตั้งพินที่แผ่น Base Plate)",
+                "th_desc": "ติดพิน Base",
+                "progress": 0
+            },
+            {
+                "pn": "PIN-2",
+                "name": "Pin installation-Top Plate (ติดตั้งพินที่แผ่น Top Plate)",
+                "th_desc": "ติดพิน Top",
+                "progress": 0
+            },
+            {
+                "pn": "PIN-3",
+                "name": "Pin installation-Side Plate (ติดตั้งพินที่แผ่น Top Plate)",
+                "th_desc": "ติดพิน Side",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-1",
+                "name": "Brake Floor Lock Assy (ประกอบชุดเบรก)",
+                "th_desc": "ประกอบเบรก",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-2",
+                "name": "Top Plate Assy (ประกอบชุดท็อปเพลท)",
+                "th_desc": "ประกอบท็อป",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-3",
+                "name": "Handle Assy (ประกอบชุดมือจับ)",
+                "th_desc": "ประกอบมือจับ",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-4",
+                "name": "Rear Plate Assy (ประกอบชุดฝาหลัง)",
+                "th_desc": "ประกอบฝาหลัง",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-5",
+                "name": "Ground Cable Assy (ประกอบสายกราวน์)",
+                "th_desc": "ประกอบสายดิน",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-6",
+                "name": "Land yard cable Assy (ประกอบสายแลนยาร์ด)",
+                "th_desc": "ประกอบแลนยาร์ด",
+                "progress": 0
+            },
+            {
+                "pn": "MAIN-1",
+                "name": "Main Assy (ประกอบชุดเมนแอสเซมบลี้)",
+                "th_desc": "ประกอบเมนแอสเซมบลี้",
+                "progress": 0
+            },
+            {
+                "pn": "INS",
+                "name": "Final Inspection (การตรวจสอบขั้นสุดท้าย)",
+                "th_desc": "การตรวจสอบขั้นสุดท้าย",
+                "progress": 0
+            },
+            {
+                "pn": "PACK",
+                "name": "Packing (การแพ็คงาน)",
+                "th_desc": "แพ็คงาน",
+                "progress": 0
+            }
+        ],
+        "kanban_backlog": 0,
+        "kanban_assigned": 1,
+        "kanban_in_progress": 0,
+        "kanban_qa": 0,
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-08-07"
+    },
+    {
+        "id": "COHU-APT CART-51317",
+        "customer": "COHU",
+        "project_code": "APT CART",
+        "part_number": "302175958",
+        "description": "APT CART",
+        "status": "ontime",
+        "team_leader": "NATTHAVUT",
+        "member_1": "KESORN",
+        "job_no": "51317",
+        "mc_number": "-",
+        "progress": 0,
+        "qty": 26,
+        "est_hours": 0.0,
+        "sub_assemblies": [
+            {
+                "pn": "302175958",
+                "name": "CURE CART,APT,JEDEC TRAY",
+                "th_desc": "",
+                "progress": 0,
+                "qty": 20,
+                "std_time": 0.0
+            },
+            {
+                "pn": "302175958",
+                "name": "CURE CART,APT,JEDEC TRAY",
+                "th_desc": "",
+                "progress": 0,
+                "qty": 6,
+                "std_time": 0.0
+            }
+        ],
+        "kanban_backlog": 1,
+        "kanban_assigned": 1,
+        "kanban_in_progress": 0,
+        "kanban_qa": 0,
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-08-10"
     },
     {
         "id": "Veeco-WF-42511",
@@ -1200,103 +1063,79 @@ const EXCEL_PROJECTS = [
                 "progress": 0
             },
             {
-                "pn": "SUB-F1",
+                "pn": "SUB-5",
                 "name": "01-25-04710; ASSY,AIR GAUGE AMPLIFIER; 01-2",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F2",
-                "name": "11-08-09367; VALVE,SOLENOID, 2 WAY, 24VDC,M",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F3",
-                "name": "01-06-00506; ASSY,TRANSDUCER, 1500 AIR GAUG",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F4",
-                "name": "01-25-00563; ASSY,AIR RESERVOIR,AIR GAUGE;",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F5",
+                "pn": "SUB-6",
                 "name": "01-18-03446; ASSY,PRESSURE DISTRIBUTION MAN",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F6",
-                "name": "01-25-04513-02; 01-08-04106-30,AIR GAP, ASSY,A",
+                "pn": "SUB-7",
+                "name": "01-25-04513-02; AG SENSOR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F7",
-                "name": "01-08-04106-30; ASSY,REFERENCE AIR GAP,STANDAR",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F8",
+                "pn": "SUB-8",
                 "name": "01-25-01399; ASSY,RETICLE REMOTE SWITCH; 01",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#1",
+                "pn": "MAIN-1",
                 "name": "01-25-00431; FRAME ASSEMLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
             },
             {
-                "pn": "SUB-U1",
-                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U2",
-                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U3",
-                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U4",
+                "pn": "SUB-48",
                 "name": "04-25-04155-02; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U5",
-                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U6",
+                "pn": "SUB-52",
                 "name": "04-25-04155-01; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U7",
+                "pn": "SUB-17",
+                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-20",
+                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-21",
+                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-22",
+                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-24",
                 "name": "04-25-06639; ASSY,EXPOSURE DETECTOR,WFLD",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#2",
+                "pn": "MAIN-2",
                 "name": "04-25-06773; UPPER ASSEMBLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
@@ -1330,7 +1169,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 1,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-08-10"
     },
     {
         "id": "Veeco-WF-42513",
@@ -1354,103 +1194,79 @@ const EXCEL_PROJECTS = [
                 "progress": 0
             },
             {
-                "pn": "SUB-F1",
+                "pn": "SUB-5",
                 "name": "01-25-04710; ASSY,AIR GAUGE AMPLIFIER; 01-2",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F2",
-                "name": "11-08-09367; VALVE,SOLENOID, 2 WAY, 24VDC,M",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F3",
-                "name": "01-06-00506; ASSY,TRANSDUCER, 1500 AIR GAUG",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F4",
-                "name": "01-25-00563; ASSY,AIR RESERVOIR,AIR GAUGE;",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F5",
+                "pn": "SUB-6",
                 "name": "01-18-03446; ASSY,PRESSURE DISTRIBUTION MAN",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F6",
-                "name": "01-25-04513-02; 01-08-04106-30,AIR GAP, ASSY,A",
+                "pn": "SUB-7",
+                "name": "01-25-04513-02; AG SENSOR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F7",
-                "name": "01-08-04106-30; ASSY,REFERENCE AIR GAP,STANDAR",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F8",
+                "pn": "SUB-8",
                 "name": "01-25-01399; ASSY,RETICLE REMOTE SWITCH; 01",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#1",
+                "pn": "MAIN-1",
                 "name": "01-25-00431; FRAME ASSEMLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
             },
             {
-                "pn": "SUB-U1",
-                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U2",
-                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U3",
-                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U4",
+                "pn": "SUB-48",
                 "name": "04-25-04155-02; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U5",
-                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U6",
+                "pn": "SUB-52",
                 "name": "04-25-04155-01; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U7",
+                "pn": "SUB-17",
+                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-20",
+                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-21",
+                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-22",
+                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-24",
                 "name": "04-25-06639; ASSY,EXPOSURE DETECTOR,WFLD",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#2",
+                "pn": "MAIN-2",
                 "name": "04-25-06773; UPPER ASSEMBLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
@@ -1484,7 +1300,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 1,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-08-10"
     },
     {
         "id": "COHU-JLP CART-51089",
@@ -1493,8 +1310,8 @@ const EXCEL_PROJECTS = [
         "part_number": "8337427001",
         "description": "JLP CART",
         "status": "ontime",
-        "team_leader": "WANLOP CHANPHET",
-        "member_1": "-",
+        "team_leader": "NATTHAVUT",
+        "member_1": "KESORN",
         "job_no": "51089",
         "mc_number": "-",
         "progress": 0,
@@ -1502,101 +1319,102 @@ const EXCEL_PROJECTS = [
         "est_hours": 2.0,
         "sub_assemblies": [
             {
-                "pn": "0",
+                "pn": "R-1",
                 "name": "Parts Receiving",
                 "th_desc": "รับพาร์ท",
                 "progress": 0
             },
             {
-                "pn": "1",
+                "pn": "STAMP-1",
                 "name": "Stamping PN (แสตมป์พาร์ทนัมเบอร์)",
                 "th_desc": "แสตมป์พาร์ท",
                 "progress": 0
             },
             {
-                "pn": "2",
+                "pn": "ETCH-1",
                 "name": "Etching PN (เอจชิ่งพาร์ทนัมเบอร์)",
                 "th_desc": "เอจชิ่งพาร์ท",
                 "progress": 0
             },
             {
-                "pn": "3",
+                "pn": "PIN-1",
                 "name": "Pin installation-Base Plate (ติดตั้งพินที่แผ่น Base Plate)",
                 "th_desc": "ติดพิน Base",
                 "progress": 0
             },
             {
-                "pn": "4",
+                "pn": "PIN-2",
                 "name": "Pin installation-Top Plate (ติดตั้งพินที่แผ่น Top Plate)",
                 "th_desc": "ติดพิน Top",
                 "progress": 0
             },
             {
-                "pn": "5",
+                "pn": "PIN-3",
                 "name": "Pin installation-Side Plate (ติดตั้งพินที่แผ่น Top Plate)",
                 "th_desc": "ติดพิน Side",
                 "progress": 0
             },
             {
-                "pn": "6",
+                "pn": "SUB-1",
                 "name": "Brake Floor Lock Assy (ประกอบชุดเบรก)",
                 "th_desc": "ประกอบเบรก",
                 "progress": 0
             },
             {
-                "pn": "7",
+                "pn": "SUB-2",
                 "name": "Top Plate Assy (ประกอบชุดท็อปเพลท)",
                 "th_desc": "ประกอบท็อป",
                 "progress": 0
             },
             {
-                "pn": "8",
+                "pn": "SUB-3",
                 "name": "Handle Assy (ประกอบชุดมือจับ)",
                 "th_desc": "ประกอบมือจับ",
                 "progress": 0
             },
             {
-                "pn": "9",
+                "pn": "SUB-4",
                 "name": "Rear Plate Assy (ประกอบชุดฝาหลัง)",
                 "th_desc": "ประกอบฝาหลัง",
                 "progress": 0
             },
             {
-                "pn": "10",
+                "pn": "SUB-5",
                 "name": "Ground Cable Assy (ประกอบสายกราวน์)",
                 "th_desc": "ประกอบสายดิน",
                 "progress": 0
             },
             {
-                "pn": "11",
+                "pn": "SUB-6",
                 "name": "Land yard cable Assy (ประกอบสายแลนยาร์ด)",
                 "th_desc": "ประกอบแลนยาร์ด",
                 "progress": 0
             },
             {
-                "pn": "12",
+                "pn": "MAIN-1",
                 "name": "Main Assy (ประกอบชุดเมนแอสเซมบลี้)",
                 "th_desc": "ประกอบเมนแอสเซมบลี้",
                 "progress": 0
             },
             {
-                "pn": "13",
+                "pn": "INS",
                 "name": "Final Inspection (การตรวจสอบขั้นสุดท้าย)",
                 "th_desc": "การตรวจสอบขั้นสุดท้าย",
                 "progress": 0
             },
             {
-                "pn": "14",
+                "pn": "PACK",
                 "name": "Packing (การแพ็คงาน)",
                 "th_desc": "แพ็คงาน",
                 "progress": 0
             }
         ],
-        "kanban_backlog": 2,
-        "kanban_assigned": 0,
+        "kanban_backlog": 1,
+        "kanban_assigned": 1,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-08-14"
     },
     {
         "id": "UIC-FEEDER TRANSFER CART-",
@@ -1614,19 +1432,114 @@ const EXCEL_PROJECTS = [
         "est_hours": 13.0,
         "sub_assemblies": [
             {
-                "pn": "49401811",
-                "name": "FEEDER TRANSFER CART",
+                "pn": "R-1",
+                "name": "Receiving material",
+                "th_desc": "รับพาร์ท",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-1",
+                "name": "Sub Assembly – 48098906 SCREW, DRIVE",
                 "th_desc": "",
-                "progress": 0,
-                "qty": 20,
-                "std_time": 13.0
+                "progress": 0
+            },
+            {
+                "pn": "SUB-2",
+                "name": "Sub Assembly – 51130601 SUPPORT, HANDWHEEL",
+                "th_desc": "จัดเก็บ",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-3",
+                "name": "Sub Assembly – 52607003 L LATCH GUIDE ASSY",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-4",
+                "name": "Sub Assembly – 52607004 R LATCH GUIDE ASSY",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-5",
+                "name": "Sub Assembly – 49456004 LIFT GEARBOX",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-6",
+                "name": "Sub Assembly – 52595403 PUSH ROD ASSY R",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-7",
+                "name": "Sub Assembly – 52595404 PUSH ROD ASSY L",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "ASSY--1",
+                "name": "ARM L Assembly",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "ASSY-2",
+                "name": "ARM R Assembly",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "ASSY-3",
+                "name": "TOP Assembly",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "ASSY-4",
+                "name": "BOTTOM Assembly",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "ASSY-5",
+                "name": "Final Assembly – Integration TOP and BOTTOM",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "ASSY-6",
+                "name": "Final Assembly – Install Handwheel Assy",
+                "th_desc": "จัดเก็บ",
+                "progress": 0
+            },
+            {
+                "pn": "INS",
+                "name": "Final Inspection & Test",
+                "th_desc": "ตรวจงาน",
+                "progress": 0
+            },
+            {
+                "pn": "PACK",
+                "name": "Packing",
+                "th_desc": "แพ็คงาน",
+                "progress": 0
+            },
+            {
+                "pn": "WH",
+                "name": "Store",
+                "th_desc": "",
+                "progress": 0
             }
         ],
         "kanban_backlog": 1,
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-08-14"
     },
     {
         "id": "Veeco-Spare Part-",
@@ -1657,7 +1570,7 @@ const EXCEL_PROJECTS = [
                 "th_desc": "",
                 "progress": 0,
                 "qty": 1,
-                "std_time": 0.0
+                "std_time": 0.25
             },
             {
                 "pn": "05-25-03085",
@@ -1672,7 +1585,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-08-15"
     },
     {
         "id": "COHU-1991194901-",
@@ -1702,7 +1616,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-08-18"
     },
     {
         "id": "COHU-PRX-",
@@ -1716,7 +1631,7 @@ const EXCEL_PROJECTS = [
         "job_no": "",
         "mc_number": "-",
         "progress": 0,
-        "qty": 2,
+        "qty": 45,
         "est_hours": 2.0,
         "sub_assemblies": [
             {
@@ -1728,19 +1643,52 @@ const EXCEL_PROJECTS = [
                 "std_time": 2.0
             },
             {
+                "pn": "100024887",
+                "name": "ANCHOR BLOCK,COLD Z-LINK",
+                "th_desc": "",
+                "progress": 0,
+                "qty": 1,
+                "std_time": 0.0
+            },
+            {
                 "pn": "8306304101",
                 "name": "EXIT BLOCK,COLD Z-LINK",
                 "th_desc": "",
                 "progress": 0,
                 "qty": 1,
                 "std_time": 0.2
+            },
+            {
+                "pn": "8337427001",
+                "name": "ASSY,TRAY CART-JLP ;8337427001",
+                "th_desc": "",
+                "progress": 0,
+                "qty": 30,
+                "std_time": 2.0
+            },
+            {
+                "pn": "8307569101",
+                "name": "60 MM. MANIFOLD COLD Z-LINK",
+                "th_desc": "",
+                "progress": 0,
+                "qty": 2,
+                "std_time": 0.0
+            },
+            {
+                "pn": "8337427001",
+                "name": "ASSY,TRAY CART-JLP ;8337427001",
+                "th_desc": "",
+                "progress": 0,
+                "qty": 10,
+                "std_time": 2.0
             }
         ],
-        "kanban_backlog": 2,
+        "kanban_backlog": 6,
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-08-20"
     },
     {
         "id": "COHU-302195777-",
@@ -1770,7 +1718,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-08-20"
     },
     {
         "id": "UIC-SCRAP TAPE CUTTER DRIVE KIT-49940",
@@ -1782,7 +1731,7 @@ const EXCEL_PROJECTS = [
         "team_leader": "WANLOP CHANPHET",
         "member_1": "-",
         "job_no": "49940",
-        "mc_number": "No.076-0100",
+        "mc_number": "ScrapTape(076-0100)",
         "progress": 0,
         "qty": 25,
         "est_hours": 4.0,
@@ -1808,7 +1757,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-08-28"
     },
     {
         "id": "Veeco-WF-50489",
@@ -1832,103 +1782,79 @@ const EXCEL_PROJECTS = [
                 "progress": 0
             },
             {
-                "pn": "SUB-F1",
+                "pn": "SUB-5",
                 "name": "01-25-04710; ASSY,AIR GAUGE AMPLIFIER; 01-2",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F2",
-                "name": "11-08-09367; VALVE,SOLENOID, 2 WAY, 24VDC,M",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F3",
-                "name": "01-06-00506; ASSY,TRANSDUCER, 1500 AIR GAUG",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F4",
-                "name": "01-25-00563; ASSY,AIR RESERVOIR,AIR GAUGE;",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F5",
+                "pn": "SUB-6",
                 "name": "01-18-03446; ASSY,PRESSURE DISTRIBUTION MAN",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F6",
-                "name": "01-25-04513-02; 01-08-04106-30,AIR GAP, ASSY,A",
+                "pn": "SUB-7",
+                "name": "01-25-04513-02; AG SENSOR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F7",
-                "name": "01-08-04106-30; ASSY,REFERENCE AIR GAP,STANDAR",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F8",
+                "pn": "SUB-8",
                 "name": "01-25-01399; ASSY,RETICLE REMOTE SWITCH; 01",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#1",
+                "pn": "MAIN-1",
                 "name": "01-25-00431; FRAME ASSEMLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
             },
             {
-                "pn": "SUB-U1",
-                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U2",
-                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U3",
-                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U4",
+                "pn": "SUB-48",
                 "name": "04-25-04155-02; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U5",
-                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U6",
+                "pn": "SUB-52",
                 "name": "04-25-04155-01; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U7",
+                "pn": "SUB-17",
+                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-20",
+                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-21",
+                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-22",
+                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-24",
                 "name": "04-25-06639; ASSY,EXPOSURE DETECTOR,WFLD",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#2",
+                "pn": "MAIN-2",
                 "name": "04-25-06773; UPPER ASSEMBLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
@@ -1962,7 +1888,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-09-07"
     },
     {
         "id": "Veeco-WF-50490",
@@ -1986,103 +1913,79 @@ const EXCEL_PROJECTS = [
                 "progress": 0
             },
             {
-                "pn": "SUB-F1",
+                "pn": "SUB-5",
                 "name": "01-25-04710; ASSY,AIR GAUGE AMPLIFIER; 01-2",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F2",
-                "name": "11-08-09367; VALVE,SOLENOID, 2 WAY, 24VDC,M",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F3",
-                "name": "01-06-00506; ASSY,TRANSDUCER, 1500 AIR GAUG",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F4",
-                "name": "01-25-00563; ASSY,AIR RESERVOIR,AIR GAUGE;",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F5",
+                "pn": "SUB-6",
                 "name": "01-18-03446; ASSY,PRESSURE DISTRIBUTION MAN",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F6",
-                "name": "01-25-04513-02; 01-08-04106-30,AIR GAP, ASSY,A",
+                "pn": "SUB-7",
+                "name": "01-25-04513-02; AG SENSOR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F7",
-                "name": "01-08-04106-30; ASSY,REFERENCE AIR GAP,STANDAR",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F8",
+                "pn": "SUB-8",
                 "name": "01-25-01399; ASSY,RETICLE REMOTE SWITCH; 01",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#1",
+                "pn": "MAIN-1",
                 "name": "01-25-00431; FRAME ASSEMLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
             },
             {
-                "pn": "SUB-U1",
-                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U2",
-                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U3",
-                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U4",
+                "pn": "SUB-48",
                 "name": "04-25-04155-02; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U5",
-                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U6",
+                "pn": "SUB-52",
                 "name": "04-25-04155-01; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U7",
+                "pn": "SUB-17",
+                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-20",
+                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-21",
+                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-22",
+                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-24",
                 "name": "04-25-06639; ASSY,EXPOSURE DETECTOR,WFLD",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#2",
+                "pn": "MAIN-2",
                 "name": "04-25-06773; UPPER ASSEMBLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
@@ -2116,7 +2019,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-09-07"
     },
     {
         "id": "UIC-FEEDER BASKET-50488",
@@ -2146,7 +2050,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-09-18"
     },
     {
         "id": "UIC-FIXED FEEDER BANK-",
@@ -2176,7 +2081,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-09-20"
     },
     {
         "id": "Veeco-ACBOX-49922",
@@ -2342,7 +2248,39 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-09-21"
+    },
+    {
+        "id": "COHU-APT CART-51318",
+        "customer": "COHU",
+        "project_code": "APT CART",
+        "part_number": "302175958",
+        "description": "APT CART",
+        "status": "ontime",
+        "team_leader": "WANLOP CHANPHET",
+        "member_1": "-",
+        "job_no": "51318",
+        "mc_number": "-",
+        "progress": 0,
+        "qty": 10,
+        "est_hours": 0.0,
+        "sub_assemblies": [
+            {
+                "pn": "302175958",
+                "name": "CURE CART,APT,JEDEC TRAY",
+                "th_desc": "",
+                "progress": 0,
+                "qty": 10,
+                "std_time": 0.0
+            }
+        ],
+        "kanban_backlog": 1,
+        "kanban_assigned": 0,
+        "kanban_in_progress": 0,
+        "kanban_qa": 0,
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-09-30"
     },
     {
         "id": "Veeco-SP-Lamp Cooling-49712",
@@ -2372,7 +2310,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-10-02"
     },
     {
         "id": "Veeco-SP-Lamp Cooling-49713",
@@ -2402,7 +2341,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-10-02"
     },
     {
         "id": "Veeco-SP-Lamp Cooling-49937",
@@ -2432,7 +2372,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-10-02"
     },
     {
         "id": "Veeco-WF-50491",
@@ -2456,103 +2397,79 @@ const EXCEL_PROJECTS = [
                 "progress": 0
             },
             {
-                "pn": "SUB-F1",
+                "pn": "SUB-5",
                 "name": "01-25-04710; ASSY,AIR GAUGE AMPLIFIER; 01-2",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F2",
-                "name": "11-08-09367; VALVE,SOLENOID, 2 WAY, 24VDC,M",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F3",
-                "name": "01-06-00506; ASSY,TRANSDUCER, 1500 AIR GAUG",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F4",
-                "name": "01-25-00563; ASSY,AIR RESERVOIR,AIR GAUGE;",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F5",
+                "pn": "SUB-6",
                 "name": "01-18-03446; ASSY,PRESSURE DISTRIBUTION MAN",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F6",
-                "name": "01-25-04513-02; 01-08-04106-30,AIR GAP, ASSY,A",
+                "pn": "SUB-7",
+                "name": "01-25-04513-02; AG SENSOR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F7",
-                "name": "01-08-04106-30; ASSY,REFERENCE AIR GAP,STANDAR",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F8",
+                "pn": "SUB-8",
                 "name": "01-25-01399; ASSY,RETICLE REMOTE SWITCH; 01",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#1",
+                "pn": "MAIN-1",
                 "name": "01-25-00431; FRAME ASSEMLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
             },
             {
-                "pn": "SUB-U1",
-                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U2",
-                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U3",
-                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U4",
+                "pn": "SUB-48",
                 "name": "04-25-04155-02; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U5",
-                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U6",
+                "pn": "SUB-52",
                 "name": "04-25-04155-01; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U7",
+                "pn": "SUB-17",
+                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-20",
+                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-21",
+                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-22",
+                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-24",
                 "name": "04-25-06639; ASSY,EXPOSURE DETECTOR,WFLD",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#2",
+                "pn": "MAIN-2",
                 "name": "04-25-06773; UPPER ASSEMBLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
@@ -2586,7 +2503,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-10-05"
     },
     {
         "id": "Veeco-WF-50492",
@@ -2610,103 +2528,79 @@ const EXCEL_PROJECTS = [
                 "progress": 0
             },
             {
-                "pn": "SUB-F1",
+                "pn": "SUB-5",
                 "name": "01-25-04710; ASSY,AIR GAUGE AMPLIFIER; 01-2",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F2",
-                "name": "11-08-09367; VALVE,SOLENOID, 2 WAY, 24VDC,M",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F3",
-                "name": "01-06-00506; ASSY,TRANSDUCER, 1500 AIR GAUG",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F4",
-                "name": "01-25-00563; ASSY,AIR RESERVOIR,AIR GAUGE;",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F5",
+                "pn": "SUB-6",
                 "name": "01-18-03446; ASSY,PRESSURE DISTRIBUTION MAN",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F6",
-                "name": "01-25-04513-02; 01-08-04106-30,AIR GAP, ASSY,A",
+                "pn": "SUB-7",
+                "name": "01-25-04513-02; AG SENSOR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F7",
-                "name": "01-08-04106-30; ASSY,REFERENCE AIR GAP,STANDAR",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F8",
+                "pn": "SUB-8",
                 "name": "01-25-01399; ASSY,RETICLE REMOTE SWITCH; 01",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#1",
+                "pn": "MAIN-1",
                 "name": "01-25-00431; FRAME ASSEMLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
             },
             {
-                "pn": "SUB-U1",
-                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U2",
-                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U3",
-                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U4",
+                "pn": "SUB-48",
                 "name": "04-25-04155-02; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U5",
-                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U6",
+                "pn": "SUB-52",
                 "name": "04-25-04155-01; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U7",
+                "pn": "SUB-17",
+                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-20",
+                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-21",
+                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-22",
+                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-24",
                 "name": "04-25-06639; ASSY,EXPOSURE DETECTOR,WFLD",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#2",
+                "pn": "MAIN-2",
                 "name": "04-25-06773; UPPER ASSEMBLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
@@ -2740,7 +2634,39 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-10-05"
+    },
+    {
+        "id": "Veeco-PRX-",
+        "customer": "Veeco",
+        "project_code": "PRX",
+        "part_number": "01-25-04710",
+        "description": "Air Gauge Amplifier",
+        "status": "ontime",
+        "team_leader": "WANLOP CHANPHET",
+        "member_1": "-",
+        "job_no": "",
+        "mc_number": "-",
+        "progress": 0,
+        "qty": 1,
+        "est_hours": 12.0,
+        "sub_assemblies": [
+            {
+                "pn": "01-25-04710",
+                "name": "ASSY,AIR GAUGE AMPLIFIER; 01-25-04710",
+                "th_desc": "",
+                "progress": 0,
+                "qty": 1,
+                "std_time": 12.0
+            }
+        ],
+        "kanban_backlog": 1,
+        "kanban_assigned": 0,
+        "kanban_in_progress": 0,
+        "kanban_qa": 0,
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-10-08"
     },
     {
         "id": "Veeco-ACBOX-49287",
@@ -2906,7 +2832,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-10-23"
     },
     {
         "id": "Veeco-WF-50493",
@@ -2930,103 +2857,79 @@ const EXCEL_PROJECTS = [
                 "progress": 0
             },
             {
-                "pn": "SUB-F1",
+                "pn": "SUB-5",
                 "name": "01-25-04710; ASSY,AIR GAUGE AMPLIFIER; 01-2",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F2",
-                "name": "11-08-09367; VALVE,SOLENOID, 2 WAY, 24VDC,M",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F3",
-                "name": "01-06-00506; ASSY,TRANSDUCER, 1500 AIR GAUG",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F4",
-                "name": "01-25-00563; ASSY,AIR RESERVOIR,AIR GAUGE;",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F5",
+                "pn": "SUB-6",
                 "name": "01-18-03446; ASSY,PRESSURE DISTRIBUTION MAN",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F6",
-                "name": "01-25-04513-02; 01-08-04106-30,AIR GAP, ASSY,A",
+                "pn": "SUB-7",
+                "name": "01-25-04513-02; AG SENSOR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F7",
-                "name": "01-08-04106-30; ASSY,REFERENCE AIR GAP,STANDAR",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F8",
+                "pn": "SUB-8",
                 "name": "01-25-01399; ASSY,RETICLE REMOTE SWITCH; 01",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#1",
+                "pn": "MAIN-1",
                 "name": "01-25-00431; FRAME ASSEMLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
             },
             {
-                "pn": "SUB-U1",
-                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U2",
-                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U3",
-                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U4",
+                "pn": "SUB-48",
                 "name": "04-25-04155-02; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U5",
-                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U6",
+                "pn": "SUB-52",
                 "name": "04-25-04155-01; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U7",
+                "pn": "SUB-17",
+                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-20",
+                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-21",
+                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-22",
+                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-24",
                 "name": "04-25-06639; ASSY,EXPOSURE DETECTOR,WFLD",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#2",
+                "pn": "MAIN-2",
                 "name": "04-25-06773; UPPER ASSEMBLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
@@ -3060,7 +2963,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-11-09"
     },
     {
         "id": "Veeco-WF-51145",
@@ -3084,103 +2988,79 @@ const EXCEL_PROJECTS = [
                 "progress": 0
             },
             {
-                "pn": "SUB-F1",
+                "pn": "SUB-5",
                 "name": "01-25-04710; ASSY,AIR GAUGE AMPLIFIER; 01-2",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F2",
-                "name": "11-08-09367; VALVE,SOLENOID, 2 WAY, 24VDC,M",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F3",
-                "name": "01-06-00506; ASSY,TRANSDUCER, 1500 AIR GAUG",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F4",
-                "name": "01-25-00563; ASSY,AIR RESERVOIR,AIR GAUGE;",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F5",
+                "pn": "SUB-6",
                 "name": "01-18-03446; ASSY,PRESSURE DISTRIBUTION MAN",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F6",
-                "name": "01-25-04513-02; 01-08-04106-30,AIR GAP, ASSY,A",
+                "pn": "SUB-7",
+                "name": "01-25-04513-02; AG SENSOR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F7",
-                "name": "01-08-04106-30; ASSY,REFERENCE AIR GAP,STANDAR",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F8",
+                "pn": "SUB-8",
                 "name": "01-25-01399; ASSY,RETICLE REMOTE SWITCH; 01",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#1",
+                "pn": "MAIN-1",
                 "name": "01-25-00431; FRAME ASSEMLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
             },
             {
-                "pn": "SUB-U1",
-                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U2",
-                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U3",
-                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U4",
+                "pn": "SUB-48",
                 "name": "04-25-04155-02; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U5",
-                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U6",
+                "pn": "SUB-52",
                 "name": "04-25-04155-01; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U7",
+                "pn": "SUB-17",
+                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-20",
+                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-21",
+                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-22",
+                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-24",
                 "name": "04-25-06639; ASSY,EXPOSURE DETECTOR,WFLD",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#2",
+                "pn": "MAIN-2",
                 "name": "04-25-06773; UPPER ASSEMBLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
@@ -3214,7 +3094,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-11-09"
     },
     {
         "id": "Veeco-ACBOX-49923",
@@ -3380,7 +3261,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-11-23"
     },
     {
         "id": "Veeco-WF-51146",
@@ -3404,103 +3286,79 @@ const EXCEL_PROJECTS = [
                 "progress": 0
             },
             {
-                "pn": "SUB-F1",
+                "pn": "SUB-5",
                 "name": "01-25-04710; ASSY,AIR GAUGE AMPLIFIER; 01-2",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F2",
-                "name": "11-08-09367; VALVE,SOLENOID, 2 WAY, 24VDC,M",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F3",
-                "name": "01-06-00506; ASSY,TRANSDUCER, 1500 AIR GAUG",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F4",
-                "name": "01-25-00563; ASSY,AIR RESERVOIR,AIR GAUGE;",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F5",
+                "pn": "SUB-6",
                 "name": "01-18-03446; ASSY,PRESSURE DISTRIBUTION MAN",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F6",
-                "name": "01-25-04513-02; 01-08-04106-30,AIR GAP, ASSY,A",
+                "pn": "SUB-7",
+                "name": "01-25-04513-02; AG SENSOR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F7",
-                "name": "01-08-04106-30; ASSY,REFERENCE AIR GAP,STANDAR",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F8",
+                "pn": "SUB-8",
                 "name": "01-25-01399; ASSY,RETICLE REMOTE SWITCH; 01",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#1",
+                "pn": "MAIN-1",
                 "name": "01-25-00431; FRAME ASSEMLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
             },
             {
-                "pn": "SUB-U1",
-                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U2",
-                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U3",
-                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U4",
+                "pn": "SUB-48",
                 "name": "04-25-04155-02; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U5",
-                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U6",
+                "pn": "SUB-52",
                 "name": "04-25-04155-01; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U7",
+                "pn": "SUB-17",
+                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-20",
+                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-21",
+                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-22",
+                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-24",
                 "name": "04-25-06639; ASSY,EXPOSURE DETECTOR,WFLD",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#2",
+                "pn": "MAIN-2",
                 "name": "04-25-06773; UPPER ASSEMBLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
@@ -3534,7 +3392,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-12-07"
     },
     {
         "id": "Veeco-WF-51147",
@@ -3558,103 +3417,79 @@ const EXCEL_PROJECTS = [
                 "progress": 0
             },
             {
-                "pn": "SUB-F1",
+                "pn": "SUB-5",
                 "name": "01-25-04710; ASSY,AIR GAUGE AMPLIFIER; 01-2",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F2",
-                "name": "11-08-09367; VALVE,SOLENOID, 2 WAY, 24VDC,M",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F3",
-                "name": "01-06-00506; ASSY,TRANSDUCER, 1500 AIR GAUG",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F4",
-                "name": "01-25-00563; ASSY,AIR RESERVOIR,AIR GAUGE;",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F5",
+                "pn": "SUB-6",
                 "name": "01-18-03446; ASSY,PRESSURE DISTRIBUTION MAN",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F6",
-                "name": "01-25-04513-02; 01-08-04106-30,AIR GAP, ASSY,A",
+                "pn": "SUB-7",
+                "name": "01-25-04513-02; AG SENSOR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F7",
-                "name": "01-08-04106-30; ASSY,REFERENCE AIR GAP,STANDAR",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F8",
+                "pn": "SUB-8",
                 "name": "01-25-01399; ASSY,RETICLE REMOTE SWITCH; 01",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#1",
+                "pn": "MAIN-1",
                 "name": "01-25-00431; FRAME ASSEMLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
             },
             {
-                "pn": "SUB-U1",
-                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U2",
-                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U3",
-                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U4",
+                "pn": "SUB-48",
                 "name": "04-25-04155-02; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U5",
-                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U6",
+                "pn": "SUB-52",
                 "name": "04-25-04155-01; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U7",
+                "pn": "SUB-17",
+                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-20",
+                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-21",
+                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-22",
+                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-24",
                 "name": "04-25-06639; ASSY,EXPOSURE DETECTOR,WFLD",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#2",
+                "pn": "MAIN-2",
                 "name": "04-25-06773; UPPER ASSEMBLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
@@ -3688,7 +3523,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-12-07"
     },
     {
         "id": "Veeco-ACBOX-",
@@ -3854,7 +3690,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-12-18"
     },
     {
         "id": "COHU-JTP CART-",
@@ -3872,91 +3709,91 @@ const EXCEL_PROJECTS = [
         "est_hours": 2.0,
         "sub_assemblies": [
             {
-                "pn": "0",
+                "pn": "R-1",
                 "name": "Parts Receiving",
                 "th_desc": "รับพาร์ท",
                 "progress": 0
             },
             {
-                "pn": "1",
+                "pn": "STAMP-1",
                 "name": "Stamping PN (แสตมป์พาร์ทนัมเบอร์)",
                 "th_desc": "แสตมป์พาร์ท",
                 "progress": 0
             },
             {
-                "pn": "2",
+                "pn": "ETCH-1",
                 "name": "Etching PN (เอจชิ่งพาร์ทนัมเบอร์)",
                 "th_desc": "เอจชิ่งพาร์ท",
                 "progress": 0
             },
             {
-                "pn": "3",
+                "pn": "PIN-1",
                 "name": "Pin installation-Base Plate (ติดตั้งพินที่แผ่น Base Plate)",
                 "th_desc": "ติดพิน Base",
                 "progress": 0
             },
             {
-                "pn": "4",
+                "pn": "PIN-2",
                 "name": "Pin installation-Top Plate (ติดตั้งพินที่แผ่น Top Plate)",
                 "th_desc": "ติดพิน Top",
                 "progress": 0
             },
             {
-                "pn": "5",
+                "pn": "PIN-3",
                 "name": "Pin installation-Side Plate (ติดตั้งพินที่แผ่น Top Plate)",
                 "th_desc": "ติดพิน Side",
                 "progress": 0
             },
             {
-                "pn": "6",
+                "pn": "SUB-1",
                 "name": "Brake Floor Lock Assy (ประกอบชุดเบรก)",
                 "th_desc": "ประกอบเบรก",
                 "progress": 0
             },
             {
-                "pn": "7",
+                "pn": "SUB-2",
                 "name": "Top Plate Assy (ประกอบชุดท็อปเพลท)",
                 "th_desc": "ประกอบท็อป",
                 "progress": 0
             },
             {
-                "pn": "8",
+                "pn": "SUB-3",
                 "name": "Handle Assy (ประกอบชุดมือจับ)",
                 "th_desc": "ประกอบมือจับ",
                 "progress": 0
             },
             {
-                "pn": "9",
+                "pn": "SUB-4",
                 "name": "Rear Plate Assy (ประกอบชุดฝาหลัง)",
                 "th_desc": "ประกอบฝาหลัง",
                 "progress": 0
             },
             {
-                "pn": "10",
+                "pn": "SUB-5",
                 "name": "Ground Cable Assy (ประกอบสายกราวน์)",
                 "th_desc": "ประกอบสายดิน",
                 "progress": 0
             },
             {
-                "pn": "11",
+                "pn": "SUB-6",
                 "name": "Land yard cable Assy (ประกอบสายแลนยาร์ด)",
                 "th_desc": "ประกอบแลนยาร์ด",
                 "progress": 0
             },
             {
-                "pn": "12",
+                "pn": "MAIN-1",
                 "name": "Main Assy (ประกอบชุดเมนแอสเซมบลี้)",
                 "th_desc": "ประกอบเมนแอสเซมบลี้",
                 "progress": 0
             },
             {
-                "pn": "13",
+                "pn": "INS",
                 "name": "Final Inspection (การตรวจสอบขั้นสุดท้าย)",
                 "th_desc": "การตรวจสอบขั้นสุดท้าย",
                 "progress": 0
             },
             {
-                "pn": "14",
+                "pn": "PACK",
                 "name": "Packing (การแพ็คงาน)",
                 "th_desc": "แพ็คงาน",
                 "progress": 0
@@ -3966,7 +3803,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-12-30"
     },
     {
         "id": "COHU-CURE CART 9002-",
@@ -3984,91 +3822,91 @@ const EXCEL_PROJECTS = [
         "est_hours": 4.0,
         "sub_assemblies": [
             {
-                "pn": "0",
+                "pn": "R-1",
                 "name": "Parts Receiving",
                 "th_desc": "รับพาร์ท",
                 "progress": 0
             },
             {
-                "pn": "1",
+                "pn": "STAMP-1",
                 "name": "Stamping PN (แสตมป์พาร์ทนัมเบอร์)",
                 "th_desc": "แสตมป์พาร์ท",
                 "progress": 0
             },
             {
-                "pn": "2",
+                "pn": "ETCH-1",
                 "name": "Etching PN (เอจชิ่งพาร์ทนัมเบอร์)",
                 "th_desc": "เอจชิ่งพาร์ท",
                 "progress": 0
             },
             {
-                "pn": "3",
+                "pn": "PIN-1",
                 "name": "Pin installation-Base Plate (ติดตั้งพินที่แผ่น Base Plate)",
                 "th_desc": "ติดพิน Base",
                 "progress": 0
             },
             {
-                "pn": "4",
+                "pn": "PIN-2",
                 "name": "Pin installation-Top Plate (ติดตั้งพินที่แผ่น Top Plate)",
                 "th_desc": "ติดพิน Top",
                 "progress": 0
             },
             {
-                "pn": "5",
+                "pn": "PIN-3",
                 "name": "Pin installation-Side Plate (ติดตั้งพินที่แผ่น Top Plate)",
                 "th_desc": "ติดพิน Side",
                 "progress": 0
             },
             {
-                "pn": "6",
+                "pn": "SUB-1",
                 "name": "Brake Floor Lock Assy (ประกอบชุดเบรก)",
                 "th_desc": "ประกอบเบรก",
                 "progress": 0
             },
             {
-                "pn": "7",
+                "pn": "SUB-2",
                 "name": "Top Plate Assy (ประกอบชุดท็อปเพลท)",
                 "th_desc": "ประกอบท็อป",
                 "progress": 0
             },
             {
-                "pn": "8",
+                "pn": "SUB-3",
                 "name": "Handle Assy (ประกอบชุดมือจับ)",
                 "th_desc": "ประกอบมือจับ",
                 "progress": 0
             },
             {
-                "pn": "9",
+                "pn": "SUB-4",
                 "name": "Rear Plate Assy (ประกอบชุดฝาหลัง)",
                 "th_desc": "ประกอบฝาหลัง",
                 "progress": 0
             },
             {
-                "pn": "10",
+                "pn": "SUB-5",
                 "name": "Ground Cable Assy (ประกอบสายกราวน์)",
                 "th_desc": "ประกอบสายดิน",
                 "progress": 0
             },
             {
-                "pn": "11",
+                "pn": "SUB-6",
                 "name": "Land yard cable Assy (ประกอบสายแลนยาร์ด)",
                 "th_desc": "ประกอบแลนยาร์ด",
                 "progress": 0
             },
             {
-                "pn": "12",
+                "pn": "MAIN-1",
                 "name": "Main Assy (ประกอบชุดเมนแอสเซมบลี้)",
                 "th_desc": "ประกอบเมนแอสเซมบลี้",
                 "progress": 0
             },
             {
-                "pn": "13",
+                "pn": "INS",
                 "name": "Final Inspection (การตรวจสอบขั้นสุดท้าย)",
                 "th_desc": "การตรวจสอบขั้นสุดท้าย",
                 "progress": 0
             },
             {
-                "pn": "14",
+                "pn": "PACK",
                 "name": "Packing (การแพ็คงาน)",
                 "th_desc": "แพ็คงาน",
                 "progress": 0
@@ -4078,7 +3916,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2026-12-30"
     },
     {
         "id": "Veeco-WF-51148",
@@ -4102,103 +3941,79 @@ const EXCEL_PROJECTS = [
                 "progress": 0
             },
             {
-                "pn": "SUB-F1",
+                "pn": "SUB-5",
                 "name": "01-25-04710; ASSY,AIR GAUGE AMPLIFIER; 01-2",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F2",
-                "name": "11-08-09367; VALVE,SOLENOID, 2 WAY, 24VDC,M",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F3",
-                "name": "01-06-00506; ASSY,TRANSDUCER, 1500 AIR GAUG",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F4",
-                "name": "01-25-00563; ASSY,AIR RESERVOIR,AIR GAUGE;",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F5",
+                "pn": "SUB-6",
                 "name": "01-18-03446; ASSY,PRESSURE DISTRIBUTION MAN",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F6",
-                "name": "01-25-04513-02; 01-08-04106-30,AIR GAP, ASSY,A",
+                "pn": "SUB-7",
+                "name": "01-25-04513-02; AG SENSOR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F7",
-                "name": "01-08-04106-30; ASSY,REFERENCE AIR GAP,STANDAR",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F8",
+                "pn": "SUB-8",
                 "name": "01-25-01399; ASSY,RETICLE REMOTE SWITCH; 01",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#1",
+                "pn": "MAIN-1",
                 "name": "01-25-00431; FRAME ASSEMLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
             },
             {
-                "pn": "SUB-U1",
-                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U2",
-                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U3",
-                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U4",
+                "pn": "SUB-48",
                 "name": "04-25-04155-02; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U5",
-                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U6",
+                "pn": "SUB-52",
                 "name": "04-25-04155-01; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U7",
+                "pn": "SUB-17",
+                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-20",
+                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-21",
+                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-22",
+                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-24",
                 "name": "04-25-06639; ASSY,EXPOSURE DETECTOR,WFLD",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#2",
+                "pn": "MAIN-2",
                 "name": "04-25-06773; UPPER ASSEMBLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
@@ -4232,7 +4047,8 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2027-01-07"
     },
     {
         "id": "Veeco-WF-51149",
@@ -4256,103 +4072,79 @@ const EXCEL_PROJECTS = [
                 "progress": 0
             },
             {
-                "pn": "SUB-F1",
+                "pn": "SUB-5",
                 "name": "01-25-04710; ASSY,AIR GAUGE AMPLIFIER; 01-2",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F2",
-                "name": "11-08-09367; VALVE,SOLENOID, 2 WAY, 24VDC,M",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F3",
-                "name": "01-06-00506; ASSY,TRANSDUCER, 1500 AIR GAUG",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F4",
-                "name": "01-25-00563; ASSY,AIR RESERVOIR,AIR GAUGE;",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F5",
+                "pn": "SUB-6",
                 "name": "01-18-03446; ASSY,PRESSURE DISTRIBUTION MAN",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F6",
-                "name": "01-25-04513-02; 01-08-04106-30,AIR GAP, ASSY,A",
+                "pn": "SUB-7",
+                "name": "01-25-04513-02; AG SENSOR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-F7",
-                "name": "01-08-04106-30; ASSY,REFERENCE AIR GAP,STANDAR",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-F8",
+                "pn": "SUB-8",
                 "name": "01-25-01399; ASSY,RETICLE REMOTE SWITCH; 01",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#1",
+                "pn": "MAIN-1",
                 "name": "01-25-00431; FRAME ASSEMLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
             },
             {
-                "pn": "SUB-U1",
-                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U2",
-                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U3",
-                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U4",
+                "pn": "SUB-48",
                 "name": "04-25-04155-02; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U5",
-                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
-                "th_desc": "",
-                "progress": 0
-            },
-            {
-                "pn": "SUB-U6",
+                "pn": "SUB-52",
                 "name": "04-25-04155-01; ASSY,LAMPCHAMBER, 1.2 KW 3 WIR",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "SUB-U7",
+                "pn": "SUB-17",
+                "name": "04-25-06718; ASSY,ILLUM BASE,OPT CLPR WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-20",
+                "name": "04-25-06748; ASSY,ALIGN CELL ILLUM,WFLD",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-21",
+                "name": "04-25-04016; ASSY,LAMPCHAMBER, 1.2 KW,LT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-22",
+                "name": "04-25-04015; ASSY,LAMPCHAMBER, 1.2 KW,RT,QU",
+                "th_desc": "",
+                "progress": 0
+            },
+            {
+                "pn": "SUB-24",
                 "name": "04-25-06639; ASSY,EXPOSURE DETECTOR,WFLD",
                 "th_desc": "",
                 "progress": 0
             },
             {
-                "pn": "MAIN-ASSY#2",
+                "pn": "MAIN-2",
                 "name": "04-25-06773; UPPER ASSEMBLY & WIRING",
                 "th_desc": "เดินสายไฟ",
                 "progress": 0
@@ -4386,6 +4178,30 @@ const EXCEL_PROJECTS = [
         "kanban_assigned": 0,
         "kanban_in_progress": 0,
         "kanban_qa": 0,
-        "kanban_completed": 0
+        "kanban_completed": 0,
+        "latest_ship_date": "2027-01-07"
+    },
+    {
+        "id": "SYSTEM_COMPLETED_COUNT",
+        "customer": "SYSTEM",
+        "project_code": "STATS",
+        "part_number": "STATS",
+        "description": "System Stats - Completed Count",
+        "status": "completed",
+        "team_leader": "-",
+        "member_1": "-",
+        "job_no": "-",
+        "mc_number": "-",
+        "progress": 100,
+        "qty": 100,
+        "qty_done": 100,
+        "est_hours": 0.0,
+        "sub_assemblies": [],
+        "kanban_backlog": 0,
+        "kanban_assigned": 0,
+        "kanban_in_progress": 0,
+        "kanban_qa": 0,
+        "kanban_completed": 13,
+        "latest_ship_date": null
     }
 ];
